@@ -17,3 +17,7 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `../../sql/historique/creation-tables.sql` | Google Doc `119u8DtfTRbn3gjxreqppf4EvjctdAasiQKkQF_Nyqrw`, révision 596 du 29 octobre | État initial ; archive non validée pour exécution |
 | `../../sql/historique/creation-tables.sql` | Même source, révisions 650 puis 840 consultées, dernière modification 2026-10-30 13:19:13 UTC | Correction de la casse des jours puis ajout de la vue ; texte 840 archivé |
 | `rapport-travail.txt` | Google Doc `1rV2y6S9OyGLRyrsALVaKDIuh_Oe4Wg754cqBGOeu57g`, révision 1464, 2026-10-30 15:46:37 UTC | Premier rapport de travail récupéré |
+| `../../sql/historique/extraction-initiale.sql` | Google Doc `1YWccWff3HrMp8tYOGrpRFYgYFrTksjbjypAeGBM9zWQ`, 2026-11-02 15:51:42 UTC | Extraction brute, contient un DROP TABLE et un fragment incomplet |
+| `indicateurs-2026-11-02.txt` | Google Doc `1rvTUu1oviwIskw_9AmBHpmHvjwT9Ma8UstDb-QmJmew`, révision 184, 2026-11-02 15:40:02 UTC | Propositions et choix d'indicateurs, pas une liste de fonctionnalités garanties |
+| `rapport-travail.txt` | Rapport, révision 4584, 2026-11-02 14:55:29 UTC | État conservé du rapport le 2 novembre |
+| `../../powerbi/historique/premier-modele.pbix` | Fichier PROJET.pbix déjà conservé localement, entrées ZIP du 2026-11-02 16:48 | Copie binaire inchangée ; une page, 166 lignes dans TABLE_TEST1 |

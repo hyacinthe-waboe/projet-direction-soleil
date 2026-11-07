@@ -1,0 +1,91 @@
+﻿Analyse décisionnelle : performance commerciale des départs
+Taux de remplissage et statut des départs
+Pour chaque départ de l’année en cours, afficher le circuit, l’aéroport, la date, le nombre de personnes réservées, la capacité maximale, le taux de remplissage en % et le statut : « Complet » (100 %), « Presque complet » (≥ 80 %), « Normal » (≥ 40 %) ou « À promouvoir » (< 40 %). Trier par taux croissant.
+Utilité : repérer les départs à promouvoir ou à annuler et ceux à surveiller.
+Taux de réservations de dernière minute par pays
+Pour chaque pays, afficher le nombre de personnes ayant réservé en dernière minute, le nombre total de personnes, le taux de dernière minute et le taux de remplissage moyen des départs. Trier par taux de dernière minute décroissant.
+Utilité : appliquer la règle commerciale « promotion tarifaire si le taux de remplissage est faible, sinon pas de remise ». Ajouter le remplissage dans la même requête permet de lire la décision directement. J’ai remplacé « d’un circuit par pays », ambigu, par une agrégation par pays. Vous pouvez aussi ajouter une variante par circuit.
+Transformation d’une présélection à une réservation
+Pour chaque circuit et pour chaque ordre de préférence (1, 2, 3), donner le nombre de présélections, le nombre de présélections abouties et le taux de transformation. Y ajouter le nombre de personnes ayant réservé le circuit.
+Utilité :
+* Vérifier si le choix prioritaire aboutit réellement.
+* Repérer un circuit très présélectionné mais peu réservé, qui signale un problème de prix, de dates ou d’aéroport.
+* Fournir la base de la requête de relance ci-dessous.
+Limite à signaler : seules les 3 dernières présélections de chaque client sont conservées.
+Clients à relancer (présélection de rang 1 non aboutie)
+Donner le nom, le prénom, le téléphone et le mél des clients dont la présélection de rang 1 n’a donné lieu à aucune réservation du même départ, avec le circuit, l’aéroport, la date et le prix total. Ne garder que les départs à venir ayant encore des places disponibles.
+Utilité : produire la liste nominative d’actions commerciales. Le filtre « départ à venir avec des places » évite de relancer un client pour un départ déjà passé ou complet.
+
+
+Zone géographique la plus parcourue
+Donner, pour les départs de l’année en cours, le nom du pays et de la zone géographique ayant accueilli le plus grand nombre de personnes, avec ce nombre. Inclure les ex æquo.
+Utilité : décrire où se concentre l’activité de l’agence, pour négocier avec les hôtels et dimensionner l’offre. Précisez que si un circuit traverse plusieurs zones, ses voyageurs sont comptés dans chacune, donc la somme dépasse le total réel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Indicateurs par Tableaux de bords
+
+
+Destination et Climat: 
+Destinations :
+* CA et voyageurs par pays et par zone : Agrégation par PAYS et ZONEGEO
+* Ratio demande/offre par pays : Σ Nb Pers Max
+* Couverture géographique : Nombre de zones couvertes par pays
+Climat : 
+* Écart de température vs moyenne 10 ans : TempMax − TempMaxMoy,TempMin − TempMinMoy
+* Mois le plus chaud par pays : MAX(moyenne TempMaxMoy) par pays
+* Saisonnalité de la demande  : Réservations par mois de départ, à croiser avec AvisMens
+
+
+
+
+Synthèse direction :
+
+
+1. Thème : Ventes
+Indicateur : CA total
+
+
+2. Thème : Destinations
+Indicateur : CA et nombre de voyageurs par pays et par zone géographique
+
+
+3. Thème : Ventes
+Indicateur : Panier moyen
+
+
+4. Thème : Aéroports
+Indicateur : Part des réservations et CA par aéroport

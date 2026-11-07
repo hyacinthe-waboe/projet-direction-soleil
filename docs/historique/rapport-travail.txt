@@ -1,27 +1,93 @@
-﻿Titre
-________________
+﻿NOM SOCIETE
+TERAN GODOY Jesus
+WABOE Hyacinthe
+RANDRIANARISON Tsinjo
+THEOPHILE Adrien
+RASAMOELINA Ny Toavimpahendrena
+
+
+  
+
+
+
+
+
+Projet : Agence de voyages DIRECTION SOLEIL
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+RAVAT Franck
+BOULIC-BOUADJIO Audren
+TOURNIER Ronan
 Sommaire 
 
 
 1 - Approche Logique        3
 1.1. Schéma Relationnel        3
 1.2. Commentaires        3
-2 - Requêtes SQL        5
-2.1. Requêtes SQL Demandées        5
-2.1.1. Requête 1        5
-Résultat :        5
-Justification :        5
-2.1.2. Requête 2        6
-Justification :        6
-2.1.3. Requête 3        7
-2.1.4. Requête 4        8
+2 - Requêtes SQL        4
+2.1. Requêtes SQL Demandées        4
+2.1.1. Requête 1        4
+2.1.2. Requête 2        5
+2.1.3. Requête 3        6
+2.1.4. Requête 4        7
 2.1.5. Requête 5        9
 2.1.6. Requête 6        10
 2.1.7. Requête 7        11
 2.1.8. Requête 8        12
-2.1.9. Requête 9        13
-2.1.10. Requête 10        14
-2.2. Requêtes SQL Supplémentaires        15
+2.1.9. Requête 9        14
+2.1.10. Requête 10        16
+2.2. Requêtes SQL Supplémentaires        17
+2.2.1. Chiffre d'affaires total par départ        17
+2.2.2. Arbitrage de prix entre présélections d'un même circuit        19
+2.2.3. Animations accessibles pendant les séjours (Tester)        21
+2.2.4. Départs proposés sans réservation (Tester)        22
+2.2.5. Départs prévus pendant les mois les plus chauds (Tester)        24
 
 
 ________________
@@ -75,9 +141,10 @@ Lors de l’élaboration du modèle relationnel, on s’est aperçu de quelques 
 2.1.1. Requête 1
 
 
-Donner le montant total du circuit "Les saveurs tunisiennes", partant de l'aéroport de Toulouse le 08/07/2026, réservé par Monsieur Medhi TERRANER.
+Énoncé : Donner le montant total du circuit "Les saveurs tunisiennes", partant de l'aéroport de Toulouse le 08/07/2026, réservé par Monsieur Medhi TERRANER.
 
 
+Requête SQL :
 SELECT cl.nomC, cl.prenomC, r.dateDepartR, c.nomCI, ad.nomA, c.prixBase + m.montantMaj AS montant_total_du_circuit
 FROM Circuits c, Majoration m, Aeroports_Dep ad, Reserver r, Clients cl
 WHERE c.codeCI = m.codeCI
@@ -93,25 +160,28 @@ AND LOWER (cl.prenomC) = 'medhi'
 AND LOWER (cl.nomC) = 'terraner';
 
 
-Résultat :
-
-
+Résultat : 
   
 
 
 
+Figure 1 : Résultat de la requête 1 sur SQL Developer 
+
+
+
+
 Justification :
+La requête calcule le montant du circuit en additionnant son prix de base (c.prixBase) et la majoration (m.montantMaj), qui dépend de l'aéroport et de la date de départ. Elle sélectionne le circuit “Les saveurs tunisiennes”, réservé par Medhi TERRANER au départ de Toulouse le 08/07/2026. 
+Pour vérifier le résultat, on constate dans la table CIRCUITS que le prix de base est de 700 €. Dans MAJORATION, le départ concerné possède une majoration de 80 €. On obtient donc 700 + 80 = 780 €, ce qui correspond bien au montant retourné par la requête.
 
 
-
-
-________________
 2.1.2. Requête 2
 
 
-Donner la liste des circuits marocains permettant de séjourner à la fois dans l'hôtel "LION D'OR" et l'hôtel "EDEN".
+Énoncé : Donner la liste des circuits marocains permettant de séjourner à la fois dans l'hôtel "LION D'OR" et l'hôtel "EDEN".
 
 
+Requête SQL :
 SELECT  DISTINCT c.CodeCI, c.NomCI
 FROM circuits c, Situer s, Pays p
 WHERE c.CodeCI = s.CodeCI
@@ -131,21 +201,28 @@ AND c.codeCI IN (
 );
 
 
-Résultat :
+Résultat : 
+  
+
+Figure 2 : Résultat de la requête 2  sur SQL Developer
 
 
 Justification :
 
 
-________________
+La requête sélectionne les circuits situés au Maroc à l’aide des tables SITUER et PAYS. Elle utilise ensuite deux sous-requêtes sur LOGER et HOTELS pour vérifier que chaque circuit permet de séjourner à la fois dans les hôtels “Lion d'Or” et “Eden”. 
+Pour vérifier le résultat, on constate dans la table HOTELS que ces deux hôtels correspondent aux codes 1 et 2. Dans LOGER, les circuits 6 et 8 sont associés à ces deux hôtels. La table SITUER confirme qu'ils se déroulent au Maroc. On retrouve donc “Médinas impériales” et “Marrakech et Atlas”, ce qui correspond bien aux deux circuits retournés par la requête.
+
+
 
 
 2.1.3. Requête 3
 
 
-Donner pour chaque pays le mois le plus chaud (en tenant compte des valeurs moyennes).
+Énoncé : Donner pour chaque pays le mois le plus chaud (en tenant compte des valeurs moyennes).
 
 
+Requête SQL :
 SELECT P.NomP, M.LibelleMois, A.TempMaxMoy
 FROM PAYS P, MOIS M, AVIS A
 WHERE P.CodeP = A.CodeP
@@ -157,34 +234,69 @@ AND A.TempMaxMoy = (
 );
 
 
-Résultat :
+Résultat : 
+  
+
+Figure 3 : Résultat de la requête 3 sur SQL Developer
 
 
 Justification :
+
+
+On relie les tables PAYS, MOIS et AVIS pour récupérer le nom du pays, le mois et sa température moyenne. La sous-requête avec MAX(A2.TempMaxMoy) cherche ensuite la température la plus élevée propre à chaque pays, ce qui permet de filtrer la liste et de ne garder que le mois le plus chaud.
 ________________
 2.1.4. Requête 4
 
 
-Donner pour chaque départ de chaque circuit le nombre de réservations et le nombre de places disponibles.
+Énoncé : Donner pour chaque départ de chaque circuit le nombre de réservations et le nombre de places disponibles.
 
 
-SELECT c.NbPersMax - SUM(r.NbPers) AS Nombre_de_places_disponibles, COUNT(r.codeCI) AS nbReservation
-FROM Circuits c, Reserver r
+Requête SQL : Nous considérons uniquement les départs pour lesquels au moins une réservation a été effectuée.
+SELECT c.NomCI, a.NomA, r.DateDepartR,
+COUNT(*) AS NbReservations,
+c.NbPersMax - SUM(r.NbPers) AS PlacesDisponibles
+FROM CIRCUITS c, AEROPORTS_DEP a, RESERVER r
 WHERE c.CodeCI = r.CodeCI
-GROUP BY c.CodeCI, c.NbPersMax, r.CodeA, r.dateDepartR;
+AND a.CodeA = r.CodeA
+GROUP BY c.CodeCI, c.NomCI, c.NbPersMax,
+a.CodeA, a.NomA, r.DateDepartR
+ORDER BY c.NomCI, a.NomA, r.DateDepartR;
 
 
-Résultat :
+
+
+
+
+Résultat : 
+  
+
+
+
+  …
+  
+
+
+
+Figure 4 : Résultat de la requête 4  sur SQL Developer
+
+
 
 
 Justification :
+
+
+La requête permet de calculer le nombre de réservations et de places disponibles pour chaque départ ayant au moins une réservation. Elle regroupe les réservations par circuit, aéroport et date de départ, puis utilise COUNT(r.codeCI) pour compter les réservations. Le nombre de places disponibles est obtenu en soustrayant le total des personnes réservées (SUM(r.NbPers)) à la capacité maximale du circuit (c.NbPersMax).
+
+
+Pour vérifier les résultats, on constate dans la table RESERVER que le circuit “Les saveurs tunisiennes”, au départ de Toulouse le 08/07/2026, possède 5 réservations pour un total de 14 personnes. Dans CIRCUITS, sa capacité maximale est de 30 personnes. On obtient donc 30 - 14 = 16 places disponibles, ce qui correspond bien aux valeurs retournées par la requête pour ce départ.
 ________________
 2.1.5. Requête 5
 
 
-Donner le nom et le prénom des guides ayant effectué le plus de circuits différents.
+Énoncé : Donner le nom et le prénom des guides ayant effectué le plus de circuits différents.
 
 
+Requête SQL :
 SELECT g.nomG, g.prenomG
 FROM guides g, accompagner a
 WHERE g.codeG = a.codeG
@@ -195,17 +307,28 @@ SELECT COUNT(DISTINCT a2.codeCI)
 GROUP BY a2.codeG );
 
 
-Résultat :
+Résultat : 
+  
+
+Figure 5 : Résultat de la requête 5 sur SQL Developer
 
 
 Justification :
+
+
+Pour chaque guide ayant accompagné au moins un circuit, on va compter le nombre de circuits différents qu’ils ont effectués HAVING COUNT(DISTINCT a.codeCI). On va comparer ce résultat avec le nombre de circuits calculé pour tous les autres guides dans la sous-requête, grâce à l'opérateur >= ALL.
+
+
+
+
 ________________
 2.1.6. Requête 6
 
 
-Donner le nombre de clients ayant réservé un voyage en 2025 sans avoir fait au préalable une sélection de préférence.
+Énoncé : Donner le nombre de clients ayant réservé un voyage en 2025 sans avoir fait au préalable une sélection de préférence.
 
 
+Requête SQL :
 SELECT COUNT( DISTINCT c.codec)
 FROM clients c, reserver r
 WHERE c.codec = r.codec
@@ -219,17 +342,26 @@ AND c.codec NOT IN (
 );
 
 
-Résultat :
+Résultat : 
+  
+
+Figure 6 : Résultat de la requête 6 sur SQL Developer
 
 
 Justification :
+
+
+On compte d'abord les clients uniques (COUNT(DISTINCT c.codec)) ayant effectué une réservation au cours de l'année 2025 (TO_CHAR(r.DateResa, 'yyyy') = '2025'). Ensuite, la clause NOT IN associée à la sous-requête permet d'exclure tous les clients qui avaient enregistré un choix de préférence CHOIX pour ce même voyage (en faisant correspondre le circuit, l'aéroport et la date de départ).
+
+
 ________________
 2.1.7. Requête 7
 
 
-Donner les coordonnées des guides ayant assuré tous les circuits du Maroc cette année.
+Énoncé : Donner les coordonnées des guides ayant assuré tous les circuits du Maroc cette année.
 
 
+Requête SQL : les coordonnées complètes des guides ne sont pas disponibles dans notre modèle, on ne peux donc citer que le nom et prénom 
 SELECT g.nomg, g.prenomg
 FROM guides g
 WHERE NOT EXISTS (
@@ -239,24 +371,34 @@ WHERE NOT EXISTS (
     AND LOWER(p.nomp) = 'maroc'
     AND NOT EXISTS (
         SELECT 1 
-        FROM circuit c, accompagne a
+        FROM circuits c, accompagner a
         WHERE c.codeCI = a.codeCI
         AND c.codeCI = s.codeCI
         AND a.codeG = g.codeG
         AND TO_CHAR( a.dateDepartA, 'yyyy') = TO_CHAR(SYSDATE, 'yyyy') ));
 
 
-Résultat :
+Résultat : 
+  
 
-
+Figure 7 : Résultat de la requête 7 sur SQL Developer
 Justification :
+
+
+La requête permet d'identifier les guides ayant assuré tous les circuits du Maroc durant l'année 2026. Elle utilise les tables GUIDES, PAYS, SITUER, CIRCUITS et ACCOMPAGNER. Les deux sous-requêtes avec NOT EXISTS permettent de vérifier qu'il n'existe aucun circuit marocain que le guide n'a pas accompagné durant l'année en cours.
+
+
+Pour vérifier le résultat, on constate dans SITUER que le Maroc possède 5 circuits, correspondant aux codes 6, 7, 8, 9 et 10. Dans ACCOMPAGNER, on retrouve le guide BENNANI Youssef associé à chacun de ces circuits avec des dates de départ en 2026. Aucun autre guide n'a assuré l'ensemble de ces 5 circuits. On retrouve donc uniquement BENNANI Youssef, ce qui correspond au résultat attendu.
 ________________
+
+
 2.1.8. Requête 8
 
 
-Donner les coordonnées du client ayant effectué le plus de circuits pour chaque pays.
+Énoncé : Donner les coordonnées du client ayant effectué le plus de circuits pour chaque pays.
 
 
+Requête SQL :
 SELECT p.nomP, COUNT(DISTINCT r.codeci) AS nbCircuits, c.nomc, c.prenomc, c.telc, c.melc
 FROM clients c, reserver r, circuits ci, situer s, pays p
 WHERE c.codec = r.codec
@@ -279,17 +421,29 @@ HAVING COUNT(DISTINCT r.codeci)  =
 ORDER BY p.nomP ASC;
 
 
-Résultat :
+Résultat : 
+  
+
+Figure 8: Résultat de la requête 8 sur SQL Developer
 
 
 Justification :
+
+
+La requête permet d'identifier les clients ayant effectué le plus de circuits différents dans chaque pays. Elle utilise les tables CLIENTS, RESERVER, CIRCUITS, SITUER et PAYS pour associer les clients aux pays visités. La condition r.DateDepartR <= SYSDATE permet de ne prendre en compte que les circuits déjà effectués. Ensuite, COUNT(DISTINCT r.CodeCI) compte les circuits différents de chaque client, et la sous-requête permet de sélectionner le nombre maximal de circuits pour chaque pays.
+
+
+Pour vérifier les résultats, on compare les réservations dans RESERVER avec les pays associés aux circuits dans SITUER. On retrouve notamment “Medhi TERRANER” avec 2 circuits en Tunisie, “Marie DUPONT” avec 2 circuits au Maroc, etc… . En Espagne, “Julie ROUSSEAU” et “Océane MATHIEU” sont à égalité avec 2 circuits chacune. Pour la Turquie, l'Égypte et la Croatie, le maximum est de 1 circuit, ce qui explique la présence de plusieurs clients à égalité. Ces valeurs correspondent bien aux résultats retournés par la requête.
+
+
 ________________
 2.1.9. Requête 9
 
 
-Donner les noms des circuits disponibles au départ de Toulouse qui permettent de visiter tous les sites de Tunisie.
+Énoncé : Donner les noms des circuits disponibles au départ de Toulouse qui permettent de visiter tous les sites de Tunisie.
 
 
+Requête SQL :
 SELECT DISTINCT c.NomCI
 FROM circuits c, majoration m, aeroports_dep a, situer s, pays p
 WHERE c.CodeCI = m.CodeCI
@@ -320,34 +474,275 @@ AND NOT EXISTS (
 );
 
 
-Résultat :
+Résultat : 
+
+
+  
+
+Figure 9: Résultat de la requête 9 sur SQL Developer
+________________
 
 
 Justification :
+
+
+La requête 9 est une division relationnelle : on cherche les circuits, partant de Toulouse, qui visitent tous les sites tunisiens. SQL n’a pas de quantificateur  “pour tout”, donc on le remplace par une double négation équivalente. Donc “le circuit visite tous les sites tunisiens” revient à dire “il n’existe aucun site tunisien que le circuit ne visite pas”. 
+
+
+Le NOT EXISTS extérieur parcourt les sites tunisiens (ceux visités par un circuit situé en Tunisie). Le NOT EXISTS intérieur vérifie, pour chacun, si le circuit le visite. Un seul site manqué élimine le circuit. Une condition EXISTS supplémentaire garde les circuits disponibles au départ de Toulouse.
+
+
+Le résultat est “Perles de Tunisie”. Les sites tunisiens sont les sites 1 à 7. Seul ce circuit les visite tous, alors que les quatre autres circuits tunisiens en manquent au moins un. Ce résultat correspond bien à la définition de l’énoncé.
 ________________
+
+
 2.1.10. Requête 10
 
 
-Donner le nom du pays proposant plus de circuits que la Grèce.
+Énoncé : Donner le nom du pays proposant plus de circuits que la Grèce.
 
 
+Requête SQL :
 SELECT P.nomp
 FROM Pays P, Situer S 
 WHERE P.codep = S.codep
 GROUP BY P.codep, P.nomp 
-HAVING COUNT(S.codeci) > ( 
-    SELECT COUNT(S.codeci) 
+HAVING COUNT( DISTINCT S.codeci) > ( 
+    SELECT COUNT( DISTINCT S.codeci) 
     FROM Pays P, Situer S
     WHERE P.codep = S.codep
     AND LOWER(P.nomp) = 'grèce');
 
 
-Résultat :
+Résultat : 
+  
 
-
+Figure 10: Résultat de la requête 10 sur SQL Developer
 Justification :
+
+
+La requête permet d'identifier les pays proposant plus de circuits que la Grèce. Elle utilise les tables PAYS et SITUER pour associer chaque pays à ses circuits. La fonction COUNT(DISTINCT S.CodeCI) permet de compter les circuits différents de chaque pays, puis la clause HAVING compare ce nombre à celui de la Grèce grâce à une sous-requête.
+
+
+Pour vérifier les résultats, on constate dans la table SITUER que la Grèce possède 3 circuits différents, tandis que la Tunisie et le Maroc en possèdent 5 chacun. Les autres pays proposent au maximum 3 circuits différents. On retrouve donc uniquement la Tunisie et le Maroc, ce qui correspond bien aux deux pays retournés par la requête.
 ________________
+
+
 2.2. Requêtes SQL Supplémentaires
+2.2.1. Chiffre d'affaires total par départ
 
 
-________________
+Énoncé : Pour chaque départ ayant au moins une réservation, donner le nom du circuit, l'aéroport, la date, le nombre total de voyageurs inscrits et le chiffre d'affaires total généré. Le chiffre d'affaires est calculé à partir du nombre de personnes réservées, multiplié par la somme du prix de base et de la majoration. Classer les résultats par chiffre d'affaires décroissant.
+
+
+Utilité métier : Comparer les départs selon leur chiffre d'affaires afin d'identifier ceux qui génèrent le plus de revenus pour l'agence.
+
+
+Requête SQL :
+SELECT CI.NomCI, A.NomA, R.DateDepartR, SUM(R.NbPers) AS TotalVoyageurs,
+       SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) AS ChiffreAffaires
+FROM CIRCUITS CI, AEROPORTS_DEP A, MAJORATION M, RESERVER R
+WHERE CI.CodeCI = R.CodeCI
+AND A.CodeA = R.CodeA
+AND M.CodeCI = R.CodeCI
+AND M.CodeA = R.CodeA
+AND M.DateDepartM = R.DateDepartR
+GROUP BY CI.CodeCI, CI.NomCI, A.CodeA, A.NomA, R.DateDepartR
+ORDER BY ChiffreAffaires DESC;
+
+
+Résultat : 
+  
+
+…
+  
+
+Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer
+Justification :
+
+
+La requête permet de calculer le nombre total de voyageurs et le chiffre d'affaires généré pour chaque départ. Elle relie les tables CIRCUITS, AEROPORTS_DEP, MAJORATION et RESERVER afin d'associer chaque réservation à son circuit, son aéroport et sa date de départ. La clause GROUP BY regroupe les données par départ unique (circuit, aéroport et date). 
+
+
+Pour chaque groupe, SUM(R.NbPers) calcule le nombre des voyageurs, tandis que SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) calcule le chiffre d'affaires total du depart. Enfin, ORDER BY ChiffreAffaires DESC classe les résultats pour faire ressortir les départs les plus rentables en premier. 
+
+
+Pour vérifier les résultats, on constate dans RESERVER que le circuit "Désert de Merzouga", au départ de Marseille le 15/07/2026, possède 3 réservations de 6 personnes, soit 18 voyageurs. Dans CIRCUITS, son prix de base est de 890 €, auquel s'ajoute une majoration de 25 € dans MAJORATION. On obtient donc 18 × (890 + 25) = 16 470 €, ce qui correspond au chiffre d'affaires calculé pour ce départ.
+
+
+
+
+
+
+2.2.2. Arbitrage de prix entre présélections d'un même circuit
+
+
+Énoncé : Pour chaque client ayant présélectionné le même circuit avec plusieurs dates ou aéroports de départ, afficher son nom, son prénom, le circuit, l'aéroport, la date, l'ordre de préférence et le prix total de chaque présélection (prix de base + majoration). Trier les résultats par client et par prix décroissant.
+
+
+Utilité métier : Observer comment un client classe des départs d'un même circuit dont les prix diffèrent, afin de mieux comprendre l'influence des tarifs sur ses préférences.
+
+
+Requête SQL :
+
+
+SELECT C.CodeC, C.NomC, C.PrenomC, CI.NomCI,
+       A.NomA, CH.DateDepartC, CH.OrdrePreference,
+       CI.PrixBase + M.MontantMaj AS PrixTotal
+FROM CLIENTS C, CIRCUITS CI, CHOIX CH,
+     AEROPORTS_DEP A, MAJORATION M
+WHERE C.CodeC = CH.CodeC
+AND CI.CodeCI = CH.CodeCI
+AND A.CodeA = CH.CodeA
+AND M.CodeCI = CH.CodeCI
+AND M.CodeA = CH.CodeA
+AND M.DateDepartM = CH.DateDepartC
+AND EXISTS (
+    SELECT *
+    FROM CHOIX CH2
+    WHERE CH2.CodeC = CH.CodeC
+    AND CH2.CodeCI = CH.CodeCI
+    AND (CH2.DateDepartC <> CH.DateDepartC
+    OR CH2.CodeA <> CH.CodeA)
+)
+ORDER BY C.CodeC, CI.NomCI, PrixTotal DESC;
+
+
+
+
+Résultat : 
+  
+
+Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer
+Justification : 
+
+
+La requête permet d'identifier les clients ayant présélectionné un même circuit avec des dates ou des aéroports de départ différents. Elle utilise les tables CLIENTS, CIRCUITS, CHOIX, AEROPORTS_DEP et MAJORATION. La sous-requête avec EXISTS permet de vérifier qu'un client possède plusieurs présélections pour un même circuit. Le prix de chaque présélection est ensuite calculé en additionnant le prix de base (CI.PrixBase) et la majoration (M.MontantMaj).
+
+
+Pour vérifier les résultats, on constate dans CHOIX que Medhi TERRANER a présélectionné le circuit "Les saveurs tunisiennes" au départ de Toulouse pour deux dates différentes. Dans CIRCUITS, son prix de base est de 700 €. Dans MAJORATION, on retrouve 80 € pour le 08/07/2026 et 45 € pour le 01/07/2026. On obtient donc 780 € pour son premier choix et 745 € pour son deuxième choix. En effectuant cette vérification sur les autres présélections, on retrouve 10 lignes concernant 5 clients, ce qui correspond aux données de notre base.
+
+
+Proposition d'ajout de données :
+
+
+Nous pourrions ajouter dans la table CHOIX une troisième présélection pour “Medhi TERRANER” concernant le circuit “Les saveurs tunisiennes”, avec une autre date ou un autre aéroport de départ déjà présent dans MAJORATION. Cela permettrait de vérifier que la requête affiche bien les différentes possibilités choisies par un même client et compare leurs prix en fonction des majorations.
+
+
+
+
+
+
+2.2.3. Animations accessibles pendant les séjours
+Énoncé : Donner, pour chaque circuit, le nom des hôtels proposant une animation le jour où les voyageurs y séjournent, en précisant le jour, le nom de l'animation et son heure de début.
+
+
+Utilité métier : Permettre à l'agence de présenter aux clients les animations correspondant réellement aux jours de séjour prévus dans les hôtels.
+
+
+Requête SQL :
+
+
+SELECT DISTINCT CI.NomCI, H.NomH, L.JourSe, A.NomAN,
+       TO_CHAR(A.HeureDeb, 'HH24:MI') AS Heure
+FROM CIRCUITS CI, LOGER L, HOTELS H, ANIMATIONS A
+WHERE CI.CodeCI = L.CodeCI
+AND L.CodeH = H.CodeH
+AND H.CodeH = A.CodeH
+AND L.JourSe = A.JourSemaine
+ORDER BY CI.NomCI, L.JourSe;
+
+
+
+
+Résultat : 
+  
+
+Figure 13: Résultat de la requête 3 sur SQL Developer
+
+
+Justification : 
+
+
+La requête permet d'identifier les animations proposées dans les hôtels pendant les jours où les voyageurs y séjournent. Elle utilise les tables CIRCUITS, LOGER, HOTELS et ANIMATIONS pour associer chaque circuit à ses hôtels, puis compare L.JourSe et A.JourSemaine afin de retenir uniquement les animations programmées le jour du séjour.
+
+
+Pour vérifier les résultats, on constate dans LOGER que le circuit "Andalousie authentique" prévoit un séjour à l'hôtel "Sevilla Plaza" le lundi. Dans ANIMATIONS, cet hôtel propose justement une animation "Danse Flamenco Traditionnelle" le lundi à 20 h 30. En effectuant cette vérification pour les autres circuits, on retrouve 6 animations correspondant aux jours de séjour, réparties sur 5 circuits, ce qui correspond aux données de notre base.
+
+
+2.2.4. Départs proposés sans réservation
+Énoncé : Donner les circuits, les aéroports et les dates de départ proposés par l'agence pour lesquels aucune réservation n'a été effectuée, en précisant le prix total du voyage (prix de base + majoration).
+Utilité métier : Repérer les départs qui n'ont attiré aucun client, afin d'étudier l'intérêt de modifier les prix ou les dates proposés.
+Requête SQL :
+SELECT CI.NomCI, A.NomA, M.DateDepartM,
+       CI.PrixBase + M.MontantMaj AS PrixTotal
+FROM CIRCUITS CI, AEROPORTS_DEP A, MAJORATION M
+WHERE CI.CodeCI = M.CodeCI
+AND A.CodeA = M.CodeA
+AND NOT EXISTS (
+    SELECT *
+    FROM RESERVER R
+    WHERE R.CodeCI = M.CodeCI
+    AND R.CodeA = M.CodeA
+    AND R.DateDepartR = M.DateDepartM
+)
+ORDER BY CI.NomCI, M.DateDepartM;
+
+
+
+
+Résultat : 
+  
+
+…
+  
+
+Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer
+
+
+Justification : 
+
+
+La requête permet d'identifier les départs proposés par l'agence pour lesquels aucune réservation n'a été effectuée. Elle utilise les tables CIRCUITS, AEROPORTS_DEP et MAJORATION pour retrouver les départs et calculer leur prix total (CI.PrixBase + M.MontantMaj). La sous-requête avec NOT EXISTS permet ensuite d'exclure les départs présents dans RESERVER, en comparant le circuit, l'aéroport et la date de départ.
+
+
+Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Les saveurs tunisiennes" propose un départ de Toulouse le 01/05/2026, avec un prix de base de 700 € et une majoration de 40 €, soit 740 €. Dans RESERVER, aucune réservation ne correspond à ce départ. En effectuant cette vérification sur tous les  départs proposés, on en retrouve 71 sans réservation, ce qui correspond au résultat attendu avec nos données.
+
+
+Proposition d'ajout de données :
+
+
+Nous pourrions ajouter dans la table MAJORATION un nouveau départ pour un circuit et un aéroport existants, sans ajouter de réservation correspondante dans RESERVER. Cela permettrait de vérifier que la requête retrouve bien ce nouveau départ parmi ceux qui n'ont aucune réservation.
+
+
+2.2.5. Départs prévus pendant les mois les plus chauds 
+Énoncé : Donner le nom des circuits, le pays, l'aéroport et la date de départ pour lesquels la température maximale moyenne du mois de départ est supérieure ou égale à 35 °C, en précisant cette température.
+
+
+Utilité métier : Identifier les départs organisés pendant les périodes de fortes chaleurs pour mieux informer les clients et, si nécessaire, adapter les activités du programme.
+
+
+Requête SQL :
+SELECT DISTINCT CI.NomCI, P.NomP,
+       A.NomA, M.DateDepartM, AV.TempMaxMoy
+FROM CIRCUITS CI, SITUER S, PAYS P, AVIS AV,
+     MAJORATION M, AEROPORTS_DEP A
+WHERE CI.CodeCI = S.CodeCI
+AND S.CodeP = P.CodeP
+AND P.CodeP = AV.CodeP
+AND CI.CodeCI = M.CodeCI
+AND M.CodeA = A.CodeA
+AND AV.CodeMois = EXTRACT(MONTH FROM M.DateDepartM)
+AND AV.TempMaxMoy >= 35
+ORDER BY AV.TempMaxMoy DESC, CI.NomCI;
+Résultat : 
+  
+
+Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer
+Justification :
+
+
+La requête permet d'identifier les départs prévus pendant les mois où la température maximale moyenne est supérieure ou égale à on va dire 35 °C. Elle utilise les tables CIRCUITS, SITUER et PAYS pour identifier le pays de chaque circuit, puis MAJORATION pour récupérer les dates de départ. La fonction EXTRACT(MONTH FROM M.DateDepartM) permet de retrouver le mois correspondant dans AVIS. La condition AV.TempMaxMoy >= 35 permet ensuite de sélectionner uniquement les départs concernés.
+
+
+Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Médinas impériales" propose un départ de Toulouse le 01/07/2026. La table SITUER indique que ce circuit se déroule au Maroc et, dans AVIS, la température maximale moyenne du mois de juillet est de 38 °C. Ce départ respecte donc bien la condition demandée. En effectuant cette vérification sur les autres départs, on retrouve 17 départs concernés, répartis sur 6 circuits différents dans notre jeu de données.

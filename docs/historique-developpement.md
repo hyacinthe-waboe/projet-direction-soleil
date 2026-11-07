@@ -51,3 +51,11 @@ La feuille de temps attribue l'import et les tests à plusieurs membres du group
 **Changements retrouvés :** la révision 650 à 09:34 UTC corrige la casse des jours dans LOGER et ANIMATIONS. La version 840 à 13:19 UTC ajoute notamment la vue ANIMATIONS_H. Cette dernière remplace l'archive de travail du schéma dans ce commit. La révision 1464 du rapport à 15:46 UTC conserve l'état des requêtes, leurs résultats et justifications disponibles à cette date.
 
 **Limite :** les tests évoqués sont les essais SQL documentés à l'époque, pas une suite de tests automatisés ni une nouvelle exécution Oracle pendant cette reconstruction.
+
+## 2 novembre 2026 — Extractions et analyse décisionnelle
+
+La feuille de temps documente les extractions et transformations (Ny Toavimpahendrena et Tsinjo), les KPI et la maquette Planning et remplissage (Jesus), les indicateurs Destinations et climat (Adrien), ainsi que les thèmes de Synthèse direction et les corrections du rapport (Hyacinthe).
+
+**Versions réelles :** extraction TABLE_TEST1 modifiée à 15:51 UTC ; document d'indicateurs révision 184 à 15:40 UTC ; rapport révision 4584 à 14:55 UTC ; fichier PROJET.pbix conservé localement, dont les entrées ZIP portent le 2 novembre à 16:48 sans fuseau explicite. Il contient une page et TABLE_TEST1 (166 lignes). L'horodatage interne est un indice, pas une preuve d'auteur ou de toutes les dates de travail.
+
+**Attention aux archives :** le script TABLE_TEST1 contient aussi un DROP TABLE, un SELECT et un fragment `ct` provenant du document d'origine. Il est conservé sans correction pour montrer l'état du travail et ne doit pas être exécuté en bloc. Le document KPI contient des propositions qui ne sont pas toutes des fonctionnalités finalement livrées.
