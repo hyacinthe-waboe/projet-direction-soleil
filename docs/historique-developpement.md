@@ -43,3 +43,11 @@ Ny Toavimpahendrena et Tsinjo développent le script de création ; Adrien parti
 **Version réelle :** révision 596 du script de création, 29 octobre à 15:50 UTC. Elle contient notamment des contraintes de jours en minuscules dans LOGER et ANIMATIONS. Cette archive conserve ses imperfections ; elle ne remplace pas `sql/01_creation_tables.sql`.
 
 Les tableurs de population de cette journée ne sont pas disponibles comme versions datées vérifiables. Le jeu final ne sera donc pas présenté comme une capture du 29.
+
+## 30 octobre 2026 — Importation et contrôles SQL
+
+La feuille de temps attribue l'import et les tests à plusieurs membres du groupe : Jesus teste notamment les requêtes 1 à 5 et 10 ; Tsinjo travaille sur les contraintes et les requêtes 6 à 9 ; Ny Toavimpahendrena mentionne les tests et la vue ; Adrien et Hyacinthe participent aux imports et aux corrections. Le groupe commence aussi la rédaction du rapport.
+
+**Changements retrouvés :** la révision 650 à 09:34 UTC corrige la casse des jours dans LOGER et ANIMATIONS. La version 840 à 13:19 UTC ajoute notamment la vue ANIMATIONS_H. Cette dernière remplace l'archive de travail du schéma dans ce commit. La révision 1464 du rapport à 15:46 UTC conserve l'état des requêtes, leurs résultats et justifications disponibles à cette date.
+
+**Limite :** les tests évoqués sont les essais SQL documentés à l'époque, pas une suite de tests automatisés ni une nouvelle exécution Oracle pendant cette reconstruction.

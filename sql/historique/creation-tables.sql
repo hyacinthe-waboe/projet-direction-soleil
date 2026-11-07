@@ -1,4 +1,5 @@
-﻿CREATE TABLE CLIENTS
+﻿-- table Clients
+CREATE TABLE CLIENTS
 (CodeC NUMBER CONSTRAINT pk_clients PRIMARY KEY,
 NomC varchar2 (30) CONSTRAINT nn_clients_nomC not null,
 PrenomC varchar2 (30) CONSTRAINT nn_clients_prenomC not null,
@@ -7,16 +8,14 @@ MelC varchar2 (30) CONSTRAINT nn_clients_melC not null,
 CONSTRAINT ck_clients_codeC CHECK (CodeC>0));
 
 
-
-
+-- table Aeroports_dep
 CREATE TABLE AEROPORTS_DEP
 ( CodeA NUMBER CONSTRAINT pk_aeroports PRIMARY KEY,
 NomA varchar2 (30) CONSTRAINT nn_aeroports_dep_nomA not null,
 CONSTRAINT ck_aeroports_dep_codeA CHECK (CodeA>0));
 
 
-
-
+-- table Circuits
 CREATE TABLE CIRCUITS
 ( CodeCI NUMBER CONSTRAINT pk_circuits PRIMARY KEY,
 CONSTRAINT ck_circuits_codeCI CHECK (CodeCI>0),
@@ -32,8 +31,7 @@ REFERENCES CIRCUITS (CodeCI)
 ON DELETE CASCADE);
 
 
-
-
+-- table Choix
 CREATE TABLE CHOIX
 ( CodeC number,
 CodeA number,
@@ -58,8 +56,7 @@ REFERENCES CIRCUITS (CodeCI)
 ON DELETE CASCADE );
 
 
-
-
+-- table Reserver
 CREATE TABLE RESERVER
 (CodeC number,
 CodeA number,
@@ -84,8 +81,7 @@ REFERENCES CIRCUITS (CodeCI)
 ON DELETE CASCADE);
 
 
-
-
+-- table Majoration
 CREATE TABLE MAJORATION
 (CodeA number,
 CodeCI number,
@@ -128,7 +124,7 @@ CodeH number,
 JourSe varchar2(10) CONSTRAINT nn_loger_jourSe not null,
 CONSTRAINT pk_LOGER PRIMARY KEY (CodeCI, CodeH),
 CONSTRAINT ck_loger_JourSe
-check (JourSe in ('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche')),
+check (JourSe in ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche')),
 CONSTRAINT fk_loger_codeCI FOREIGN KEY (CodeCI)
 REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE,
 CONSTRAINT fk_loger_codeH FOREIGN KEY (CodeH) 
@@ -150,7 +146,7 @@ FOREIGN KEY (CodeH) REFERENCES HOTELS (CodeH) ON DELETE CASCADE,
 CONSTRAINT ck_animations_typeAN
 CHECK (TypeAN IN ('Concert', 'Danse folklorique', 'Danse', 'Cabaret', 'Karaoké')),
 CONSTRAINT ck_animations_jourSemaine
-CHECK (JourSemaine IN ('lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche')),
+CHECK (JourSemaine IN ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche')),
 CONSTRAINT ck_animations_codeAN CHECK (CodeAN > 0)
 );
 
@@ -357,3 +353,13 @@ CREATE TABLE PRATIQUER (
    CONSTRAINT ck_pratiquer_niveauL CHECK (NiveauL IN
        ('excellent', 'bon', 'moyen', 'quelques notions', 'mots de base'))
 );
+
+
+
+
+
+
+-- Vue de la table animation permettant d’afficher heuredeb au format hh:mm
+CREATE VIEW ANIMATIONS_H as
+SELECT CODEAN, NOMAN, TYPEAN, to_char(HEUREDEB, 'HH24:MI') as HEUREDEB, JOURSEMAINE, CODEH
+FROM ANIMATIONS A;

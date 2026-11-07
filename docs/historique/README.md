@@ -15,3 +15,5 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `modelisation-2026-10-27.pdf` | Même document, version finale du 27, modification 22:20 UTC | PDF exporté lors de la reconstruction, pas un ancien export PDF fabriqué |
 | `premier-mld.txt` | Google Doc `194DozHiMWYXd0PVLDNF31Tz-FNqoHS5cm-AFQObU-wk`, dernière modification 2026-10-27 15:02:43 UTC | Première proposition collective, distincte du modèle de la partie 2 |
 | `../../sql/historique/creation-tables.sql` | Google Doc `119u8DtfTRbn3gjxreqppf4EvjctdAasiQKkQF_Nyqrw`, révision 596 du 29 octobre | État initial ; archive non validée pour exécution |
+| `../../sql/historique/creation-tables.sql` | Même source, révisions 650 puis 840 consultées, dernière modification 2026-10-30 13:19:13 UTC | Correction de la casse des jours puis ajout de la vue ; texte 840 archivé |
+| `rapport-travail.txt` | Google Doc `1rV2y6S9OyGLRyrsALVaKDIuh_Oe4Wg754cqBGOeu57g`, révision 1464, 2026-10-30 15:46:37 UTC | Premier rapport de travail récupéré |
