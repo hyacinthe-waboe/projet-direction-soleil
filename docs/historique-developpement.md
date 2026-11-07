@@ -95,3 +95,19 @@ Le calendrier transmis par Hyacinthe place la livraison et la soutenance le 6 no
 **Version conservée :** texte courant du rendu récupéré lors de la reconstruction, distinct des révisions précédentes. La présentation PDF déjà publiée porte le 6 novembre ; le rapport PDF porte encore le 3 novembre en en-tête. Ces dates imprimées sont conservées telles quelles et ne permettent pas de dater chaque correction.
 
 Les six scripts, les deux PDF et le PBIX finaux restent exactement ceux de la publication publique validée. Aucun jeu de données brut non neutralisé n'est réintroduit pour simuler la livraison. Les contrôles de reconstruction ne constituent pas une réexécution des tests Oracle historiques.
+
+## 7 novembre 2026 — Publication puis reconstruction
+
+La publication d'origine est conservée : initialisation (`a395282`), mise en ligne structurée avec coordonnées neutralisées (`3c53366`), puis détection SQL (`bd7cfc9`). Elle n'est pas dupliquée ni antidatée.
+
+La branche de reconstruction ajoute les archives et le présent journal après ces commits. Les seules modifications apportées à un fichier préexistant concernent le README pour donner accès à la progression. Une branche de sauvegarde pointe sur l'état public avant reconstruction.
+
+### Vérifications de la reconstruction
+
+- Comparaison des empreintes Git des six scripts SQL, des deux PDF et du PBIX finaux avec la publication de référence ; ils doivent rester identiques.
+- Recherche des numéros étudiants et de secrets dans les nouveaux textes ; le classeur de temps et les métadonnées privées de révision ne sont pas publiés.
+- Inspection statique des tables et sources Power Query des deux PBIX intermédiaires : pas de colonnes de téléphone ou email, ni de secrets détectés ; noms fictifs déjà confirmés par Hyacinthe.
+- Les PBIX intermédiaires et le premier livrable PDF sont copiés à l'identique. Les textes d'archives conservent le contenu extrait de leurs sources.
+- Les scripts d'archives ne sont pas exécutés. Aucun test automatique ancien ni résultat d'exécution récent n'est inventé.
+
+La reconstruction est préparée sur une branche dédiée pour revue. Aucun remplacement forcé de l'historique public n'est nécessaire pour intégrer ces ajouts.

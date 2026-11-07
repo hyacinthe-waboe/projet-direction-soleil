@@ -21,6 +21,14 @@ L'objectif est de répondre aux besoins de la direction et de l'exploitation : c
 
 > Il s'agit d'un cas pédagogique, avec des clients et guides fictifs. Les indicateurs illustrent le jeu d'étude ; ils ne décrivent pas les résultats d'une entreprise réelle.
 
+## 🗓️ Progression du projet
+
+Le groupe a travaillé du **26 octobre au 6 novembre 2026**, de la modélisation aux tableaux de bord et à la soutenance. Le [journal de développement](docs/historique-developpement.md) retrace les étapes, les contributions documentées et les versions réellement conservées.
+
+Cet historique a été **reconstitué après la réalisation du projet** : les nouveaux commits conservent leur date de création, et leurs messages indiquent les dates historiques. Les [archives de travail](docs/historique/README.md) complètent les livrables finaux ; elles peuvent contenir des erreurs ou des pistes abandonnées.
+
+Une extraction initiale de `TABLE_TEST1` a notamment été retrouvée dans ces archives. Elle documente la progression mais doit être revue avant exécution ; elle ne constitue pas une procédure d'actualisation validée du PBIX final.
+
 ## ✨ Réalisations
 
 - 🗃️ **Modèle relationnel de 23 tables** : clients, circuits, réservations, départs, hôtels, activités, guides, pays et zones géographiques.
