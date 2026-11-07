@@ -23,3 +23,9 @@ Les 18 étapes proposées ont été regroupées en 12 commits documentaires sign
 La feuille de temps renseigne les travaux de l'après-midi : construction du dictionnaire par Ny Toavimpahendrena, Tsinjo et Simon ; réflexion et début du MCD par Jesus, Adrien et Hyacinthe. Jesus y mentionne aussi des questions au client pendant une réunion.
 
 **État conservé :** aucune version de fichier datée du 26 n'a été retrouvée. Le dictionnaire et le MCD visibles dans le livrable du 27 témoignent de la première phase, sans être présentés comme une capture du 26. Les deux activités sont donc regroupées dans cette entrée documentaire.
+
+## 27 octobre 2026 — Correction et premier rendu
+
+La feuille de temps décrit la correction du MCD (Jesus, Adrien et Hyacinthe), la révision des types et contraintes (Ny Toavimpahendrena et Simon) et la cohérence dictionnaire/MCD (Tsinjo). La mise en forme du premier rendu et le choix des outils de planification sont également documentés.
+
+**Versions réelles :** révision 1118 du premier rendu à 15:42 UTC, texte du Script MLD modifié à 15:02 UTC et PDF du livrable du 27, dont le document a été modifié à 22:20 UTC. La révision précédente 28 du Script MLD était vide et n'a pas fait l'objet d'un commit artificiel. Le MCD est réellement présent page 6 du PDF.

@@ -1,0 +1,503 @@
+﻿Date : 27/10/2026                                Groupe 1                        M1 MIAGE FI
+Projet : Agence de voyages DIRECTION SOLEIL 
+Partie 1 - Modélisation des données
+
+
+Dictionnaire de données:
+** On considère que toutes les valeurs du dictionnaire ne sont pas nulles sauf si cela est mentionné. 
+
+
+Nom
+	Description
+	Type et format
+	Contraintes
+	Calcul
+	AdrMelC
+	Adresse Mél Du Client
+	CC (50) / xxxx@xxx.xxx
+	
+
+	
+
+	AeroportDepCir
+	Nom de l'aéroport de départ du circuit touristique
+	CC(30)
+	
+
+	
+
+	AvisGeneralPays
+	Avis général d'un pays parcouru dans un circuit
+	Texte
+	
+
+	
+
+	AvisMTemps
+	Avis mensuel lié au temps (météo) pour un pays donnée
+	Texte
+	
+
+	
+
+	CatH
+	Catégorie d'un hotel
+	CC(30)
+	
+
+	
+
+	CodeA
+	Identifiant d'un animateur
+	Entier
+	Unique
+	
+
+	CodeAct
+	Identifiant d'une activité
+	Entier
+	Unique
+	
+
+	CodeAero
+	Identifiant d'un aéroport
+	Entier
+	Unique
+	
+
+	CodeC
+	Identifiant d'un client
+	Entier
+	Unique
+	
+
+	CodeCir
+	Code d'un circuit touristique
+	Entier
+	Unique
+	
+
+	CodeCir_precedent
+	Identifiant d'un circuit précédent un autre
+	Entier
+	Différent du CodeCir
+	
+
+	CodeG
+	Identifiant d'un guide
+	Entier
+	Unique
+	
+
+	CodeH
+	Identifiant d'un hotel
+	Entier
+	Unique
+	
+
+	CodeISO
+	Code d'un pays défini la norme ISO 3166‑1
+	CC(8)
+	Contient 5 lettres suivies de 3 chiffres
+	
+
+	CodeL
+	Identifiant d'une langue
+	Entier
+	Unique
+	
+
+	CodeST
+	Identifiant d'un site touristique
+	Entier
+	Unique
+	
+
+	DateDebP
+	Date de début d'une période de réalisation d'une activité
+	Date (JJ/MM/YYYY)
+	>= date actuelle
+	
+
+	DateDepCir
+	Date de départ d'un circuit touristique
+	Date (JJ/MM/YYYY)
+	> date actuelle
+	
+
+	DateEntreeG
+	Date à laquelle le guide est entrée dans la société
+	Date (JJ/MM/YYYY)
+	<= date actuelle
+	
+
+	DateFinP
+	Date de fin d'une période de réalisation d'une activité
+	Date (JJ/MM/YYYY)
+	>DateDebP
+	
+
+	DateResC
+	Date de la réservation d'un circuit touristique
+	Date (JJ/MM/YYYY)
+	< date de départ du circuit
+	
+
+	DescST
+	Brève description d'un site touristique
+	Texte
+	
+
+	
+
+	DureeVisiteST
+	Durée réservée (en minutes) pour la visite d'un site touristique
+	Entier
+	>0
+	
+
+	HeureAnimation
+	Heure d'une animation
+	Heure (HH:MM)
+	
+
+	
+
+	HeureVisiteST
+	Heure de visite d'un site touristique
+	Heure (HH:MM)
+	
+
+	
+
+	JourAct
+	Jour d'une activité proposé dans un circuit
+	Enum CC(8)
+	lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche
+	
+
+	JourAnimation
+	Jour de passage d'une animation
+	Enum CC(8)
+	lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche
+	
+
+	JourVisiteST
+	Jour de visite d'un site touristique
+	Enum CC(8)
+	lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche
+	
+
+	MelH
+	Adresse e-mail d'un hotel
+	CC (100) / xxxx@xxx.xxx
+	Peut être nul si le numéro de téléphone de l'hotel est mentionné
+	
+
+	JourSejour
+	Le jour du séjour qu'un client passe dans un hotel
+	Entier
+	entre 1 et 7
+	
+
+	NbMaxPersCir
+	Nombre maximal de personnes dans un circuit touristique
+	Entier
+	>0
+	
+
+	NbPers
+	Nombre de personnes comprises dans la réservation d'un client
+	Entier
+	>0
+	
+
+	NbPlaceRestCir
+	Nombre de places restantes dans un circuit touristique
+	Entier
+	>= 0
+	NbMaxPersCir-NbPersC
+	Niveau
+	Niveau de la langue d'un guide
+	Enum
+	Excellent, bon, moyen, quelques notions, mots de base
+	
+
+	NomA
+	Nom d'un animateur
+	CC(30)
+	
+
+	
+
+	NomAct
+	Nom d'une activité
+	CC(30)
+	
+
+	
+
+	NomC
+	Nom du Client
+	CC(50)
+	
+
+	
+
+	NomCir
+	Nom du Circuit touristique
+	CC(30)
+	
+
+	
+
+	NomG
+	Nom d'un guide
+	CC (50)
+	
+
+	
+
+	NomH
+	Nom d'un hotel
+	CC(30)
+	
+
+	
+
+	NomL
+	Nom d'une langue
+	CC (15)
+	
+
+	
+
+	NomPays
+	Pays parcouru dans un circuit
+	CC(30)
+	
+
+	
+
+	NomZ
+	Nom de la zone géographique du pays parcouru par un circuit
+	Enum CC(10)
+	Nord, Sud, Ouest, Est, Nord-Ouest, Nord-Est, Sud-Est, Sud-Ouest
+	
+
+	NumOrdre
+	Numéro de l'occurrence de visites sur un site touristique
+	Entier
+	>0
+	
+
+	OrdrePreference
+	Ordre de préférence d'un client pour une pré-sélection
+	Enum Entier
+	1, 2, 3
+	
+
+	PrenomC
+	Prénom Du client
+	CC(50)
+	
+
+	
+
+	PrenomG
+	Prenom d'un guide
+	CC (50)
+	
+
+	
+
+	PrixBaseCir
+	Prix de base d'un circuit sans majoration
+	Réél (monétaire)
+	>0
+	
+
+	PrixMajoCir
+	Prix de la majoration d'un circuit en fonction de l'aéroport et la date de départ
+	Réél (monétaire)
+	>0
+	
+
+	TarifAct
+	Tarif d'une activité
+	Réél (monétaire)
+	>0
+	
+
+	TelC
+	Numéro de téléphone du client
+	CC(16)
+	
+
+	
+
+	TelH
+	Numéro de téléphone de l'hôtel
+	CC(16)
+	Peut être nul si l'adresse e-mail de l'hotel est mentionnée
+	
+
+	TempMaxPays
+	Température maximale (en °C) d'un pays pour un mois donnée
+	Réel 0,0°C
+	
+
+	
+
+	TempMinPays
+	Température minimale (en °C) d'un pays pour un mois donnée
+	Réel 0,0°C
+	
+
+	
+
+	TypeAnimation
+	Type d'une animation
+	Enum CC(20)
+	Concert, Danse Folklorique, Danse, Cabaret, Karaoké
+	
+
+	TypeST
+	Type d'un site touristique
+	Enum CC(20)
+	site historique, site religieux, paysage, commerce, autres
+	
+
+	VilleH
+	Ville dans laquelle est située l'hôtel
+	CC(50)
+	
+
+	
+
+	
+
+
+
+Hypothèses :
+
+
+Pour gérer le fait que un site peut être éventuellement visité deux fois au cours d’un même circuit, on a crée une classe fictive ORDRE avec comme clé primaire NumOrdre, ce qui permet d’avoir plusieurs fois une visite d’un sit au cours du meme circuits (on peux donc avoir plusieurs fois le couple (CodeCir, CodeST) sans avoir de problème de clé primaire qui se répete. 
+
+
+Sachant qu’on stocke que le nombre maximum de personnes dans un circuit, et le nombre de personnes dans une réservation, on n’a pas à stocker le nombre de places restantes sur un circuit (celui-ci est calculable).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Schéma Entité - Association:
+
+
+  
+
+
+
+
+
+
+
+Schéma relationnel:
+
+
+CLIENT= (CodeC, NomC, PrenomC, TelC, AdrMelC)
+
+
+PAYS = (CodeISO, NomPays, AvisGeneralPays)
+
+
+SITE_TOURISTIQUE = (CodeST, DescST, TypeST)
+
+
+GUIDE = (CodeG, NomG, PrenomG, DateEntreeG)
+
+
+LANGUE = (CodeL, NomL);
+
+
+HOTEL = (CodeH, NomH, VilleH, CatH, TelH, MelH)
+
+
+ANIMATEUR = (CodeA, NomA, TypeAnimation, HeureAnimation, JourAnimation, #CodeH)
+
+
+ACTIVITE = (CodeAct, NomAct, TarifAct)
+
+
+AEROPORT = (CodeAero, AeroportDepCir)
+
+
+ZONEGEO = (NomZ)
+
+
+CIRCUIT = (CodeCir, NomCir , NbMaxPersCir, PrixBaseCir , #CodeCir_precedent, #CodeISO)
+
+
+Reserver = (#CodeC, #CodeAero, #CodeCir, DateResC, NbPers)
+
+
+Permettre_Visite = (#CodeCir, #CodeST, NumOrdre JourVisiteST, HeureVisiteST, DureeVisiteST,)
+
+
+Associer = (#CodeCir, #CodeG, DateDepCir)
+
+
+Pratiquer = (#CodeG, #CodeL, Niveau)
+
+
+Heberger = (#CodeCir, #CodeH, JourSejour)
+
+
+Offrir = (#CodeCir, #CodeAct, DateDepCir, JourAct)
+
+
+Pre_Selectionner = (#CodeC, #CodeCir, #CodeAero, OrdrePreference)
+
+
+Proposer_2 = (#CodeCir, #CodeAero, DateDepCir, PrixMajoCir)
+
+
+Preciser = (#CodeISO, MoisP, AnneeP, TempMaxPays, TempMinPays, AvisMTemps)
+
+
+Associer_2 = (#CodeAct, DateDebP, DateFinP)
+
+
+Parcourir_Zone = (#CodeCir, #NomZ)
+
+
+
+
+
+
+Choix de l’outil pour la planification et suivi des tâches:
+On a décidé d’utiliser un diagramme de Gantt pour la planification et le suivi des tâches.
+Pour se faire, on va utiliser Notion pour le modéliser.
+* Mode collaboratif
+* Accessibilité
+* Plusieurs visuels
+* Multi-fonction
+* Gratuit
+
+
+M1 MIAGE FI - Groupe 1                                                                /6

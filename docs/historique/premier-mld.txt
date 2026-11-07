@@ -1,0 +1,64 @@
+﻿CLIENT= (CodeC, NomC, PrenomC, TelC, AdrMelC)
+
+
+PAYS = (CodeISO, NomPays, AvisGeneralPays)
+
+
+SITE_TOURISTIQUE = (CodeST, DescST, TypeST)
+
+
+GUIDE = (CodeG, NomG, PrenomG, DateEntreeG)
+
+
+LANGUE = (CodeL, NomL);
+
+
+HOTEL = (CodeH, NomH, VilleH, CatH, TelH, MelH)
+
+
+ANIMATEUR = (CodeA, NomA, TypeAnimation, HeureAnimation, JourAnimation, #CodeH)
+
+
+ACTIVITE = (CodeAct, NomAct, TarifAct)
+
+
+AEROPORT = (CodeAero, AeroportDepCir)
+
+
+ZONEGEO = (NomZ)
+
+
+CIRCUIT = (CodeCir, NomCir , NbMaxPersCir, PrixBaseCir , #CodeCir_precedent, #CodeISO)
+
+
+Reserver = (#CodeC, #CodeAero, #CodeCir, DateResC, NbPers)
+
+
+Permettre_Visite = (#CodeCir, #CodeST, JourVisiteST, HeureVisiteST, DureeVisiteST, NumOrdre)
+
+
+Associer = (#CodeCir, #CodeG, DateDepCir)
+
+
+Pratiquer = (#CodeG, #CodeL, Niveau)
+
+
+Heberger = (#CodeCir, #CodeH, JourSejour)
+
+
+Offrir = (#CodeCir, #CodeAct, DateDepCir, JourAct)
+
+
+Pre_Selectionner = (#CodeC, #CodeCir, #CodeAero, OrdrePreference)
+
+
+Proposer_2 = (#CodeCir, #CodeAero, DateDepCir, PrixMajoCir)
+
+
+Preciser = (#CodeISO, MoisP, AnneeP, TempMaxPays, TempMinPays, AvisMTemps)
+
+
+Associer_2 = (#CodeAct, DateDebP, DateFinP)
+
+
+Parcourir_Zone = (#CodeCir, #NomZ)
