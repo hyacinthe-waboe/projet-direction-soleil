@@ -87,3 +87,11 @@ Le trigger et ses explications figurent dans les versions du rapport récupéré
 La feuille de temps détaille la préparation de la présentation par Jesus, la répartition de parole et la finalisation du support par Tsinjo, les derniers schémas par Adrien, et la préparation orale de Synthèse direction par Hyacinthe. Ces indications décrivent la préparation, sans attribuer à une personne la totalité du support collectif.
 
 **Version réelle :** révision 10224 du rapport, 5 novembre à 22:02 UTC. Son archivage conserve les dernières corrections de rédaction et les justifications disponibles. Aucun export PDF de présentation daté du 5 n'a été retrouvé ; le PDF final déjà publié n'est pas redaté artificiellement.
+
+## 6 novembre 2026 — Livraison finale
+
+Le calendrier transmis par Hyacinthe place la livraison et la soutenance le 6 novembre. La feuille de temps consultée détaille les activités jusqu'au jeudi 5 ; elle ne contient pas de ligne de travail pour le vendredi 6. Le document de rendu comporte des révisions du 6, dont la révision 10421 à 10:16 UTC et la révision 10433 à 11:35 UTC. Ses métadonnées actuelles indiquent une modification à 15:52 UTC ; cette différence est conservée comme limite des sources et n'est pas résolue par supposition.
+
+**Version conservée :** texte courant du rendu récupéré lors de la reconstruction, distinct des révisions précédentes. La présentation PDF déjà publiée porte le 6 novembre ; le rapport PDF porte encore le 3 novembre en en-tête. Ces dates imprimées sont conservées telles quelles et ne permettent pas de dater chaque correction.
+
+Les six scripts, les deux PDF et le PBIX finaux restent exactement ceux de la publication publique validée. Aucun jeu de données brut non neutralisé n'est réintroduit pour simuler la livraison. Les contrôles de reconstruction ne constituent pas une réexécution des tests Oracle historiques.

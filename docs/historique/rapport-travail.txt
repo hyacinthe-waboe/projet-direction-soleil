@@ -1,15 +1,11 @@
 ﻿Date : 03/11/2026                                                                M1 MIAGE FI
-  
-
-DIRECTION SOLEIL 
+GROUPE 1   
 TERAN GODOY Jesus
 WABOE Hyacinthe
 RANDRIANARISON Tsinjo
 THEOPHILE Adrien
 RASAMOELINA Ny Toavimpahendrena
 EDERY Simon
-
-
   
 
 
@@ -82,54 +78,54 @@ Table des figures        4
 2.1.3. Requête 3        9
 2.1.4. Requête 4        10
 2.1.5. Requête 5        12
-2.1.6. Requête 6        12
+2.1.6. Requête 6        13
 2.1.7. Requête 7        13
 2.1.8. Requête 8        14
-2.1.9. Requête 9        17
+2.1.9. Requête 9        16
 2.1.10. Requête 10        18
-2.2. Requêtes SQL Supplémentaires        20
-2.2.1. Chiffre d'affaires total par départ        20
-2.2.2. Arbitrage de prix entre présélections d'un même circuit        22
-2.2.3. Animations accessibles pendant les séjours        25
-2.2.4. Départs proposés sans réservation        26
-2.2.5. Départs prévus pendant les mois les plus chauds        27
-2.3. Requêtes d’extraction        30
-2.3.1. Requête d'extraction - TABLE_PRINCIPALE        30
-2.3.2. Requête d'extraction - TABLE_ZONES        31
-2.3.3. Requête d'extraction - TABLE_DEPARTS        32
-3 - Transformation des données et rapports PowerBI        33
-3.1. Transformation des données        33
-3.2. Rapports PowerBI        34
-3.2.1. Synthèse direction:        34
-3.2.2. Planning et Remplissage        36
-3.2.3. Destination et Climat        37
-4 - Annexes        39
-4.1. Création des tables de la base de données        39
-4.1.1. Table CLIENTS        39
-4.1.2. Table AEROPORTS_DEP        39
-4.1.3. Table CIRCUITS        39
-4.1.4. Table CHOIX        40
-4.1.5. Table RESERVER        40
-4.1.6. Table MAJORATION        41
-4.1.7. Table HOTELS        41
-4.1.8. Table LOGER        41
-4.1.9. Table ANIMATIONS        42
-4.1.10. Table ACTIVITE        42
-4.1.11. Table VALIDITE        43
-4.1.12. Table REALISER        43
-4.1.13. Table SITES        43
-4.1.14. Table VISITER        44
-4.1.15. Table MOIS        44
-4.1.16. Table PAYS        45
-4.1.17. Table AVIS        45
-4.1.18. Table Zone_Geo        45
-4.1.19. Table SITUER        46
-4.1.20. Table GUIDES        46
-4.1.21. Table ACCOMPAGNER        46
-4.1.22. Table LANGUE        47
-4.1.23. Table PRATIQUER        47
-4.2. Création de la vue ANIMATIONS_H        47
-4.3 Création du trigger sur RESERVER        48
+2.2. Requêtes SQL Supplémentaires        19
+2.2.1. Chiffre d'affaires total par départ        19
+2.2.2. Arbitrage de prix entre présélections d'un même circuit        21
+2.2.3. Animations accessibles pendant les séjours        23
+2.2.4. Départs proposés sans réservation        24
+2.2.5. Départs prévus pendant les mois les plus chauds        26
+2.3. Requêtes d’extraction        28
+2.3.1. Requête d'extraction - TABLE_PRINCIPALE        28
+2.3.2. Requête d'extraction - TABLE_ZONES        29
+2.3.3. Requête d'extraction - TABLE_DEPARTS        30
+3 - Transformation des données et rapports PowerBI        31
+3.1. Transformation des données        31
+3.2. Rapports PowerBI        32
+3.2.1. Synthèse direction:        32
+3.2.2. Planning et Remplissage        33
+3.2.3. Destination et Climat        34
+4 - Annexes        36
+4.1. Création des tables de la base de données        36
+4.1.1. Table CLIENTS        36
+4.1.2. Table AEROPORTS_DEP        36
+4.1.3. Table CIRCUITS        36
+4.1.4. Table CHOIX        37
+4.1.5. Table RESERVER        37
+4.1.6. Table MAJORATION        38
+4.1.7. Table HOTELS        38
+4.1.8. Table LOGER        39
+4.1.9. Table ANIMATIONS        39
+4.1.10. Table ACTIVITE        39
+4.1.11. Table VALIDITE        40
+4.1.12. Table REALISER        40
+4.1.13. Table SITES        40
+4.1.14. Table VISITER        41
+4.1.15. Table MOIS        41
+4.1.16. Table PAYS        42
+4.1.17. Table AVIS        42
+4.1.18. Table Zone_Geo        42
+4.1.19. Table SITUER        43
+4.1.20. Table GUIDES        43
+4.1.21. Table ACCOMPAGNER        43
+4.1.22. Table LANGUE        44
+4.1.23. Table PRATIQUER        44
+4.2. Création de la vue ANIMATIONS_H        44
+4.3 Création du trigger sur RESERVER        45
 
 
 ________________
@@ -145,17 +141,17 @@ Figure 4 : Résultat de la requête 4  sur SQL Developer        11
 Figure 5 : Résultat de la requête 5 sur SQL Developer        12
 Figure 6 : Résultat de la requête 6 sur SQL Developer        13
 Figure 7 : Résultat de la requête 7 sur SQL Developer        14
-Figure 8: Résultat de la requête 8 sur SQL Developer        16
+Figure 8: Résultat de la requête 8 sur SQL Developer        15
 Figure 9: Résultat de la requête 9 sur SQL Developer        17
 Figure 10: Résultat de la requête 10 sur SQL Developer        18
-Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        21
-Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        23
-Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer        25
-Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        26
-Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        28
-Figure 16: Tableau de bord Power BI sur la partie synthèse direction:        34
-Figure 17 : Tableau de bord PowerBI sur la planification des circuits et le remplissage        36
-Figure 18 : Tableau de bord Power BI sur la partie destinations et climat        37
+Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        20
+Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        22
+Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer        23
+Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        25
+Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        27
+Figure 16: Tableau de bord Power BI sur la partie synthèse direction:        32
+Figure 17 : Tableau de bord PowerBI sur la planification des circuits et le remplissage        33
+Figure 18 : Tableau de bord Power BI sur la partie destinations et climat        34
 ________________
 
 
@@ -406,7 +402,10 @@ Figure 6 : Résultat de la requête 6 sur SQL Developer
 Justification :
 
 
-On compte d'abord les clients uniques (COUNT(DISTINCT c.codec)) ayant effectué une réservation au cours de l'année 2025 (TO_CHAR(r.DateResa, 'yyyy') = '2025'). Ensuite, la clause NOT IN associée à la sous-requête permet d'exclure tous les clients qui avaient enregistré un choix de préférence CHOIX pour ce même voyage (en faisant correspondre le circuit, l'aéroport et la date de départ).
+La requête compte les clients distincts ayant effectué une réservation en 2025 sans présélection correspondante dans la table CHOIX. La condition NOT IN permet d'exclure les clients ayant présélectionné le même circuit, le même aéroport et la même date de départ.
+
+
+Cependant, la table CHOIX ne contient pas de date d'enregistrement des préférences. Il n'est donc pas possible de vérifier précisément si une présélection a été effectuée avant la réservation.
 2.1.7. Requête 7
 
 
@@ -477,9 +476,6 @@ Résultat :
 Figure 8: Résultat de la requête 8 sur SQL Developer
 
 
-________________
-
-
 Justification :
 
 
@@ -532,17 +528,20 @@ Figure 9: Résultat de la requête 9 sur SQL Developer
 Justification :
 
 
-La requête  est une division relationnelle : on cherche les circuits, partant de Toulouse, qui visitent tous les sites tunisiens. SQL n’a pas de quantificateur "pour tout", donc on le remplace par une double négation équivalente. Ainsi, "le circuit visite tous les sites tunisiens" revient à dire "il n’existe aucun site tunisien que le circuit ne visite pas".
+La requête permet d'identifier les circuits proposés au départ de Toulouse qui visitent tous les sites touristiques associés à la Tunisie et disposent encore de places. Nous utilisons une double négation avec NOT EXISTS pour vérifier qu'il n'existe aucun site tunisien que le circuit ne visite pas.
 
 
-Le NOT EXISTS extérieur parcourt les sites tunisiens (ceux visités par un circuit situé en Tunisie). Le NOT EXISTS intérieur vérifie, pour chacun, si le circuit le visite. Un seul site manqué élimine le circuit. La condition NOT IN permet ensuite d'exclure les dates où le circuit est complet, en tenant compte des réservations de tous les aéroports, tout en sélectionnant uniquement les départs proposés depuis Toulouse.
+La condition NOT IN permet d'exclure les dates où le circuit est complet, en tenant compte des réservations de tous les aéroports. Dans notre modèle, les sites ne sont pas directement associés à un pays. Nous identifions donc les sites tunisiens à partir des sites visités par les circuits situés en Tunisie.
 
 
-Le résultat est "Perles de Tunisie". Les sites tunisiens sont les sites 1 à 7. Seul ce circuit les visite tous, alors que les quatre autres circuits tunisiens en manquent au moins un. Ce résultat correspond bien à la définition de l'énoncé.
+Cette méthode fonctionne avec notre jeu de données, mais suppose que l'ensemble de ces visites couvre tous les sites touristiques tunisiens concernés.
 
 
 
 
+
+
+________________
 2.1.10. Requête 10
 
 
@@ -582,6 +581,8 @@ Utilité métier : Comparer les départs selon leur chiffre d'affaires afin d'id
 
 
 Requête SQL :
+
+
 SELECT CI.NomCI, A.NomA, R.DateDepartR, SUM(R.NbPers) AS TotalVoyageurs,
        SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) AS ChiffreAffaires
 FROM CIRCUITS CI, AEROPORTS_DEP A, MAJORATION M, Reserver R
@@ -592,9 +593,16 @@ AND M.CodeA = R.CodeA
 AND M.DateDepartM = R.DateDepartR
 GROUP BY CI.CodeCI, CI.NomCI, A.CodeA, A.NomA, R.DateDepartR
 ORDER BY ChiffreAffaires DESC;
+
+
+________________
+
+
 Résultat : 
   
-…  
+…
+  
+
 Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer
 
 
@@ -685,10 +693,15 @@ AND L.CodeH = H.CodeH
 AND H.CodeH = A.CodeH
 AND L.JourSe = A.JourSemaine
 ORDER BY CI.NomCI, L.JourSe;
+
+
 Résultat : 
   
 
 Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer
+________________
+
+
 Justification : 
 
 
@@ -696,6 +709,8 @@ La requête permet d'identifier les animations proposées dans les hôtels penda
 
 
 Pour vérifier les résultats, on constate dans LOGER que le circuit "Andalousie authentique" prévoit un séjour à l'hôtel "Sevilla Plaza" le lundi. Dans ANIMATIONS, cet hôtel propose justement une animation "Danse Flamenco Traditionnelle" le lundi à 20 h 30. En effectuant cette vérification pour les autres circuits, on retrouve 6 animations correspondant aux jours de séjour, réparties sur 5 circuits, ce qui correspond aux données de notre base.
+
+
 2.2.4. Départs proposés sans réservation
 
 
@@ -1025,7 +1040,7 @@ ________________
 4.1. Création des tables de la base de données
 Toutes les clés primaires de type NUMBER sont supérieures à 0.
 Toutes les colonnes des tables sont renseignées sauf si mentionné.
-ON DELETE CASCADE  supprime une ligne référencée par une clé étrangère sans générer d’erreur. Les lignes sont supprimées automatiquement.
+ON DELETE CASCADE permet de supprimer automatiquement les lignes d'une table enfant lorsqu'une ligne référencée de la table parent est supprimée. Cela garantit la cohérence référentielle.
 
 
 4.1.1. Table CLIENTS
@@ -1356,11 +1371,10 @@ CREATE TABLE PRATIQUER (
    CONSTRAINT ck_pratiquer_niveauL CHECK (NiveauL IN
        ('excellent', 'bon', 'moyen', 'quelques notions', 'mots de base')) -- valeurs prises par le niveau de langue
 );
+
+
 4.2. Création de la vue ANIMATIONS_H
-Une vue sur la table ANIMATIONS a été créée afin d’afficher la colonne HeureDeb au format ‘HH:MM’. 
-
-
-En effet, cette colonne est de type DATE et si une donnée est insérée au format ‘HH:MM’, une date par défaut lui sera attribuée. En supposant que cette colonne ne sera pas utilisée pour des calculs, elle a été transformée en chaîne de caractères. Ainsi, cette vue sera manipulée à la place de la table ANIMATIONS.
+Nous avons créé la vue ANIMATIONS_H afin d'afficher l'heure de début des animations au format HH24:MI. La colonne HeureDeb étant de type DATE sous Oracle, la fonction TO_CHAR permet d'afficher uniquement l'heure et les minutes, sans modifier les données de la table d'origine.
 
 
 -- Vue de la table animation permettant d’afficher heuredeb au format hh:mm
@@ -1375,33 +1389,96 @@ ________________
 4.3 Création du trigger sur RESERVER
 
 
-Le dictionnaire de données définit Nb Pers Max comme le nombre maximum de personnes acceptées dans un circuit. Cette règle ne pouvant pas s’exprimer par un CHECK, car elle compare NbPers (table RESERVER) à NbPersMax (table CIRCUITS), nous avons ajouté un trigger qui refuse toute réservation dépassant la capacité du circuit:
+Le dictionnaire de données définit NbPersMax comme le nombre maximum de voyageurs acceptés pour un circuit.
 
 
--- Interdit une réservation dont le nombre de personnes dépasse la capacité du circuit
+Cette contrainte ne peut pas être vérifiée avec un simple CHECK, car elle nécessite de comparer les données des tables RESERVER et CIRCUITS.
+
+
+Nous avons donc créé un trigger permettant de contrôler le nombre total de voyageurs inscrits pour un même circuit et une même date de départ, tous aéroports confondus.
+
+
+Code SQL :
+
+
+-- Vérifie que le nombre total de voyageurs
+-- ne dépasse pas la capacité maximale du circuit
 CREATE OR REPLACE TRIGGER trg_reserver_nbpers
-BEFORE INSERT OR UPDATE OF NbPers, CodeCI ON RESERVER
-FOR EACH ROW
+AFTER INSERT OR UPDATE ON RESERVER
+
+
 DECLARE
-    -- capacité du circuit réservé
-    v_nbpersmax CIRCUITS.NbPersMax%TYPE;
+    -- Nombre de départs dépassant leur capacité
+    v_depasse NUMBER;
+
+
 BEGIN
-    -- On vérifie la capacité de la réservation avant
-    SELECT NbPersMax
-    INTO   v_nbpersmax
-    FROM   CIRCUITS
-    WHERE  CodeCI = :NEW.CodeCI;
+    -- Recherche les départs dont le total de voyageurs
+    -- dépasse la capacité maximale autorisée
+    SELECT COUNT(*) INTO v_depasse
+    FROM (
+        SELECT r.CodeCI, r.DateDepartR
+        FROM RESERVER r, CIRCUITS c
+        WHERE r.CodeCI = c.CodeCI
 
 
-    -- Si le nombre de personnes de la réservation dépasse la capacité, on annule
-    IF :NEW.NbPers > v_nbpersmax THEN
+        -- Regroupe les réservations par circuit et date,
+        -- tous aéroports confondus
+        GROUP BY r.CodeCI, r.DateDepartR, c.NbPersMax
+
+
+        -- Compare les voyageurs inscrits
+        -- à la capacité maximale du circuit
+        HAVING SUM(r.NbPers) > c.NbPersMax
+    );
+
+
+    -- Si un départ dépasse sa capacité,
+    -- une erreur empêche la réservation
+    IF v_depasse > 0 THEN
         RAISE_APPLICATION_ERROR(-20001,
-            'Réservation impossible : ' || :NEW.NbPers ||
-            ' personnes pour une capacité de ' || v_nbpersmax);
+            'Capacité maximale du circuit dépassée');
     END IF;
-END trg_reserver_nbpers;
+
+
+END;
 /
 
 
-Limite : Le trigger vérifie chaque réservation séparément : il ne contrôle pas le total des réservations d’un même départ, qui peut donc dépasser la capacité du circuit. 
+
+
+
+
+Justification :
+
+
+Le trigger se déclenche après chaque instruction d'insertion ou de modification dans la table RESERVER. Il utilise GROUP BY pour regrouper les réservations par circuit et date de départ, puis HAVING pour identifier les départs dont le nombre total de voyageurs dépasse NbPersMax.
+
+
+Si au moins un dépassement est détecté, RAISE_APPLICATION_ERROR génère une erreur et annule l'opération concernée.
+
+
+Nous avons choisi un trigger AFTER sans FOR EACH ROW afin de pouvoir consulter la table RESERVER après sa modification, sans provoquer l'erreur Oracle de table mutante (ORA-04091).
+
+
+Limite :
+
+
+Cette solution vérifie le cumul des voyageurs après chaque instruction, mais ne garantit pas entièrement la gestion des réservations effectuées simultanément par plusieurs transactions. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Groupe 1                                                                                         /
