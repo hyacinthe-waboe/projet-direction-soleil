@@ -26,3 +26,4 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `rapport-travail.txt` | Rapport, révision 6776, 2026-11-03 16:00:14 UTC | Intégration des extractions et rédaction en cours |
 | `rapport-travail.txt` | Rapport, révision 10072, 2026-11-04 18:01:41 UTC | Corrections techniques et explications du rapport |
 | `../../powerbi/historique/trois-analyses.pbix` | Copie locale Tableau_de_Bord_Final (1).pbix, entrées ZIP du 2026-11-04 16:54 | Copie binaire inchangée ; trois pages et données enrichies |
+| `rapport-travail.txt` | Rapport, révision 10224, 2026-11-05 22:02:19 UTC | État de rédaction effectivement conservé le 5 novembre |

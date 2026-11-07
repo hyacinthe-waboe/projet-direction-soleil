@@ -7,6 +7,7 @@ WABOE Hyacinthe
 RANDRIANARISON Tsinjo
 THEOPHILE Adrien
 RASAMOELINA Ny Toavimpahendrena
+EDERY Simon
 
 
   
@@ -80,54 +81,55 @@ Table des figures        4
 2.1.2. Requête 2        8
 2.1.3. Requête 3        9
 2.1.4. Requête 4        10
-2.1.5. Requête 5        11
+2.1.5. Requête 5        12
 2.1.6. Requête 6        12
 2.1.7. Requête 7        13
 2.1.8. Requête 8        14
-2.1.9. Requête 9        16
-2.1.10. Requête 10        17
-2.2. Requêtes SQL Supplémentaires        18
-2.2.1. Chiffre d'affaires total par départ        18
-2.2.2. Arbitrage de prix entre présélections d'un même circuit        21
-2.2.3. Animations accessibles pendant les séjours        24
-2.2.4. Départs proposés sans réservation        25
-2.2.5. Départs prévus pendant les mois les plus chauds        26
-2.3. Requêtes d’extraction        28
-2.3.1. Requête d'extraction - TABLE_PRINCIPALE        28
-2.3.2. Requête d'extraction - TABLE_ZONES        29
-2.3.3. Requête d'extraction - TABLE_DEPARTS        30
-3 - Transformation des données et rapports Power BI        31
-3.1. Transformation des données        31
-3.2. Rapports Power BI        32
-3.2.1. Synthèse direction:        32
-3.2.2. Planning et Remplissage        33
-3.2.3. Destination et Climat        34
-4 - Annexes        35
-4.1. Création des tables de la base de données        35
-4.1.1. Table CLIENTS        35
-4.1.2. Table AEROPORTS_DEP        35
-4.1.3. Table CIRCUITS        35
-4.1.4. Table CHOIX        36
-4.1.5. Table RESERVER        36
-4.1.6. Table MAJORATION        37
-4.1.7. Table HOTELS        37
-4.1.8. Table LOGER        37
-4.1.9. Table ANIMATIONS        38
-4.1.10. Table ACTIVITE        38
-4.1.11. Table VALIDITE        39
-4.1.12. Table REALISER        39
-4.1.13. Table SITES        39
-4.1.14. Table VISITER        40
-4.1.15. Table MOIS        40
-4.1.16. Table PAYS        40
-4.1.17. Table AVIS        41
-4.1.18. Table Zone_Geo        41
-4.1.19. Table SITUER        41
-4.1.20. Table GUIDES        42
-4.1.21. Table ACCOMPAGNER        42
-4.1.22. Table LANGUE        42
-4.1.23. Table PRATIQUER        43
-4.2. Création de la vue ANIMATIONS_H        43
+2.1.9. Requête 9        17
+2.1.10. Requête 10        18
+2.2. Requêtes SQL Supplémentaires        20
+2.2.1. Chiffre d'affaires total par départ        20
+2.2.2. Arbitrage de prix entre présélections d'un même circuit        22
+2.2.3. Animations accessibles pendant les séjours        25
+2.2.4. Départs proposés sans réservation        26
+2.2.5. Départs prévus pendant les mois les plus chauds        27
+2.3. Requêtes d’extraction        30
+2.3.1. Requête d'extraction - TABLE_PRINCIPALE        30
+2.3.2. Requête d'extraction - TABLE_ZONES        31
+2.3.3. Requête d'extraction - TABLE_DEPARTS        32
+3 - Transformation des données et rapports PowerBI        33
+3.1. Transformation des données        33
+3.2. Rapports PowerBI        34
+3.2.1. Synthèse direction:        34
+3.2.2. Planning et Remplissage        36
+3.2.3. Destination et Climat        37
+4 - Annexes        39
+4.1. Création des tables de la base de données        39
+4.1.1. Table CLIENTS        39
+4.1.2. Table AEROPORTS_DEP        39
+4.1.3. Table CIRCUITS        39
+4.1.4. Table CHOIX        40
+4.1.5. Table RESERVER        40
+4.1.6. Table MAJORATION        41
+4.1.7. Table HOTELS        41
+4.1.8. Table LOGER        41
+4.1.9. Table ANIMATIONS        42
+4.1.10. Table ACTIVITE        42
+4.1.11. Table VALIDITE        43
+4.1.12. Table REALISER        43
+4.1.13. Table SITES        43
+4.1.14. Table VISITER        44
+4.1.15. Table MOIS        44
+4.1.16. Table PAYS        45
+4.1.17. Table AVIS        45
+4.1.18. Table Zone_Geo        45
+4.1.19. Table SITUER        46
+4.1.20. Table GUIDES        46
+4.1.21. Table ACCOMPAGNER        46
+4.1.22. Table LANGUE        47
+4.1.23. Table PRATIQUER        47
+4.2. Création de la vue ANIMATIONS_H        47
+4.3 Création du trigger sur RESERVER        48
 
 
 ________________
@@ -141,19 +143,19 @@ Figure 2 : Résultat de la requête 2  sur SQL Developer        8
 Figure 3 : Résultat de la requête 3 sur SQL Developer        9
 Figure 4 : Résultat de la requête 4  sur SQL Developer        11
 Figure 5 : Résultat de la requête 5 sur SQL Developer        12
-Figure 6 : Résultat de la requête 6 sur SQL Developer        12
-Figure 7 : Résultat de la requête 7 sur SQL Developer        13
-Figure 8: Résultat de la requête 8 sur SQL Developer        15
-Figure 9: Résultat de la requête 9 sur SQL Developer        16
-Figure 10: Résultat de la requête 10 sur SQL Developer        17
-Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        19
-Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        22
-Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer        24
-Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        25
-Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        27
-Figure 16: Tableau de bord Power BI sur la partie synthèse direction:        32
-Figure 17 : Tableau de bord Power BI sur la planification des circuits et le remplissage        33
-Figure 18 : Tableau de bord Power BI sur la partie destinations et climat        34
+Figure 6 : Résultat de la requête 6 sur SQL Developer        13
+Figure 7 : Résultat de la requête 7 sur SQL Developer        14
+Figure 8: Résultat de la requête 8 sur SQL Developer        16
+Figure 9: Résultat de la requête 9 sur SQL Developer        17
+Figure 10: Résultat de la requête 10 sur SQL Developer        18
+Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        21
+Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        23
+Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer        25
+Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        26
+Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        28
+Figure 16: Tableau de bord Power BI sur la partie synthèse direction:        34
+Figure 17 : Tableau de bord PowerBI sur la planification des circuits et le remplissage        36
+Figure 18 : Tableau de bord Power BI sur la partie destinations et climat        37
 ________________
 
 
@@ -194,7 +196,7 @@ ________________
 
 
 Lors de l’élaboration du modèle relationnel, on s’est aperçu de quelques modifications indispensables pour garantir le bon fonctionnement de la base de données :
-* Un changement des noms des attributs “Date” données sur le dictionnaire de données était nécessaire. Pour éviter toute ambiguïté avec le type de données DATE sous Oracle, nous avons renommé les attributs concernés. Donc pour la relation Reserver par exemple, au lieu de mettre “Date” comme nom, nous avons plutôt défini “DateDepartR”. Les noms d’attributs choisis sont : DateDepartC, DateDepartM, DateDepartA, DateDepartRe.
+* Un changement des noms des attributs “Date” donnés sur le dictionnaire de données était nécessaire. Pour éviter toute ambiguïté avec le type de données DATE sous Oracle, nous avons renommé les attributs concernés. Donc pour la relation RESERVER par exemple, au lieu de mettre “Date” comme nom, nous avons plutôt défini “DateDepartR”. Les noms d’attributs choisis sont : DateDepartC, DateDepartM, DateDepartA, DateDepartRe pour les relations suivantes respectivement : CHOIX, MAJORATION, ACCOMPAGNER et REALISER.
 * Tous les noms des relations ont été définis en majuscules.
 * Tous les attributs ou tables ayant des accents ont été écrits sans accents.
 ________________
@@ -255,10 +257,10 @@ AND c.codeCI IN (
     AND UPPER(h.NomH) = 'LION D''OR'
 )
 AND c.codeCI IN (
-    SELECT l.codeci
-    FROM Hotels h, loger l
-    WHERE h.codeH = l.codeH
-    AND UPPER(h.NomH) = 'EDEN'
+    SELECT l2.codeci
+    FROM Hotels h2, loger l2
+    WHERE h2.codeH = l2.codeH
+    AND UPPER(h2.NomH) = 'EDEN'
 );
 Résultat : 
   
@@ -324,6 +326,9 @@ AND a.CodeA = r.CodeA
 GROUP BY c.CodeCI, c.NomCI, c.NbPersMax,
 a.CodeA, a.NomA, r.DateDepartR
 ORDER BY c.NomCI, a.NomA, r.DateDepartR;
+________________
+
+
 Résultat : 
   
 
@@ -373,6 +378,7 @@ Justification :
 Pour chaque guide ayant accompagné au moins un circuit, on va compter le nombre de circuits différents qu’ils ont effectués HAVING COUNT(DISTINCT a.codeCI). On va comparer ce résultat avec le nombre de circuits calculé pour tous les autres guides dans la sous-requête, grâce à l'opérateur >= ALL.
 
 
+________________
 2.1.6. Requête 6
 
 
@@ -462,9 +468,6 @@ HAVING COUNT(DISTINCT r.codeci)  =
         GROUP BY r2.codeC
      )
 ORDER BY p.nomP ASC;
-________________
-
-
 Résultat : 
   
 
@@ -472,6 +475,9 @@ Résultat :
   
 
 Figure 8: Résultat de la requête 8 sur SQL Developer
+
+
+________________
 
 
 Justification :
@@ -659,7 +665,6 @@ Proposition d'ajout de données :
 Nous pourrions ajouter dans la table CHOIX une troisième présélection pour “Medhi TERRANER” concernant le circuit “Les saveurs tunisiennes”, avec une autre date ou un autre aéroport de départ déjà présent dans MAJORATION. Cela permettrait de vérifier que la requête affiche bien les différentes possibilités choisies par un même client et compare leurs prix en fonction des majorations.
 
 
-________________
 2.2.3. Animations accessibles pendant les séjours
 
 
@@ -710,6 +715,9 @@ AND NOT EXISTS (
     AND R.DateDepartR = M.DateDepartM
 )
 ORDER BY CI.NomCI, M.DateDepartM;
+________________
+
+
 Résultat : 
   
 
@@ -753,6 +761,9 @@ AND AV.TempMaxMoy >= 35
 ORDER BY AV.TempMaxMoy DESC, CI.NomCI;
 
 
+________________
+
+
 Résultat : 
   
 
@@ -766,6 +777,8 @@ La requête permet d'identifier les départs prévus pendant les mois où la tem
 
 
 Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Médinas impériales" propose un départ de Toulouse le 01/07/2026. La table SITUER indique que ce circuit se déroule au Maroc et, dans AVIS, la température maximale moyenne du mois de juillet est de 38 °C. Ce départ respecte donc bien la condition demandée. En effectuant cette vérification sur les autres départs, on retrouve 16 offres concernées, réparties sur 7 circuits différents dans notre jeu de données.
+
+
 ________________
 2.3. Requêtes d’extraction
 
@@ -929,12 +942,6 @@ Les données extraites doivent être préparées avant leur utilisation dans Pow
 
 
 
-
-
-
-
-
-
 3.2. Rapports PowerBI
 3.2.1. Synthèse direction:
 
@@ -958,13 +965,7 @@ Ensuite, on retrouve aussi des informations relatives aux clients de l’agence.
 Enfin, on a également la répartition du nombre de voyageurs par pays. Cet indicateur permet de connaître le succès de différents pays auprès des clients afin de cibler les différents pays pour l’implantation de nouveaux circuits.
 
 
-
-
-
-
 ________________
-
-
 3.2.2. Planning et Remplissage 
 
 
@@ -1398,6 +1399,9 @@ BEGIN
             'Réservation impossible : ' || :NEW.NbPers ||
             ' personnes pour une capacité de ' || v_nbpersmax);
     END IF;
-END;
+END trg_reserver_nbpers;
 /
-Groupe 1 - Nom de la société                                                                 /
+
+
+Limite : Le trigger vérifie chaque réservation séparément : il ne contrôle pas le total des réservations d’un même départ, qui peut donc dépasser la capacité du circuit. 
+Groupe 1                                                                                         /

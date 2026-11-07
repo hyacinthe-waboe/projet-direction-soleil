@@ -81,3 +81,9 @@ Jesus renseigne le développement du trigger de capacité et l'ajout d'un CHECK.
 **Versions réelles :** rapport révision 10072 à 18:01 UTC ; PBIX Tableau_de_Bord_Final (1).pbix conservé localement, avec entrées ZIP du 4 novembre à 16:54 sans fuseau explicite. Ce fichier contient les trois pages, TABLE_PRINCIPALE (800 lignes), TABLE_DEPARTS (213 lignes) et TABLE_ZONES (28 lignes), ainsi que des tables historiques et de référence. Il est archivé sans modification.
 
 Le trigger et ses explications figurent dans les versions du rapport récupérées et dans le script final déjà publié. Il n'est pas attribué personnellement à Hyacinthe. La version finale validée du PBIX reste `powerbi/direction-soleil.pbix`.
+
+## 5 novembre 2026 — Rapport et préparation de la soutenance
+
+La feuille de temps détaille la préparation de la présentation par Jesus, la répartition de parole et la finalisation du support par Tsinjo, les derniers schémas par Adrien, et la préparation orale de Synthèse direction par Hyacinthe. Ces indications décrivent la préparation, sans attribuer à une personne la totalité du support collectif.
+
+**Version réelle :** révision 10224 du rapport, 5 novembre à 22:02 UTC. Son archivage conserve les dernières corrections de rédaction et les justifications disponibles. Aucun export PDF de présentation daté du 5 n'a été retrouvé ; le PDF final déjà publié n'est pas redaté artificiellement.
