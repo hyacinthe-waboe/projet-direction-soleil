@@ -1,4 +1,7 @@
-﻿NOM SOCIETE
+﻿Date : 03/11/2026                                                                M1 MIAGE FI
+  
+
+NOM SOCIETE
 TERAN GODOY Jesus
 WABOE Hyacinthe
 RANDRIANARISON Tsinjo
@@ -67,29 +70,83 @@ TOURNIER Ronan
 Sommaire 
 
 
-1 - Approche Logique        3
-1.1. Schéma Relationnel        3
-1.2. Commentaires        3
-2 - Requêtes SQL        4
-2.1. Requêtes SQL Demandées        4
-2.1.1. Requête 1        4
-2.1.2. Requête 2        5
-2.1.3. Requête 3        6
-2.1.4. Requête 4        7
-2.1.5. Requête 5        9
-2.1.6. Requête 6        10
-2.1.7. Requête 7        11
-2.1.8. Requête 8        12
-2.1.9. Requête 9        14
+Table des figures        4
+1 - Approche Logique        5
+1.1. Schéma Relationnel        5
+1.2. Commentaires        6
+2 - Requêtes SQL        7
+2.1. Requêtes SQL Demandées        7
+2.1.1. Requête 1        7
+2.1.2. Requête 2        8
+2.1.3. Requête 3        9
+2.1.4. Requête 4        10
+2.1.5. Requête 5        11
+2.1.6. Requête 6        12
+2.1.7. Requête 7        13
+2.1.8. Requête 8        14
+2.1.9. Requête 9        15
 2.1.10. Requête 10        16
-2.2. Requêtes SQL Supplémentaires        17
-2.2.1. Chiffre d'affaires total par départ        17
-2.2.2. Arbitrage de prix entre présélections d'un même circuit        19
-2.2.3. Animations accessibles pendant les séjours (Tester)        21
-2.2.4. Départs proposés sans réservation (Tester)        22
-2.2.5. Départs prévus pendant les mois les plus chauds (Tester)        24
+2.2. Requêtes SQL Supplémentaires        18
+2.2.1. Chiffre d'affaires total par départ        18
+2.2.2. Arbitrage de prix entre présélections d'un même circuit        20
+2.2.3. Animations accessibles pendant les séjours        22
+2.2.4. Départs proposés sans réservation        23
+2.2.5. Départs prévus pendant les mois les plus chauds        24
+2.3. Requêtes d’extraction        27
+2.3.1. Requête d'extraction - TABLE_PRINCIPALE        27
+2.3.2. Requête d'extraction - TABLE_ZONES        28
+2.3.3. Requête d'extraction - TABLE_DEPARTS        29
+3 - Rapports PowerBI        29
+3.1. Transformation des données        29
+4 - Annexes        30
+4.1. Création des tables de la base de données        30
+4.1.1. Table CLIENTS        30
+4.1.2. Table AEROPORTS_DEP        30
+4.1.3. Table CIRCUITS        30
+4.1.4. Table CHOIX        31
+4.1.5. Table RESERVER        31
+4.1.6. Table MAJORATION        32
+4.1.7. Table HOTELS        32
+4.1.8. Table LOGER        33
+4.1.9. Table ANIMATIONS        33
+4.1.10. Table ACTIVITE        34
+4.1.11. Table VALIDITE        34
+4.1.12. Table REALISER        34
+4.1.13. Table SITES        34
+4.1.14. Table VISITER        35
+4.1.15. Table MOIS        35
+4.1.16. Table PAYS        36
+4.1.17. Table AVIS        36
+4.1.18. Table Zone_Geo        36
+4.1.19. Table SITUER        37
+4.1.20. Table GUIDES        37
+4.1.21. Table ACCOMPAGNER        37
+4.1.22. Table LANGUE        38
+4.1.23. Table PRATIQUER        38
+4.2. Création de la vue ANIMATIONS_H        38
 
 
+________________
+
+
+Table des figures
+
+
+Figure 1 : Résultat de la requête 1 sur SQL Developer        7
+Figure 2 : Résultat de la requête 2  sur SQL Developer        8
+Figure 3 : Résultat de la requête 3 sur SQL Developer        9
+Figure 4 : Résultat de la requête 4  sur SQL Developer        11
+Figure 5 : Résultat de la requête 5 sur SQL Developer        12
+Figure 6 : Résultat de la requête 6 sur SQL Developer        12
+Figure 7 : Résultat de la requête 7 sur SQL Developer        13
+Figure 8: Résultat de la requête 8 sur SQL Developer        14
+Figure 9: Résultat de la requête 9 sur SQL Developer        16
+Figure 10: Résultat de la requête 10 sur SQL Developer        17
+Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        18
+Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        21
+Figure 13: Résultat de la requête 3 sur SQL Developer        22
+Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        24
+Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        25
 ________________
 
 
@@ -97,7 +154,9 @@ ________________
 
 
 1.1. Schéma Relationnel
-A partir du modèle conceptuel de données proposé par le client, nous avons élaboré le modèle logique de données ci-dessous:
+
+
+A partir du modèle conceptuel de données proposé par le client, nous avons élaboré le modèle logique de données ci-dessous :
 
 
 CLIENTS(CodeC, NomC, PrénomC, TelC, MelC)
@@ -123,21 +182,21 @@ VISITER ( #CodeCI, #CodeS, JourSe2, HeureVisite, DureeVisite )
 AVIS ( #CodeP, #CodeMois, TempMin, TempMax, AvisMens, TempMinMoy, TempMaxMoy )
 SITUER ( #CodeCI, #CodeZ, #CodeP ) 
 ACCOMPAGNER ( #CodeG, #CodeCI, DateDepartA)
-
-
+________________
 1.2. Commentaires
-Lors de l’élaboration du modèle relationnel, on s’est aperçu de quelques modifications indispensables pour garantir le bon fonctionnement de la base de données:
 
 
+Lors de l’élaboration du modèle relationnel, on s’est aperçu de quelques modifications indispensables pour garantir le bon fonctionnement de la base de données :
 * Un changement des noms des attributs “Date” données sur le dictionnaire de données était nécessaire. “Date” étant une fonction sur notre future base de données Oracle. Donc pour la relation Reserver par exemple, au lieu de mettre “Date” comme nom, nous avons plutôt défini “DateDepartR”. Les noms d’attributs choisis sont : DateDepartC, DateDepartM, DateDepartA, DateDepartRe.
-* Tous les noms des relations ont été défini en majuscules.
+* Tous les noms des relations ont été définis en majuscules.
 * Tous les attributs ou tables ayant des accents ont été écrits sans accents.
+________________
+
+
 2 - Requêtes SQL
 
 
 2.1. Requêtes SQL Demandées
-
-
 2.1.1. Requête 1
 
 
@@ -158,23 +217,18 @@ AND LOWER (ad.nomA) = 'toulouse'
 AND r.dateDepartR = TO_DATE('08/07/2026', 'DD/MM/YYYY')
 AND LOWER (cl.prenomC) = 'medhi'
 AND LOWER (cl.nomC) = 'terraner';
-
-
 Résultat : 
   
 
 
 
 Figure 1 : Résultat de la requête 1 sur SQL Developer 
-
-
+________________
 
 
 Justification :
 La requête calcule le montant du circuit en additionnant son prix de base (c.prixBase) et la majoration (m.montantMaj), qui dépend de l'aéroport et de la date de départ. Elle sélectionne le circuit “Les saveurs tunisiennes”, réservé par Medhi TERRANER au départ de Toulouse le 08/07/2026. 
 Pour vérifier le résultat, on constate dans la table CIRCUITS que le prix de base est de 700 €. Dans MAJORATION, le départ concerné possède une majoration de 80 €. On obtient donc 700 + 80 = 780 €, ce qui correspond bien au montant retourné par la requête.
-
-
 2.1.2. Requête 2
 
 
@@ -199,23 +253,16 @@ AND c.codeCI IN (
     WHERE h.codeH = l.codeH
     AND UPPER(h.NomH) = 'EDEN'
 );
-
-
 Résultat : 
   
 
 Figure 2 : Résultat de la requête 2  sur SQL Developer
+________________
 
 
 Justification :
-
-
 La requête sélectionne les circuits situés au Maroc à l’aide des tables SITUER et PAYS. Elle utilise ensuite deux sous-requêtes sur LOGER et HOTELS pour vérifier que chaque circuit permet de séjourner à la fois dans les hôtels “Lion d'Or” et “Eden”. 
 Pour vérifier le résultat, on constate dans la table HOTELS que ces deux hôtels correspondent aux codes 1 et 2. Dans LOGER, les circuits 6 et 8 sont associés à ces deux hôtels. La table SITUER confirme qu'ils se déroulent au Maroc. On retrouve donc “Médinas impériales” et “Marrakech et Atlas”, ce qui correspond bien aux deux circuits retournés par la requête.
-
-
-
-
 2.1.3. Requête 3
 
 
@@ -232,19 +279,21 @@ AND A.TempMaxMoy = (
     FROM AVIS A2
     WHERE A2.CodeP = P.CodeP
 );
-
-
 Résultat : 
   
 
 Figure 3 : Résultat de la requête 3 sur SQL Developer
 
 
+________________
+
+
 Justification :
 
 
 On relie les tables PAYS, MOIS et AVIS pour récupérer le nom du pays, le mois et sa température moyenne. La sous-requête avec MAX(A2.TempMaxMoy) cherche ensuite la température la plus élevée propre à chaque pays, ce qui permet de filtrer la liste et de ne garder que le mois le plus chaud.
-________________
+
+
 2.1.4. Requête 4
 
 
@@ -261,16 +310,8 @@ AND a.CodeA = r.CodeA
 GROUP BY c.CodeCI, c.NomCI, c.NbPersMax,
 a.CodeA, a.NomA, r.DateDepartR
 ORDER BY c.NomCI, a.NomA, r.DateDepartR;
-
-
-
-
-
-
 Résultat : 
   
-
-
 
   …
   
@@ -280,8 +321,6 @@ Résultat :
 Figure 4 : Résultat de la requête 4  sur SQL Developer
 
 
-
-
 Justification :
 
 
@@ -289,7 +328,8 @@ La requête permet de calculer le nombre de réservations et de places disponibl
 
 
 Pour vérifier les résultats, on constate dans la table RESERVER que le circuit “Les saveurs tunisiennes”, au départ de Toulouse le 08/07/2026, possède 5 réservations pour un total de 14 personnes. Dans CIRCUITS, sa capacité maximale est de 30 personnes. On obtient donc 30 - 14 = 16 places disponibles, ce qui correspond bien aux valeurs retournées par la requête pour ce départ.
-________________
+
+
 2.1.5. Requête 5
 
 
@@ -305,6 +345,7 @@ HAVING COUNT(DISTINCT a.codeCI ) >= ALL (
 SELECT COUNT(DISTINCT a2.codeCI)
          FROM accompagner a2
 GROUP BY a2.codeG );
+________________
 
 
 Résultat : 
@@ -319,9 +360,6 @@ Justification :
 Pour chaque guide ayant accompagné au moins un circuit, on va compter le nombre de circuits différents qu’ils ont effectués HAVING COUNT(DISTINCT a.codeCI). On va comparer ce résultat avec le nombre de circuits calculé pour tous les autres guides dans la sous-requête, grâce à l'opérateur >= ALL.
 
 
-
-
-________________
 2.1.6. Requête 6
 
 
@@ -340,8 +378,6 @@ AND c.codec NOT IN (
    AND r.codeA = ch.codeA
    AND r.codeCI = ch.codeCI
 );
-
-
 Résultat : 
   
 
@@ -352,9 +388,6 @@ Justification :
 
 
 On compte d'abord les clients uniques (COUNT(DISTINCT c.codec)) ayant effectué une réservation au cours de l'année 2025 (TO_CHAR(r.DateResa, 'yyyy') = '2025'). Ensuite, la clause NOT IN associée à la sous-requête permet d'exclure tous les clients qui avaient enregistré un choix de préférence CHOIX pour ce même voyage (en faisant correspondre le circuit, l'aéroport et la date de départ).
-
-
-________________
 2.1.7. Requête 7
 
 
@@ -390,8 +423,6 @@ La requête permet d'identifier les guides ayant assuré tous les circuits du Ma
 
 Pour vérifier le résultat, on constate dans SITUER que le Maroc possède 5 circuits, correspondant aux codes 6, 7, 8, 9 et 10. Dans ACCOMPAGNER, on retrouve le guide BENNANI Youssef associé à chacun de ces circuits avec des dates de départ en 2026. Aucun autre guide n'a assuré l'ensemble de ces 5 circuits. On retrouve donc uniquement BENNANI Youssef, ce qui correspond au résultat attendu.
 ________________
-
-
 2.1.8. Requête 8
 
 
@@ -419,8 +450,6 @@ HAVING COUNT(DISTINCT r.codeci)  =
         GROUP BY r2.codeC
      )
 ORDER BY p.nomP ASC;
-
-
 Résultat : 
   
 
@@ -436,7 +465,6 @@ La requête permet d'identifier les clients ayant effectué le plus de circuits 
 Pour vérifier les résultats, on compare les réservations dans RESERVER avec les pays associés aux circuits dans SITUER. On retrouve notamment “Medhi TERRANER” avec 2 circuits en Tunisie, “Marie DUPONT” avec 2 circuits au Maroc, etc… . En Espagne, “Julie ROUSSEAU” et “Océane MATHIEU” sont à égalité avec 2 circuits chacune. Pour la Turquie, l'Égypte et la Croatie, le maximum est de 1 circuit, ce qui explique la présence de plusieurs clients à égalité. Ces valeurs correspondent bien aux résultats retournés par la requête.
 
 
-________________
 2.1.9. Requête 9
 
 
@@ -472,17 +500,12 @@ AND NOT EXISTS (
        AND v2.CodeS = v.CodeS
    )
 );
-
-
 Résultat : 
 
 
   
 
 Figure 9: Résultat de la requête 9 sur SQL Developer
-________________
-
-
 Justification :
 
 
@@ -493,7 +516,6 @@ Le NOT EXISTS extérieur parcourt les sites tunisiens (ceux visités par un circ
 
 
 Le résultat est “Perles de Tunisie”. Les sites tunisiens sont les sites 1 à 7. Seul ce circuit les visite tous, alors que les quatre autres circuits tunisiens en manquent au moins un. Ce résultat correspond bien à la définition de l’énoncé.
-________________
 
 
 2.1.10. Requête 10
@@ -512,8 +534,6 @@ HAVING COUNT( DISTINCT S.codeci) > (
     FROM Pays P, Situer S
     WHERE P.codep = S.codep
     AND LOWER(P.nomp) = 'grèce');
-
-
 Résultat : 
   
 
@@ -525,13 +545,11 @@ La requête permet d'identifier les pays proposant plus de circuits que la Grèc
 
 
 Pour vérifier les résultats, on constate dans la table SITUER que la Grèce possède 3 circuits différents, tandis que la Tunisie et le Maroc en possèdent 5 chacun. Les autres pays proposent au maximum 3 circuits différents. On retrouve donc uniquement la Tunisie et le Maroc, ce qui correspond bien aux deux pays retournés par la requête.
+
+
 ________________
-
-
 2.2. Requêtes SQL Supplémentaires
 2.2.1. Chiffre d'affaires total par départ
-
-
 Énoncé : Pour chaque départ ayant au moins une réservation, donner le nom du circuit, l'aéroport, la date, le nombre total de voyageurs inscrits et le chiffre d'affaires total généré. Le chiffre d'affaires est calculé à partir du nombre de personnes réservées, multiplié par la somme du prix de base et de la majoration. Classer les résultats par chiffre d'affaires décroissant.
 
 
@@ -541,7 +559,7 @@ Utilité métier : Comparer les départs selon leur chiffre d'affaires afin d'id
 Requête SQL :
 SELECT CI.NomCI, A.NomA, R.DateDepartR, SUM(R.NbPers) AS TotalVoyageurs,
        SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) AS ChiffreAffaires
-FROM CIRCUITS CI, AEROPORTS_DEP A, MAJORATION M, RESERVER R
+FROM CIRCUITS CI, AEROPORTS_DEP A, MAJORATION M, Reserver R
 WHERE CI.CodeCI = R.CodeCI
 AND A.CodeA = R.CodeA
 AND M.CodeCI = R.CodeCI
@@ -549,15 +567,13 @@ AND M.CodeA = R.CodeA
 AND M.DateDepartM = R.DateDepartR
 GROUP BY CI.CodeCI, CI.NomCI, A.CodeA, A.NomA, R.DateDepartR
 ORDER BY ChiffreAffaires DESC;
-
-
 Résultat : 
   
-
-…
-  
-
+…  
 Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer
+________________
+
+
 Justification :
 
 
@@ -568,15 +584,7 @@ Pour chaque groupe, SUM(R.NbPers) calcule le nombre des voyageurs, tandis que SU
 
 
 Pour vérifier les résultats, on constate dans RESERVER que le circuit "Désert de Merzouga", au départ de Marseille le 15/07/2026, possède 3 réservations de 6 personnes, soit 18 voyageurs. Dans CIRCUITS, son prix de base est de 890 €, auquel s'ajoute une majoration de 25 € dans MAJORATION. On obtient donc 18 × (890 + 25) = 16 470 €, ce qui correspond au chiffre d'affaires calculé pour ce départ.
-
-
-
-
-
-
 2.2.2. Arbitrage de prix entre présélections d'un même circuit
-
-
 Énoncé : Pour chaque client ayant présélectionné le même circuit avec plusieurs dates ou aéroports de départ, afficher son nom, son prénom, le circuit, l'aéroport, la date, l'ordre de préférence et le prix total de chaque présélection (prix de base + majoration). Trier les résultats par client et par prix décroissant.
 
 
@@ -606,14 +614,15 @@ AND EXISTS (
     OR CH2.CodeA <> CH.CodeA)
 )
 ORDER BY C.CodeC, CI.NomCI, PrixTotal DESC;
-
-
+________________
 
 
 Résultat : 
   
 
 Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer
+
+
 Justification : 
 
 
@@ -624,16 +633,13 @@ Pour vérifier les résultats, on constate dans CHOIX que Medhi TERRANER a prés
 
 
 Proposition d'ajout de données :
-
-
 Nous pourrions ajouter dans la table CHOIX une troisième présélection pour “Medhi TERRANER” concernant le circuit “Les saveurs tunisiennes”, avec une autre date ou un autre aéroport de départ déjà présent dans MAJORATION. Cela permettrait de vérifier que la requête affiche bien les différentes possibilités choisies par un même client et compare leurs prix en fonction des majorations.
 
 
-
-
-
-
+________________
 2.2.3. Animations accessibles pendant les séjours
+
+
 Énoncé : Donner, pour chaque circuit, le nom des hôtels proposant une animation le jour où les voyageurs y séjournent, en précisant le jour, le nom de l'animation et son heure de début.
 
 
@@ -651,16 +657,10 @@ AND L.CodeH = H.CodeH
 AND H.CodeH = A.CodeH
 AND L.JourSe = A.JourSemaine
 ORDER BY CI.NomCI, L.JourSe;
-
-
-
-
 Résultat : 
   
 
 Figure 13: Résultat de la requête 3 sur SQL Developer
-
-
 Justification : 
 
 
@@ -668,9 +668,9 @@ La requête permet d'identifier les animations proposées dans les hôtels penda
 
 
 Pour vérifier les résultats, on constate dans LOGER que le circuit "Andalousie authentique" prévoit un séjour à l'hôtel "Sevilla Plaza" le lundi. Dans ANIMATIONS, cet hôtel propose justement une animation "Danse Flamenco Traditionnelle" le lundi à 20 h 30. En effectuant cette vérification pour les autres circuits, on retrouve 6 animations correspondant aux jours de séjour, réparties sur 5 circuits, ce qui correspond aux données de notre base.
-
-
 2.2.4. Départs proposés sans réservation
+
+
 Énoncé : Donner les circuits, les aéroports et les dates de départ proposés par l'agence pour lesquels aucune réservation n'a été effectuée, en précisant le prix total du voyage (prix de base + majoration).
 Utilité métier : Repérer les départs qui n'ont attiré aucun client, afin d'étudier l'intérêt de modifier les prix ou les dates proposés.
 Requête SQL :
@@ -687,10 +687,6 @@ AND NOT EXISTS (
     AND R.DateDepartR = M.DateDepartM
 )
 ORDER BY CI.NomCI, M.DateDepartM;
-
-
-
-
 Résultat : 
   
 
@@ -704,8 +700,6 @@ Justification :
 
 
 La requête permet d'identifier les départs proposés par l'agence pour lesquels aucune réservation n'a été effectuée. Elle utilise les tables CIRCUITS, AEROPORTS_DEP et MAJORATION pour retrouver les départs et calculer leur prix total (CI.PrixBase + M.MontantMaj). La sous-requête avec NOT EXISTS permet ensuite d'exclure les départs présents dans RESERVER, en comparant le circuit, l'aéroport et la date de départ.
-
-
 Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Les saveurs tunisiennes" propose un départ de Toulouse le 01/05/2026, avec un prix de base de 700 € et une majoration de 40 €, soit 740 €. Dans RESERVER, aucune réservation ne correspond à ce départ. En effectuant cette vérification sur tous les  départs proposés, on en retrouve 71 sans réservation, ce qui correspond au résultat attendu avec nos données.
 
 
@@ -735,10 +729,14 @@ AND M.CodeA = A.CodeA
 AND AV.CodeMois = EXTRACT(MONTH FROM M.DateDepartM)
 AND AV.TempMaxMoy >= 35
 ORDER BY AV.TempMaxMoy DESC, CI.NomCI;
+
+
 Résultat : 
   
 
 Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer
+
+
 Justification :
 
 
@@ -746,3 +744,490 @@ La requête permet d'identifier les départs prévus pendant les mois où la tem
 
 
 Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Médinas impériales" propose un départ de Toulouse le 01/07/2026. La table SITUER indique que ce circuit se déroule au Maroc et, dans AVIS, la température maximale moyenne du mois de juillet est de 38 °C. Ce départ respecte donc bien la condition demandée. En effectuant cette vérification sur les autres départs, on retrouve 17 départs concernés, répartis sur 6 circuits différents dans notre jeu de données.
+________________
+2.3. Requêtes d’extraction
+Nos requêtes d’extraction recensent les données sources nécessaires pour les sujets d’analyse dans la base de données.
+
+
+Nous avons choisi de créer plusieurs requêtes d’extraction afin d’éviter les doublons dans nos données et pour que ces dernières soient cohérentes dans la représentation visuelle.
+
+
+2.3.1. Requête d'extraction - TABLE_PRINCIPALE
+
+
+Objectif : récupérer les informations commerciales des réservations pour calculer le chiffre d'affaires, le panier moyen, le nombre de voyageurs et les statistiques par pays et par aéroport.
+
+
+CREATE TABLE TABLE_PRINCIPALE AS
+SELECT c.CodeCI, c.NomCI,
+       r.CodeC, r.CodeA, a.NomA,
+       r.DateDepartR AS DateDepartCI,
+       r.DateResa AS DateReservationCI,
+       r.NbPers, 
+       c.PrixBase, m.MontantMaj,
+       p.CodeP, p.NomP,
+       r.NbPers * (c.PrixBase + m.MontantMaj) AS CACI,
+       c.NbPersMax, mo.codeMois,mo.LibelleMois, A.TempMin, A.TempMax, A.TempMinMoy, A.TempMaxMoy, A.AvisMens,
+        AC.DateDepartA, G.nomG, G.PrenomG
+FROM CIRCUITS c, RESERVER r,
+     AEROPORTS_DEP a, MAJORATION m, AVIS A, MOIS mo, ACCOMPAGNER AC, GUIDES G,
+     (SELECT DISTINCT s.CodeCI, p.CodeP, p.NomP
+      FROM SITUER s, PAYS p
+      WHERE s.CodeP = p.CodeP) p
+WHERE c.CodeCI = r.CodeCI
+AND r.CodeA = a.CodeA
+AND m.CodeCI = r.CodeCI
+AND m.CodeA = r.CodeA
+AND m.DateDepartM = r.DateDepartR
+AND p.CodeCI = c.CodeCI
+and p.CodeP = A.codeP
+and mo.CodeMois = A.CodeMois
+AND mo.codeMois = EXTRACT (MONTH FROM r.dateDepartR)
+AND AC.DateDepartA = r.DateDepartR
+and c.codeCI = AC.codeCI
+and AC.codeG = G.codeG;
+
+
+Résultats : 116 réservations, 307 voyageurs et 266 229 € de chiffre d'affaires.
+
+
+A savoir : 
+
+
+Avec TABLE_PRINCIPALE, la requête a été simplifiée pour garder une seule ligne par réservation. Ensuite, les 116 réservations ont été vérifiées et sont bien présentes, sans doublon. Cela nous permet d'avoir des données fiables pour calculer le chiffre d'affaires et les autres indicateurs dans Power BI.
+
+
+2.3.2. Requête d'extraction - TABLE_ZONES
+
+
+Objectif : répartir le chiffre d'affaires et les voyageurs entre les zones géographiques traversées par chaque circuit, sans compter plusieurs fois les montants dans le total général.
+
+
+CREATE TABLE TABLE_ZONES AS
+SELECT t.NomP, z.ZoneGeo,
+       SUM(t.CACI / nz.NbZones) AS CA_Reparti,
+       SUM(t.NbPers / nz.NbZones) AS Voyageurs_Repartis
+FROM TABLE_PRINCIPALE t, SITUER s, ZONE_GEO z,
+     (SELECT CodeCI, CodeP, COUNT(*) AS NbZones
+      FROM SITUER
+      GROUP BY CodeCI, CodeP) nz
+WHERE t.CodeCI = s.CodeCI
+AND t.CodeP = s.CodeP
+AND s.CodeZ = z.CodeZ
+AND s.CodeCI = nz.CodeCI
+AND s.CodeP = nz.CodeP
+GROUP BY t.NomP, z.ZoneGeo;
+
+
+Résultats : 28 combinaisons pays/zone, avec un total de 266 229 € et 307 voyageurs équivalents.
+
+
+A savoir : 
+
+
+Pour calculer le chiffre d'affaires par zone géographique, j’ai choisi de le partager équitablement lorsqu'un circuit passe par plusieurs zones. Par exemple, si un circuit rapporte 10 000 € et traverse deux zones, chaque zone reçoit 5 000 €. Cela évite de compter plusieurs fois le même montant. Nous avons fait pareil pour les voyageurs. C'est pour cela qu'on peut avoir des nombres décimaux, comme 2,5 voyageurs (la moitié de 5 voyageurs total du coup). Cette répartition reste théorique.
+2.3.3. Requête d'extraction - TABLE_DEPARTS
+
+
+Objectif : 
+
+
+CREATE TABLE TABLE_DEPARTS AS
+
+
+SELECT m.CodeCI, c.NomCI,
+       m.CodeA, a.NomA,
+       m.DateDepartM AS DateDepart,
+       c.NbPersMax,
+       m.MontantMaj,
+       COUNT(r.CodeC) AS NbReservations,
+       SUM(r.NbPers) AS NbVoyageurs
+
+
+FROM MAJORATION m
+JOIN CIRCUITS c
+ON m.CodeCI = c.CodeCI
+
+
+JOIN AEROPORTS_DEP a
+ON m.CodeA = a.CodeA
+
+
+LEFT JOIN RESERVER r
+ON r.CodeCI = m.CodeCI
+AND r.CodeA = m.CodeA
+AND r.DateDepartR = m.DateDepartM
+
+
+GROUP BY m.CodeCI, c.NomCI,
+         m.CodeA, a.NomA,
+         m.DateDepartM,
+         c.NbPersMax,
+         m.MontantMaj;
+
+
+Résultat : 
+
+
+A savoir : 
+
+
+3 - Transformation des données et rapports PowerBI
+3.1. Transformation des données
+Les données extraites sont des données brutes. Elles doivent être nettoyées et transformées. Ces étapes concernent les colonnes NbReservations et NbVoyageurs s’il existe des départs sans réservation. Voici les étapes à suivre : 
+1. Sur PowerBI, ouvrir l’onglet “Transformer les données”.
+2. Sélectionner la colonne NbReservations.
+3. Cliquer sur “Remplacer les valeurs” : null → 0.
+4. Faire la même chose pour NbVoyageurs.
+5. Cliquer sur Fermer et appliquer.
+3.2. Rapports PowerBI
+
+
+4 - Annexes
+
+
+4.1. Création des tables de la base de données
+Toutes les clés primaires de type NUMBER sont supérieures à 0.
+Toutes les colonnes des tables sont renseignées sauf si mentionné.
+ON DELETE CASCADE  supprime une ligne référencée par une clé étrangère sans générer d’erreur. Les lignes sont supprimées automatiquement.
+
+
+4.1.1. Table CLIENTS
+CREATE TABLE CLIENTS
+(CodeC NUMBER CONSTRAINT pk_clients PRIMARY KEY, -- code d'un client
+NomC varchar2 (30) CONSTRAINT nn_clients_nomC NOT NULL, -- nom d'un client
+PrenomC varchar2 (30) CONSTRAINT nn_clients_prenomC NOT NULL, -- prénom d'un client
+TelC varchar2 (15) CONSTRAINT nn_clients_telC NOT NULL, -- téléphone d'un client
+MelC varchar2 (30) CONSTRAINT nn_clients_melC NOT NULL, -- adresse email d'un client
+CONSTRAINT ck_clients_codeC CHECK (CodeC>0));
+
+
+4.1.2. Table AEROPORTS_DEP
+CREATE TABLE AEROPORTS_DEP
+( CodeA NUMBER CONSTRAINT pk_aeroports PRIMARY KEY, -- code d'un aéroport
+NomA varchar2 (30) CONSTRAINT nn_aeroports_dep_nomA not null, -- nom d'un aéroport
+CONSTRAINT ck_aeroports_dep_codeA CHECK (CodeA>0));
+
+
+4.1.3. Table CIRCUITS
+CREATE TABLE CIRCUITS
+( CodeCI NUMBER CONSTRAINT pk_circuits PRIMARY KEY, -- code d'un circuit
+CONSTRAINT ck_circuits_codeCI CHECK (CodeCI>0),
+NomCI varchar2 (30) constraint nn_circuits_nomCI not null, -- nom d'un circuit
+PrixBase NUMBER(6,2) CONSTRAINT nn_circuits_prixBase not null, -- le prix suit un format 0,00€
+CONSTRAINT ck_circuits_prixBase check (PrixBase >0), -- prix de base > 0
+NbPersMax number CONSTRAINT nn_circuits_NbPersMax not null -- nombre de personnes maximale dans un circuit
+CONSTRAINT ck_circuits_NbPersMax check (NbPersMax>0), -- nombre maximum de personnes acceptées par le circuit
+CodeCI_Est_Complete number, -- un circuit ne complète pas forcément un autre circuit donc pas de contraintes NOT NULL
+CONSTRAINT fk_CIRCUITCOMPLETE
+FOREIGN KEY (CodeCI_Est_Complete) -- code du circuit complétant un autre circuit
+REFERENCES CIRCUITS (CodeCI)
+ON DELETE CASCADE);
+
+
+4.1.4. Table CHOIX
+CREATE TABLE CHOIX
+( CodeC number, -- code d'un client
+CodeA number, -- code d'un aéroport
+CodeCI number, -- code d'un circuit
+DateDepartC date, -- date de départ du circuit
+OrdrePreference number CONSTRAINT nn_choix_ordrePreference not null, -- 1, 2 ou 3
+CONSTRAINT ck_OrdrePreference
+check (OrdrePreference in (1,2,3)),
+CONSTRAINT pk_CHOIX
+PRIMARY KEY (CodeC, CodeA, CodeCI, dateDepartC),
+CONSTRAINT fk_CHOIXC
+FOREIGN KEY ( CodeC)
+REFERENCES CLIENTS ( CodeC)
+ON DELETE CASCADE ,
+CONSTRAINT fk_CHOIXA
+FOREIGN KEY (CodeA)
+REFERENCES AEROPORTS_DEP (CodeA)
+ON DELETE CASCADE,
+CONSTRAINT fk_CHOIXCI
+FOREIGN KEY (CodeCI)
+REFERENCES CIRCUITS (CodeCI)
+ON DELETE CASCADE );
+
+
+4.1.5. Table RESERVER
+CREATE TABLE RESERVER
+(CodeC number, -- code d'un client
+CodeA number, -- code d'un aéroport
+CodeCI number, -- code d'un circuit
+DateDepartR date CONSTRAINT nn_reserver_dateDepartR not null, -- date de départ du circuit
+DateResa date CONSTRAINT nn_reserver_dateResa not null, -- date de réservation du circuit
+NbPers number CONSTRAINT nn_reserver_nbPers not null -- nombre de personnes accompagnant le client pour le circuit
+CONSTRAINT ck_NbPers check (NbPers>0), -- nombre de personnes > 0
+CONSTRAINT pk_RESERVER
+PRIMARY KEY (CodeC, CodeA, CodeCI, DateDepartR),
+CONSTRAINT fk_RESERVERC FOREIGN KEY (CodeC)
+REFERENCES CLIENTS ( CodeC) ON DELETE CASCADE,
+CONSTRAINT fk_RESERVERA FOREIGN KEY (CodeA)
+REFERENCES AEROPORTS_DEP (CodeA) ON DELETE CASCADE,
+CONSTRAINT fk_RESERVERCI FOREIGN KEY (CodeCI)
+REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE);
+
+
+4.1.6. Table MAJORATION
+CREATE TABLE MAJORATION
+(CodeA number, -- code d'un aéroport
+CodeCI number, -- code d'un circuit
+DateDepartM date CONSTRAINT nn_majoration_dateDepartM not null, -- date de départ du circuit
+MontantMaj NUMBER(5,2) CONSTRAINT nn_majoration_montantMaj not null -- montant de la majoration en fonction de l'aéroport et la date de départ
+CONSTRAINT ck_MontantMaj
+check (MontantMaj>0), -- montant de majoration > 0 suivant le format 0,00€
+CONSTRAINT pk_MAJORATION
+PRIMARY KEY ( CodeA, CodeCI, DateDepartM),
+CONSTRAINT fk_MAJORATIONA
+FOREIGN KEY (CodeA)
+REFERENCES AEROPORTS_DEP (CodeA)
+ON DELETE CASCADE,
+CONSTRAINT fk_MAJORATIONCI
+FOREIGN KEY (CodeCI)
+REFERENCES CIRCUITS (CodeCI)
+ON DELETE CASCADE );
+
+
+4.1.7. Table HOTELS
+CREATE TABLE HOTELS
+(CodeH NUMBER CONSTRAINT pk_hotels PRIMARY KEY, -- code d'un hotel
+CONSTRAINT ck_hotels_codeH CHECK (CodeH>0),
+NomH varchar2 (30) CONSTRAINT nn_hotels_nomH not null, -- nom de l'hotel
+Categorie number CONSTRAINT nn_hotels_categorie not null -- nombre d'étoiles associé à l'hôtel
+CONSTRAINT ck_Categorie check(Categorie>0), -- nombre d'étoiles > 0
+VilleH varchar2 (30) CONSTRAINT nn_hotels_villeH not null,
+-- le téléphone ou l'adresse email doit être mentionné
+TelH varchar2 (20), -- téléphone de l'hotel
+MelH varchar2 (20)); -- adresse email de l'hotel
+
+
+4.1.8. Table LOGER
+CREATE TABLE LOGER
+(CodeCI number, -- code d'un circuit
+CodeH number, -- code d'un hotel
+JourSe varchar2(10) CONSTRAINT nn_loger_jourSe not null, -- jour de la semaine
+CONSTRAINT pk_LOGER PRIMARY KEY (CodeCI, CodeH),
+CONSTRAINT ck_loger_JourSe
+check (JourSe in ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche')),
+CONSTRAINT fk_loger_codeCI FOREIGN KEY (CodeCI)
+REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE,
+CONSTRAINT fk_loger_codeH FOREIGN KEY (CodeH) 
+REFERENCES HOTELS (CodeH) ON DELETE CASCADE);
+
+
+4.1.9. Table ANIMATIONS
+CREATE TABLE ANIMATIONS (
+CodeAN  NUMBER CONSTRAINT pk_animations PRIMARY KEY, -- code d'une animation
+NomAN  VARCHAR2(30) CONSTRAINT nn_animations_nomAN NOT NULL, -- nom d'une animation
+TypeAN  VARCHAR2(20) CONSTRAINT nn_animations_typeAN NOT NULL, -- type d'une animation
+HeureDeb    DATE CONSTRAINT nn_animations_heureDeb NOT NULL, -- heure de début de l'animation
+JourSemaine VARCHAR2(10) CONSTRAINT nn_animations_jourSemaine NOT NULL, -- jour de la semaine
+CodeH   number CONSTRAINT nn_animations_codeH NOT NULL, -- code de l'hotel qui propose l'animation
+CONSTRAINT fk_animations_codeH
+FOREIGN KEY (CodeH) REFERENCES HOTELS (CodeH) ON DELETE CASCADE,
+CONSTRAINT ck_animations_typeAN
+CHECK (TypeAN IN ('Concert', 'Danse folklorique', 'Danse', 'Cabaret', 'Karaoké')), -- énumération des types d'animations disponibles
+CONSTRAINT ck_animations_jourSemaine
+CHECK (JourSemaine IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')),
+CONSTRAINT ck_animations_codeAN CHECK (CodeAN > 0)
+);
+
+
+4.1.10. Table ACTIVITE
+CREATE TABLE ACTIVITE 
+(CodeAC NUMBER CONSTRAINT pk_activites PRIMARY KEY, -- code d'une activité
+NomAC varchar2(30) CONSTRAINT nn_activite_nomAC not null, -- nom de l'activité
+TarifAC number(6,2) CONSTRAINT nn_activite_tarifAC not null, -- valeur monétaire au format 0,00€
+CONSTRAINT ck_activite_tarifAC check (TarifAC >0), -- tarif de l'activité > 0
+CONSTRAINT ck_activite_codeAC check (codeAC>0));
+
+
+4.1.11. Table VALIDITE
+CREATE TABLE VALIDITE
+(CodeAC number, -- code d'une activité
+DateDebut date, -- date de début de validité d'une activité
+DateFin date CONSTRAINT nn_validite_dateFin not null, -- date de fin de validité d'une activité
+CONSTRAINT pk_validite PRIMARY KEY (CodeAC, DateDebut),
+CONSTRAINT fk_validite_codeAC FOREIGN KEY (CodeAC)
+REFERENCES ACTIVITE (CodeAC) ON DELETE CASCADE);
+
+
+4.1.12. Table REALISER
+CREATE TABLE REALISER (
+   CodeCI        number, -- code d'un circuit
+   CodeAC        number, -- code d'une activité
+   DateDepartRe  DATE, -- date de départ du circuit
+   JourSem       VARCHAR2(10) CONSTRAINT nn_realiser_jourSem NOT NULL, -- jour de la semaine associé à la réalisation d'une activité pour un circuit
+   CONSTRAINT pk_realiser PRIMARY KEY (CodeCI, CodeAC, DateDepartRe),
+   CONSTRAINT fk_realiser_codeCI FOREIGN KEY (CodeCI)
+       REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE,
+   CONSTRAINT fk_realiser_codeAC FOREIGN KEY (CodeAC)
+       REFERENCES ACTIVITE (CodeAC) ON DELETE CASCADE,
+   CONSTRAINT ck_realiser_jourSem CHECK (JourSem IN
+       ('Lundi', 'Mardi', 'Mercredi', 'Jeudi',
+        'Vendredi', 'Samedi', 'Dimanche'))
+);
+
+
+4.1.13. Table SITES
+CREATE TABLE SITES (
+   CodeS  number CONSTRAINT pk_sites PRIMARY KEY, -- code du site touristique
+   NomS        VARCHAR2(30)  CONSTRAINT nn_sites_nomS NOT NULL, -- nom d'un site touristique
+   TypeS       VARCHAR2(20)  CONSTRAINT nn_sites_typeS NOT NULL, -- type d'un site touristique
+   DescripS    VARCHAR2(400) CONSTRAINT nn_sites_DescripS NOT NULL, -- description d'un site touristique
+   CONSTRAINT ck_sites CHECK (CodeS > 0),
+   CONSTRAINT ck_sites_typeS CHECK (TypeS IN
+       ('historique', 'religieux', 'paysage', 'commerce', 'autre')) -- énumération des types de sites touristiques disponibles
+);
+
+
+4.1.14. Table VISITER
+CREATE TABLE VISITER (
+   CodeCI       number, -- code du circuit
+   CodeS        number, -- code du site touristique
+   JourSe2      VARCHAR2(10) CONSTRAINT nn_visiter_JourSe2 NOT NULL, -- jour de la semaine
+   HeureVisite  DATE CONSTRAINT nn_visiter_heureVisite NOT NULL, -- HH:MM
+   DureeVisite  number CONSTRAINT nn_visiter_dureeVisite NOT NULL, -- en minutes
+   CONSTRAINT pk_visiter PRIMARY KEY (CodeCI, CodeS, JourSe2, HeureVisite),
+   CONSTRAINT fk_visiter_codeCI FOREIGN KEY (CodeCI)
+       REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE,
+   CONSTRAINT fk_visiter_codeS FOREIGN KEY (CodeS)
+       REFERENCES SITES (CodeS) ON DELETE CASCADE,
+   CONSTRAINT ck_visiter_jourSe2 CHECK (JourSe2 IN
+       ('Lundi', 'Mardi', 'Mercredi', 'Jeudi',
+        'Vendredi', 'Samedi', 'Dimanche')), 
+   CONSTRAINT ck_visiter_dureeVisite CHECK (DureeVisite > 0) -- durée de visite > 0
+);
+
+
+4.1.15. Table MOIS
+CREATE TABLE MOIS (
+   CodeMois    NUMBER CONSTRAINT pk_mois PRIMARY KEY, -- code du mois
+   LibelleMois VARCHAR2(20) CONSTRAINT nn_mois_libelleMois NOT NULL, -- nom du mois
+   CONSTRAINT ck_mois_codeMois   CHECK (CodeMois BETWEEN 1 AND 12), -- codeMois = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
+   CONSTRAINT ck_mois_libelleMois CHECK (LibelleMois IN
+       ('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
+        'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'))
+);
+
+
+4.1.16. Table PAYS
+CREATE TABLE PAYS (
+   CodeP       NUMBER CONSTRAINT pk_pays PRIMARY KEY, -- code du pays
+   NomP        VARCHAR2(30) CONSTRAINT nn_pays_nomP NOT NULL, -- nom du pays
+   AvisGen     VARCHAR2(40) CONSTRAINT nn_pays_avisGen NOT NULL, -- avis général du pays
+   CONSTRAINT ck_pays_codeP CHECK (CodeP>0)
+);
+
+
+4.1.17. Table AVIS
+CREATE TABLE AVIS (
+   CodeP       number, -- code du pays
+   CodeMois    number, -- code du mois
+   TempMin     NUMBER(5,2) CONSTRAINT nn_avis_tempMin NOT NULL, -- température minimale d'un pays pour un mois donné
+   TempMax     NUMBER(5,2) CONSTRAINT nn_avis_tempMax NOT NULL, -- température maximale d'un pays pour un mois donné
+   AvisMens    VARCHAR2(40) CONSTRAINT nn_avis_avisMens NOT NULL, -- avis mensuel de la température d'un pays
+   TempMinMoy  NUMBER(5,2) CONSTRAINT nn_avis_tempMinMoy NOT NULL, -- température minimale moyenne sur les 10 dernières années
+   TempMaxMoy  NUMBER(5,2) CONSTRAINT nn_avis_tempMaxMoy NOT NULL, -- température maximale moyenne sur les 10 dernières années
+   CONSTRAINT pk_avis PRIMARY KEY (CodeP, CodeMois),
+   CONSTRAINT fk_avis_codeP FOREIGN KEY (CodeP)
+       REFERENCES PAYS (CodeP) ON DELETE CASCADE,
+   CONSTRAINT fk_avis_codeMois FOREIGN KEY (CodeMois)
+       REFERENCES MOIS (CodeMois) ON DELETE CASCADE,
+   CONSTRAINT ck_avis_temp    CHECK (TempMax >= TempMin), -- la température maximale d'un pays est supérieure ou égale à sa température minimale 
+   CONSTRAINT ck_avis_tempmoy CHECK (TempMaxMoy >= TempMinMoy) -- la température maximale moyenne d'un pays sur les 10 dernières années est
+   -- supérieure ou égale à la température minimale du pays sur les 10 dernières années
+);
+
+
+4.1.18. Table Zone_Geo
+CREATE TABLE Zone_Geo (
+   CodeZ       NUMBER CONSTRAINT pk_zone_geo PRIMARY KEY, -- code d'une zone géographique
+   ZoneGeo     VARCHAR2(15) NOT NULL, -- nom de la zone géographique
+   CONSTRAINT ck_zone_geo_codeZ CHECK (CodeZ > 0),
+   CONSTRAINT ck_zone_geo_zoneGeo CHECK (ZoneGeo IN
+       ('Nord', 'Sud', 'Ouest', 'Est',
+        'Nord-Ouest', 'Nord-Est', 'Sud-Est', 'Sud-Ouest')) -- valeurs prises par le nom de la zone géographique
+);
+
+
+4.1.19. Table SITUER
+CREATE TABLE SITUER (
+   CodeCI      number, -- code du circuit
+   CodeZ       number, -- code de la zone géographique
+   CodeP       number, -- code du pays
+   CONSTRAINT pk_situer PRIMARY KEY (CodeCI, CodeZ, CodeP),
+   CONSTRAINT fk_situer_codeCI FOREIGN KEY (CodeCI)
+       REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE,
+   CONSTRAINT fk_situer_codeZ FOREIGN KEY (CodeZ)
+       REFERENCES Zone_Geo (CodeZ) ON DELETE CASCADE,
+   CONSTRAINT fk_situer_codeP FOREIGN KEY (CodeP)
+       REFERENCES PAYS (CodeP) ON DELETE CASCADE
+);
+
+
+4.1.20. Table GUIDES
+CREATE TABLE GUIDES (
+   CodeG        NUMBER CONSTRAINT pk_guides PRIMARY KEY, -- code du guide
+  NomG         VARCHAR2(30) CONSTRAINT nn_guides_nomG NOT NULL, -- nom du guide
+   PrenomG      VARCHAR2(30) CONSTRAINT nn_guides_prenomG NOT NULL, -- prenom du guide
+  DatePremier  DATE CONSTRAINT nn_guides_datePremier NOT NULL, -- date d'entrée du guide au sein de la société
+   CONSTRAINT ck_guides_codeG CHECK (codeG > 0)
+);
+
+
+4.1.21. Table ACCOMPAGNER
+CREATE TABLE ACCOMPAGNER (
+   CodeG       number, -- code du guide
+   CodeCI      number, -- code du circuit
+  DateDepartA  DATE    CONSTRAINT nn_accompagner_dateDepart NOT NULL, -- date de départ du circuit
+   CONSTRAINT pk_accompagner PRIMARY KEY (CodeG, CodeCI, DateDepartA),
+   CONSTRAINT fk_accompagner_codeG FOREIGN KEY (CodeG)
+       REFERENCES GUIDES (CodeG) ON DELETE CASCADE,
+   CONSTRAINT fk_accompagner_codeCI FOREIGN KEY (CodeCI)
+       REFERENCES CIRCUITS (CodeCI) ON DELETE CASCADE
+);
+
+
+4.1.22. Table LANGUE
+CREATE TABLE LANGUE (
+   CodeL       NUMBER CONSTRAINT pk_langue PRIMARY KEY, -- code de la langue
+   NomL        VARCHAR2(40) CONSTRAINT nn_langue_nomL NOT NULL, -- nom de la langue
+   CONSTRAINT nn_langue_codeL CHECK (CodeL > 0)
+);
+
+
+4.1.23. Table PRATIQUER
+CREATE TABLE PRATIQUER (
+   CodeG       number, -- code du guide
+   CodeL       number, -- code de la langue
+  NiveauL     VARCHAR2(20) CONSTRAINT nn_pratiquer_niveauL NOT NULL, -- niveau de langue du guide pour une langue donnée
+   CONSTRAINT pk_pratiquer PRIMARY KEY (CodeG, CodeL),
+   CONSTRAINT fk_pratiquer_codeG FOREIGN KEY (CodeG)
+       REFERENCES GUIDES (CodeG) ON DELETE CASCADE,
+   CONSTRAINT fk_pratiquer_codeL FOREIGN KEY (CodeL)
+       REFERENCES LANGUE (CodeL) ON DELETE CASCADE,
+   CONSTRAINT ck_pratiquer_niveauL CHECK (NiveauL IN
+       ('excellent', 'bon', 'moyen', 'quelques notions', 'mots de base')) -- valeurs prises par le niveau de langue
+);
+4.2. Création de la vue ANIMATIONS_H
+Une vue sur la table ANIMATIONS a été créée afin d’afficher la colonne HeureDeb au format ‘HH:MM’. 
+
+
+En effet, cette colonne est de type DATE et si une donnée est insérée au format ‘HH:MM’, une date par défaut lui sera attribuée. En supposant que cette colonne ne sera pas utilisée pour des calculs, elle a été transformée en chaîne de caractères. Ainsi, cette vue sera manipulée à la place de la table ANIMATIONS.
+
+
+-- Vue de la table animation permettant d’afficher heuredeb au format hh:mm
+CREATE VIEW ANIMATIONS_H as
+SELECT CodeAN, NomAN, TypeAN, TO_CHAR(HEUREDEB, 'HH24:MI') as HeureDEB, JourSemaine, CodeH
+FROM ANIMATIONS;
+
+
+
+
+
+
+
+
+Groupe 1 - Nom de la société                                                                /

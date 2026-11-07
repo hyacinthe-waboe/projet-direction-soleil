@@ -65,3 +65,11 @@ La feuille de temps documente les extractions et transformations (Ny Toavimpahen
 Une révision réelle du document Synthèse direction (142, 03:27 UTC) crée TABLE_TEST2 et adapte TABLE_ZONES. Le texte explique la suppression de jointures avec CHOIX qui pouvaient multiplier les lignes. Il rapporte 116 réservations, 307 voyageurs et 266 229 euros : ce sont les résultats consignés pour ce jeu intermédiaire, pas ceux du jeu final enrichi.
 
 Cette copie est archivée avant sa version plus complète du même jour pour rendre la modification SQL visible dans Git.
+
+## 3 novembre 2026 — Construction des pages et consolidation
+
+La feuille de temps décrit la construction de Planning et remplissage par Jesus, le développement de Synthèse direction par Hyacinthe et Ny Toavimpahendrena, et le début de Destinations et climat par Adrien. Tsinjo intègre les annexes et extractions au rendu ; Simon prépare la présentation.
+
+**Diff retrouvé :** dans la révision 430 à 16:00 UTC, TABLE_TEST2 devient TABLE_PRINCIPALE ; l'extraction ajoute des informations climatiques, mensuelles et de guides. TABLE_DEPARTS apparaît avec une jointure externe conservant les départs sans réservation. La préparation des valeurs nulles dans Power Query est décrite. Le rapport évolue vers sa révision 6776 à 16:00 UTC.
+
+**État conservé :** aucun PBIX enregistré précisément le 3 n'a été retrouvé. Le développement des pages ce jour-là est attesté par la feuille de temps ; leur première copie complète retrouvée est celle dont les entrées ZIP portent le 4.

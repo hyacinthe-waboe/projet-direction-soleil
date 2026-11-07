@@ -1,22 +1,22 @@
 ﻿1. Script d'extraction - TABLE_TEST2
 
 
-
-
 Objectif : récupérer les informations commerciales des réservations pour calculer le chiffre d'affaires, le panier moyen, le nombre de voyageurs et les statistiques par pays et par aéroport.
 
 
-CREATE TABLE TABLE_TEST2 AS
+CREATE TABLE TABLE_PRINCIPALE AS
 SELECT c.CodeCI, c.NomCI,
        r.CodeC, r.CodeA, a.NomA,
        r.DateDepartR AS DateDepartCI,
        r.DateResa AS DateReservationCI,
-       r.NbPers,
+       r.NbPers, 
        c.PrixBase, m.MontantMaj,
        p.CodeP, p.NomP,
-       r.NbPers * (c.PrixBase + m.MontantMaj) AS CACI
+       r.NbPers * (c.PrixBase + m.MontantMaj) AS CACI,
+       c.NbPersMax, mo.codeMois,mo.LibelleMois, A.TempMin, A.TempMax, A.TempMinMoy, A.TempMaxMoy, A.AvisMens,
+        AC.DateDepartA, G.nomG, G.PrenomG
 FROM CIRCUITS c, RESERVER r,
-     AEROPORTS_DEP a, MAJORATION m,
+     AEROPORTS_DEP a, MAJORATION m, AVIS A, MOIS mo, ACCOMPAGNER AC, GUIDES G,
      (SELECT DISTINCT s.CodeCI, p.CodeP, p.NomP
       FROM SITUER s, PAYS p
       WHERE s.CodeP = p.CodeP) p
@@ -25,18 +25,18 @@ AND r.CodeA = a.CodeA
 AND m.CodeCI = r.CodeCI
 AND m.CodeA = r.CodeA
 AND m.DateDepartM = r.DateDepartR
-AND p.CodeCI = c.CodeCI;
+AND p.CodeCI = c.CodeCI
+and p.CodeP = A.codeP
+and mo.CodeMois = A.CodeMois
+AND mo.codeMois = EXTRACT (MONTH FROM r.dateDepartR)
+AND AC.DateDepartA = r.DateDepartR
+and c.codeCI = AC.codeCI
+and AC.codeG = G.codeG;
 
 
 Résultats : 116 réservations, 307 voyageurs et 266 229 € de chiffre d'affaires.
 
 
-
-
-A savoir : 
-
-
-J’ai décidé d'utiliser TABLE_TEST2 à la place de TABLE_TEST1, car certaines jointures avec CHOIX et SITUER pouvaient créer des doublons et fausser les résultats. Avec TABLE_TEST2, nous avons simplifié la requête pour garder une seule ligne par réservation. Nous avons ensuite vérifié que les 116 réservations étaient bien présentes, sans doublon. Cela nous permet d'avoir des données fiables pour calculer le chiffre d'affaires et les autres indicateurs dans Power BI.
 
 
 
@@ -65,7 +65,7 @@ CREATE TABLE TABLE_ZONES AS
 SELECT t.NomP, z.ZoneGeo,
        SUM(t.CACI / nz.NbZones) AS CA_Reparti,
        SUM(t.NbPers / nz.NbZones) AS Voyageurs_Repartis
-FROM TABLE_TEST2 t, SITUER s, ZONE_GEO z,
+FROM TABLE_PRINCIPALE t, SITUER s, ZONE_GEO z,
      (SELECT CodeCI, CodeP, COUNT(*) AS NbZones
       FROM SITUER
       GROUP BY CodeCI, CodeP) nz
@@ -86,3 +86,112 @@ A savoir :
 
 
 Pour calculer le chiffre d'affaires par zone géographique, j’ai choisi de le partager équitablement lorsqu'un circuit passe par plusieurs zones. Par exemple, si un circuit rapporte 10 000 € et traverse deux zones, chaque zone reçoit 5 000 €. Cela évite de compter plusieurs fois le même montant. Nous avons fait pareil pour les voyageurs. C'est pour cela qu'on peut avoir des nombres décimaux, comme 2,5 voyageurs (la moitié de 5 voyageurs total du coup). Cette répartition reste théorique.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Script d'extraction - TABLE_DEPARTS
+
+
+
+
+CREATE TABLE TABLE_DEPARTS AS
+
+
+SELECT m.CodeCI, c.NomCI,
+       m.CodeA, a.NomA,
+       m.DateDepartM AS DateDepart,
+       c.NbPersMax,
+       m.MontantMaj,
+       COUNT(r.CodeC) AS NbReservations,
+       SUM(r.NbPers) AS NbVoyageurs
+
+
+FROM MAJORATION m
+JOIN CIRCUITS c
+ON m.CodeCI = c.CodeCI
+
+
+JOIN AEROPORTS_DEP a
+ON m.CodeA = a.CodeA
+
+
+LEFT JOIN RESERVER r
+ON r.CodeCI = m.CodeCI
+AND r.CodeA = m.CodeA
+AND r.DateDepartR = m.DateDepartM
+
+
+GROUP BY m.CodeCI, c.NomCI,
+         m.CodeA, a.NomA,
+         m.DateDepartM,
+         c.NbPersMax,
+         m.MontantMaj;
+
+
+
+
+Comment faire dans Power BI ?
+Si notre extraction contient les départs sans réservation :
+1. Ouvrir Transformer les données.
+2. Sélectionner la colonne NbReservations.
+3. Faire Remplacer les valeurs : null → 0.
+4. Faire la même chose pour NbVoyageurs.
+5. Cliquer sur Fermer et appliquer.
+
+
+
+
+
+
+presenter le produit coter metier (pas tres technique, powerbi (requete optionel), choisir 2 requetes a presenter (partir de l'ensemble, les select, montrer que la requete fonctionne correctement) donc requetes + supplementaire + powerbi
+ et requetes supplementaire) 10 minutes --> rassurer le client sur le fonctionnement de notre solus
+
+
+presenter le produit coter technique : implantation  et test des données, verifier la conformité des contraintes en pointant dans les codes, 10 min
+
+
+repondre dans le rapport les question de gestion de projets
+
+
+1 requetes a modifier individuellement 15 min
+
+
+
+
+
+
+
+
+
+
+reservation etendu sur l'année entiere (pour le 2)
+des reservations ou le nbpers = persMax (pour le 3)

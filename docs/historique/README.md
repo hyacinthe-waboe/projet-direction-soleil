@@ -22,3 +22,5 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `rapport-travail.txt` | Rapport, révision 4584, 2026-11-02 14:55:29 UTC | État conservé du rapport le 2 novembre |
 | `../../powerbi/historique/premier-modele.pbix` | Fichier PROJET.pbix déjà conservé localement, entrées ZIP du 2026-11-02 16:48 | Copie binaire inchangée ; une page, 166 lignes dans TABLE_TEST1 |
 | `../../sql/historique/extractions-synthese.txt` | Google Doc `1vyp9lJMUzD8zMUMoIu93OeYXZdX81sfLN-R86WGpWeA`, révision 142, 2026-11-03 03:27:52 UTC | TABLE_TEST2 et TABLE_ZONES, résultats intermédiaires consignés |
+| `../../sql/historique/extractions-synthese.txt` | Synthèse direction, révision 430, 2026-11-03 16:00:37 UTC | TABLE_PRINCIPALE enrichie, TABLE_ZONES et TABLE_DEPARTS ; imperfections de la source conservées |
+| `rapport-travail.txt` | Rapport, révision 6776, 2026-11-03 16:00:14 UTC | Intégration des extractions et rédaction en cours |
