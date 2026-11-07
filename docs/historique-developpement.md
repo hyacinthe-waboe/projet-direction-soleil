@@ -29,3 +29,9 @@ La feuille de temps renseigne les travaux de l'après-midi : construction du dic
 La feuille de temps décrit la correction du MCD (Jesus, Adrien et Hyacinthe), la révision des types et contraintes (Ny Toavimpahendrena et Simon) et la cohérence dictionnaire/MCD (Tsinjo). La mise en forme du premier rendu et le choix des outils de planification sont également documentés.
 
 **Versions réelles :** révision 1118 du premier rendu à 15:42 UTC, texte du Script MLD modifié à 15:02 UTC et PDF du livrable du 27, dont le document a été modifié à 22:20 UTC. La révision précédente 28 du Script MLD était vide et n'a pas fait l'objet d'un commit artificiel. Le MCD est réellement présent page 6 du PDF.
+
+## 28 octobre 2026 — Partie 2 : relationnel et requêtes
+
+La feuille de temps signale la découverte du second sujet et la transcription de son modèle conceptuel en relations. Jesus, Adrien et Hyacinthe interviennent sur ce passage au relationnel ; le groupe se répartit les premières requêtes. Hyacinthe mentionne la correction des requêtes 10, 6 et 9, tandis que les autres membres ont leurs propres requêtes et tâches de planification.
+
+**État conservé :** aucun état exact des requêtes du 28 n'a été retrouvé. Le Script MLD du 27 relève de la première partie et ne doit pas être présenté comme le nouveau modèle du 28. La première révision récupérée du rapport de la partie 2 date du 30 ; elle sera archivée à cette étape, sans inventer une version antérieure.
