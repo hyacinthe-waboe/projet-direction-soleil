@@ -1,0 +1,88 @@
+﻿1. Script d'extraction - TABLE_TEST2
+
+
+
+
+Objectif : récupérer les informations commerciales des réservations pour calculer le chiffre d'affaires, le panier moyen, le nombre de voyageurs et les statistiques par pays et par aéroport.
+
+
+CREATE TABLE TABLE_TEST2 AS
+SELECT c.CodeCI, c.NomCI,
+       r.CodeC, r.CodeA, a.NomA,
+       r.DateDepartR AS DateDepartCI,
+       r.DateResa AS DateReservationCI,
+       r.NbPers,
+       c.PrixBase, m.MontantMaj,
+       p.CodeP, p.NomP,
+       r.NbPers * (c.PrixBase + m.MontantMaj) AS CACI
+FROM CIRCUITS c, RESERVER r,
+     AEROPORTS_DEP a, MAJORATION m,
+     (SELECT DISTINCT s.CodeCI, p.CodeP, p.NomP
+      FROM SITUER s, PAYS p
+      WHERE s.CodeP = p.CodeP) p
+WHERE c.CodeCI = r.CodeCI
+AND r.CodeA = a.CodeA
+AND m.CodeCI = r.CodeCI
+AND m.CodeA = r.CodeA
+AND m.DateDepartM = r.DateDepartR
+AND p.CodeCI = c.CodeCI;
+
+
+Résultats : 116 réservations, 307 voyageurs et 266 229 € de chiffre d'affaires.
+
+
+
+
+A savoir : 
+
+
+J’ai décidé d'utiliser TABLE_TEST2 à la place de TABLE_TEST1, car certaines jointures avec CHOIX et SITUER pouvaient créer des doublons et fausser les résultats. Avec TABLE_TEST2, nous avons simplifié la requête pour garder une seule ligne par réservation. Nous avons ensuite vérifié que les 116 réservations étaient bien présentes, sans doublon. Cela nous permet d'avoir des données fiables pour calculer le chiffre d'affaires et les autres indicateurs dans Power BI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Script d'extraction - TABLE_ZONES
+
+
+Objectif : répartir le chiffre d'affaires et les voyageurs entre les zones géographiques traversées par chaque circuit, sans compter plusieurs fois les montants dans le total général.
+
+
+CREATE TABLE TABLE_ZONES AS
+SELECT t.NomP, z.ZoneGeo,
+       SUM(t.CACI / nz.NbZones) AS CA_Reparti,
+       SUM(t.NbPers / nz.NbZones) AS Voyageurs_Repartis
+FROM TABLE_TEST2 t, SITUER s, ZONE_GEO z,
+     (SELECT CodeCI, CodeP, COUNT(*) AS NbZones
+      FROM SITUER
+      GROUP BY CodeCI, CodeP) nz
+WHERE t.CodeCI = s.CodeCI
+AND t.CodeP = s.CodeP
+AND s.CodeZ = z.CodeZ
+AND s.CodeCI = nz.CodeCI
+AND s.CodeP = nz.CodeP
+GROUP BY t.NomP, z.ZoneGeo;
+
+
+Résultats : 28 combinaisons pays/zone, avec un total de 266 229 € et 307 voyageurs équivalents.
+
+
+
+
+A savoir : 
+
+
+Pour calculer le chiffre d'affaires par zone géographique, j’ai choisi de le partager équitablement lorsqu'un circuit passe par plusieurs zones. Par exemple, si un circuit rapporte 10 000 € et traverse deux zones, chaque zone reçoit 5 000 €. Cela évite de compter plusieurs fois le même montant. Nous avons fait pareil pour les voyageurs. C'est pour cela qu'on peut avoir des nombres décimaux, comme 2,5 voyageurs (la moitié de 5 voyageurs total du coup). Cette répartition reste théorique.

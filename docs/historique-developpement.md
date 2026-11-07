@@ -59,3 +59,9 @@ La feuille de temps documente les extractions et transformations (Ny Toavimpahen
 **Versions réelles :** extraction TABLE_TEST1 modifiée à 15:51 UTC ; document d'indicateurs révision 184 à 15:40 UTC ; rapport révision 4584 à 14:55 UTC ; fichier PROJET.pbix conservé localement, dont les entrées ZIP portent le 2 novembre à 16:48 sans fuseau explicite. Il contient une page et TABLE_TEST1 (166 lignes). L'horodatage interne est un indice, pas une preuve d'auteur ou de toutes les dates de travail.
 
 **Attention aux archives :** le script TABLE_TEST1 contient aussi un DROP TABLE, un SELECT et un fragment `ct` provenant du document d'origine. Il est conservé sans correction pour montrer l'état du travail et ne doit pas être exécuté en bloc. Le document KPI contient des propositions qui ne sont pas toutes des fonctionnalités finalement livrées.
+
+## 3 novembre 2026 — Première extraction de Synthèse direction
+
+Une révision réelle du document Synthèse direction (142, 03:27 UTC) crée TABLE_TEST2 et adapte TABLE_ZONES. Le texte explique la suppression de jointures avec CHOIX qui pouvaient multiplier les lignes. Il rapporte 116 réservations, 307 voyageurs et 266 229 euros : ce sont les résultats consignés pour ce jeu intermédiaire, pas ceux du jeu final enrichi.
+
+Cette copie est archivée avant sa version plus complète du même jour pour rendre la modification SQL visible dans Git.

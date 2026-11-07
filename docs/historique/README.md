@@ -21,3 +21,4 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `indicateurs-2026-11-02.txt` | Google Doc `1rvTUu1oviwIskw_9AmBHpmHvjwT9Ma8UstDb-QmJmew`, révision 184, 2026-11-02 15:40:02 UTC | Propositions et choix d'indicateurs, pas une liste de fonctionnalités garanties |
 | `rapport-travail.txt` | Rapport, révision 4584, 2026-11-02 14:55:29 UTC | État conservé du rapport le 2 novembre |
 | `../../powerbi/historique/premier-modele.pbix` | Fichier PROJET.pbix déjà conservé localement, entrées ZIP du 2026-11-02 16:48 | Copie binaire inchangée ; une page, 166 lignes dans TABLE_TEST1 |
+| `../../sql/historique/extractions-synthese.txt` | Google Doc `1vyp9lJMUzD8zMUMoIu93OeYXZdX81sfLN-R86WGpWeA`, révision 142, 2026-11-03 03:27:52 UTC | TABLE_TEST2 et TABLE_ZONES, résultats intermédiaires consignés |
