@@ -73,3 +73,11 @@ La feuille de temps décrit la construction de Planning et remplissage par Jesus
 **Diff retrouvé :** dans la révision 430 à 16:00 UTC, TABLE_TEST2 devient TABLE_PRINCIPALE ; l'extraction ajoute des informations climatiques, mensuelles et de guides. TABLE_DEPARTS apparaît avec une jointure externe conservant les départs sans réservation. La préparation des valeurs nulles dans Power Query est décrite. Le rapport évolue vers sa révision 6776 à 16:00 UTC.
 
 **État conservé :** aucun PBIX enregistré précisément le 3 n'a été retrouvé. Le développement des pages ce jour-là est attesté par la feuille de temps ; leur première copie complète retrouvée est celle dont les entrées ZIP portent le 4.
+
+## 4 novembre 2026 — Contrôle de capacité et tableaux de bord enrichis
+
+Jesus renseigne le développement du trigger de capacité et l'ajout d'un CHECK. Hyacinthe renseigne l'amélioration du rapport Power BI et l'ajout de données plus pertinentes. Tsinjo vérifie les résultats après enrichissement, Adrien rédige les commentaires du rapport ; plusieurs membres préparent les schémas et la soutenance.
+
+**Versions réelles :** rapport révision 10072 à 18:01 UTC ; PBIX Tableau_de_Bord_Final (1).pbix conservé localement, avec entrées ZIP du 4 novembre à 16:54 sans fuseau explicite. Ce fichier contient les trois pages, TABLE_PRINCIPALE (800 lignes), TABLE_DEPARTS (213 lignes) et TABLE_ZONES (28 lignes), ainsi que des tables historiques et de référence. Il est archivé sans modification.
+
+Le trigger et ses explications figurent dans les versions du rapport récupérées et dans le script final déjà publié. Il n'est pas attribué personnellement à Hyacinthe. La version finale validée du PBIX reste `powerbi/direction-soleil.pbix`.

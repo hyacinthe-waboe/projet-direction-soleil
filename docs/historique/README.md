@@ -24,3 +24,5 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `../../sql/historique/extractions-synthese.txt` | Google Doc `1vyp9lJMUzD8zMUMoIu93OeYXZdX81sfLN-R86WGpWeA`, révision 142, 2026-11-03 03:27:52 UTC | TABLE_TEST2 et TABLE_ZONES, résultats intermédiaires consignés |
 | `../../sql/historique/extractions-synthese.txt` | Synthèse direction, révision 430, 2026-11-03 16:00:37 UTC | TABLE_PRINCIPALE enrichie, TABLE_ZONES et TABLE_DEPARTS ; imperfections de la source conservées |
 | `rapport-travail.txt` | Rapport, révision 6776, 2026-11-03 16:00:14 UTC | Intégration des extractions et rédaction en cours |
+| `rapport-travail.txt` | Rapport, révision 10072, 2026-11-04 18:01:41 UTC | Corrections techniques et explications du rapport |
+| `../../powerbi/historique/trois-analyses.pbix` | Copie locale Tableau_de_Bord_Final (1).pbix, entrées ZIP du 2026-11-04 16:54 | Copie binaire inchangée ; trois pages et données enrichies |

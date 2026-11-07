@@ -1,7 +1,7 @@
 ﻿Date : 03/11/2026                                                                M1 MIAGE FI
   
 
-NOM SOCIETE
+DIRECTION SOLEIL 
 TERAN GODOY Jesus
 WABOE Hyacinthe
 RANDRIANARISON Tsinjo
@@ -84,46 +84,50 @@ Table des figures        4
 2.1.6. Requête 6        12
 2.1.7. Requête 7        13
 2.1.8. Requête 8        14
-2.1.9. Requête 9        15
-2.1.10. Requête 10        16
+2.1.9. Requête 9        16
+2.1.10. Requête 10        17
 2.2. Requêtes SQL Supplémentaires        18
 2.2.1. Chiffre d'affaires total par départ        18
-2.2.2. Arbitrage de prix entre présélections d'un même circuit        20
-2.2.3. Animations accessibles pendant les séjours        22
-2.2.4. Départs proposés sans réservation        23
-2.2.5. Départs prévus pendant les mois les plus chauds        24
-2.3. Requêtes d’extraction        27
-2.3.1. Requête d'extraction - TABLE_PRINCIPALE        27
-2.3.2. Requête d'extraction - TABLE_ZONES        28
-2.3.3. Requête d'extraction - TABLE_DEPARTS        29
-3 - Rapports PowerBI        29
-3.1. Transformation des données        29
-4 - Annexes        30
-4.1. Création des tables de la base de données        30
-4.1.1. Table CLIENTS        30
-4.1.2. Table AEROPORTS_DEP        30
-4.1.3. Table CIRCUITS        30
-4.1.4. Table CHOIX        31
-4.1.5. Table RESERVER        31
-4.1.6. Table MAJORATION        32
-4.1.7. Table HOTELS        32
-4.1.8. Table LOGER        33
-4.1.9. Table ANIMATIONS        33
-4.1.10. Table ACTIVITE        34
-4.1.11. Table VALIDITE        34
-4.1.12. Table REALISER        34
-4.1.13. Table SITES        34
-4.1.14. Table VISITER        35
-4.1.15. Table MOIS        35
-4.1.16. Table PAYS        36
-4.1.17. Table AVIS        36
-4.1.18. Table Zone_Geo        36
-4.1.19. Table SITUER        37
-4.1.20. Table GUIDES        37
-4.1.21. Table ACCOMPAGNER        37
-4.1.22. Table LANGUE        38
-4.1.23. Table PRATIQUER        38
-4.2. Création de la vue ANIMATIONS_H        38
+2.2.2. Arbitrage de prix entre présélections d'un même circuit        21
+2.2.3. Animations accessibles pendant les séjours        24
+2.2.4. Départs proposés sans réservation        25
+2.2.5. Départs prévus pendant les mois les plus chauds        26
+2.3. Requêtes d’extraction        28
+2.3.1. Requête d'extraction - TABLE_PRINCIPALE        28
+2.3.2. Requête d'extraction - TABLE_ZONES        29
+2.3.3. Requête d'extraction - TABLE_DEPARTS        30
+3 - Transformation des données et rapports Power BI        31
+3.1. Transformation des données        31
+3.2. Rapports Power BI        32
+3.2.1. Synthèse direction:        32
+3.2.2. Planning et Remplissage        33
+3.2.3. Destination et Climat        34
+4 - Annexes        35
+4.1. Création des tables de la base de données        35
+4.1.1. Table CLIENTS        35
+4.1.2. Table AEROPORTS_DEP        35
+4.1.3. Table CIRCUITS        35
+4.1.4. Table CHOIX        36
+4.1.5. Table RESERVER        36
+4.1.6. Table MAJORATION        37
+4.1.7. Table HOTELS        37
+4.1.8. Table LOGER        37
+4.1.9. Table ANIMATIONS        38
+4.1.10. Table ACTIVITE        38
+4.1.11. Table VALIDITE        39
+4.1.12. Table REALISER        39
+4.1.13. Table SITES        39
+4.1.14. Table VISITER        40
+4.1.15. Table MOIS        40
+4.1.16. Table PAYS        40
+4.1.17. Table AVIS        41
+4.1.18. Table Zone_Geo        41
+4.1.19. Table SITUER        41
+4.1.20. Table GUIDES        42
+4.1.21. Table ACCOMPAGNER        42
+4.1.22. Table LANGUE        42
+4.1.23. Table PRATIQUER        43
+4.2. Création de la vue ANIMATIONS_H        43
 
 
 ________________
@@ -139,14 +143,17 @@ Figure 4 : Résultat de la requête 4  sur SQL Developer        11
 Figure 5 : Résultat de la requête 5 sur SQL Developer        12
 Figure 6 : Résultat de la requête 6 sur SQL Developer        12
 Figure 7 : Résultat de la requête 7 sur SQL Developer        13
-Figure 8: Résultat de la requête 8 sur SQL Developer        14
+Figure 8: Résultat de la requête 8 sur SQL Developer        15
 Figure 9: Résultat de la requête 9 sur SQL Developer        16
 Figure 10: Résultat de la requête 10 sur SQL Developer        17
-Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        18
-Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        21
-Figure 13: Résultat de la requête 3 sur SQL Developer        22
-Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        24
-Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        25
+Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer        19
+Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer        22
+Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer        24
+Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer        25
+Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer        27
+Figure 16: Tableau de bord Power BI sur la partie synthèse direction:        32
+Figure 17 : Tableau de bord Power BI sur la planification des circuits et le remplissage        33
+Figure 18 : Tableau de bord Power BI sur la partie destinations et climat        34
 ________________
 
 
@@ -187,7 +194,7 @@ ________________
 
 
 Lors de l’élaboration du modèle relationnel, on s’est aperçu de quelques modifications indispensables pour garantir le bon fonctionnement de la base de données :
-* Un changement des noms des attributs “Date” données sur le dictionnaire de données était nécessaire. “Date” étant une fonction sur notre future base de données Oracle. Donc pour la relation Reserver par exemple, au lieu de mettre “Date” comme nom, nous avons plutôt défini “DateDepartR”. Les noms d’attributs choisis sont : DateDepartC, DateDepartM, DateDepartA, DateDepartRe.
+* Un changement des noms des attributs “Date” données sur le dictionnaire de données était nécessaire. Pour éviter toute ambiguïté avec le type de données DATE sous Oracle, nous avons renommé les attributs concernés. Donc pour la relation Reserver par exemple, au lieu de mettre “Date” comme nom, nous avons plutôt défini “DateDepartR”. Les noms d’attributs choisis sont : DateDepartC, DateDepartM, DateDepartA, DateDepartRe.
 * Tous les noms des relations ont été définis en majuscules.
 * Tous les attributs ou tables ayant des accents ont été écrits sans accents.
 ________________
@@ -303,7 +310,14 @@ On relie les tables PAYS, MOIS et AVIS pour récupérer le nom du pays, le mois 
 Requête SQL : Nous considérons uniquement les départs pour lesquels au moins une réservation a été effectuée.
 SELECT c.NomCI, a.NomA, r.DateDepartR,
 COUNT(*) AS NbReservations,
-c.NbPersMax - SUM(r.NbPers) AS PlacesDisponibles
+c.NbPersMax -  (
+           SELECT SUM(r2.NbPers)
+           FROM RESERVER r2
+           WHERE r2.CodeCI = c.CodeCI
+           AND r2.DateDepartR = r.DateDepartR
+       ) AS PlacesDisponibles
+
+
 FROM CIRCUITS c, AEROPORTS_DEP a, RESERVER r
 WHERE c.CodeCI = r.CodeCI
 AND a.CodeA = r.CodeA
@@ -324,10 +338,12 @@ Figure 4 : Résultat de la requête 4  sur SQL Developer
 Justification :
 
 
-La requête permet de calculer le nombre de réservations et de places disponibles pour chaque départ ayant au moins une réservation. Elle regroupe les réservations par circuit, aéroport et date de départ, puis utilise COUNT(r.codeCI) pour compter les réservations. Le nombre de places disponibles est obtenu en soustrayant le total des personnes réservées (SUM(r.NbPers)) à la capacité maximale du circuit (c.NbPersMax).
+La requête permet de calculer le nombre de réservations et de places disponibles pour chaque départ ayant au moins une réservation. Elle regroupe les réservations par circuit, aéroport et date de départ, puis utilise COUNT(*) pour compter les réservations. Le nombre de places disponibles est obtenu en soustrayant à la capacité maximale du circuit (c.NbPersMax) le nombre total de voyageurs inscrits à la même date, tous aéroports confondus, grâce à une sous-requête sur RESERVER.
 
 
-Pour vérifier les résultats, on constate dans la table RESERVER que le circuit “Les saveurs tunisiennes”, au départ de Toulouse le 08/07/2026, possède 5 réservations pour un total de 14 personnes. Dans CIRCUITS, sa capacité maximale est de 30 personnes. On obtient donc 30 - 14 = 16 places disponibles, ce qui correspond bien aux valeurs retournées par la requête pour ce départ.
+Pour vérifier les résultats, on constate dans la table RESERVER que le circuit "Les saveurs tunisiennes", au départ de Toulouse le 08/07/2026, possède 5 réservations pour un total de 14 personnes. Cependant, ce même circuit compte 7 autres voyageurs depuis les autres aéroports à cette date, soit 21 personnes au total. Dans CIRCUITS, sa capacité maximale est de 30 personnes. On obtient donc 30 - 21 = 9 places disponibles, ce qui correspond bien au résultat retourné par la requête pour ce départ.
+
+
 
 
 2.1.5. Requête 5
@@ -345,9 +361,6 @@ HAVING COUNT(DISTINCT a.codeCI ) >= ALL (
 SELECT COUNT(DISTINCT a2.codeCI)
          FROM accompagner a2
 GROUP BY a2.codeG );
-________________
-
-
 Résultat : 
   
 
@@ -367,7 +380,7 @@ Pour chaque guide ayant accompagné au moins un circuit, on va compter le nombre
 
 
 Requête SQL :
-SELECT COUNT( DISTINCT c.codec)
+SELECT COUNT( DISTINCT c.codec) as "Nombre de clients"
 FROM clients c, reserver r
 WHERE c.codec = r.codec
 AND TO_CHAR( r.DateResa, 'yyyy') = '2025'
@@ -394,7 +407,7 @@ On compte d'abord les clients uniques (COUNT(DISTINCT c.codec)) ayant effectué 
 Énoncé : Donner les coordonnées des guides ayant assuré tous les circuits du Maroc cette année.
 
 
-Requête SQL : les coordonnées complètes des guides ne sont pas disponibles dans notre modèle, on ne peux donc citer que le nom et prénom 
+Requête SQL : les coordonnées complètes des guides ne sont pas disponibles dans notre modèle, on ne peut donc citer que le nom et prénom 
 SELECT g.nomg, g.prenomg
 FROM guides g
 WHERE NOT EXISTS (
@@ -422,7 +435,6 @@ La requête permet d'identifier les guides ayant assuré tous les circuits du Ma
 
 
 Pour vérifier le résultat, on constate dans SITUER que le Maroc possède 5 circuits, correspondant aux codes 6, 7, 8, 9 et 10. Dans ACCOMPAGNER, on retrouve le guide BENNANI Youssef associé à chacun de ces circuits avec des dates de départ en 2026. Aucun autre guide n'a assuré l'ensemble de ces 5 circuits. On retrouve donc uniquement BENNANI Youssef, ce qui correspond au résultat attendu.
-________________
 2.1.8. Requête 8
 
 
@@ -450,7 +462,13 @@ HAVING COUNT(DISTINCT r.codeci)  =
         GROUP BY r2.codeC
      )
 ORDER BY p.nomP ASC;
+________________
+
+
 Résultat : 
+  
+
+…
   
 
 Figure 8: Résultat de la requête 8 sur SQL Developer
@@ -484,7 +502,6 @@ AND m.datedepartm NOT IN (
    SELECT r.dateDepartR
    FROM reserver r
    WHERE r.CodeCI = c.CodeCI
-   AND r.CodeA = m.CodeA
    GROUP BY r.dateDepartR
    HAVING SUM(r.NbPers) >= c.NbPersMax
 )
@@ -509,13 +526,15 @@ Figure 9: Résultat de la requête 9 sur SQL Developer
 Justification :
 
 
-La requête 9 est une division relationnelle : on cherche les circuits, partant de Toulouse, qui visitent tous les sites tunisiens. SQL n’a pas de quantificateur  “pour tout”, donc on le remplace par une double négation équivalente. Donc “le circuit visite tous les sites tunisiens” revient à dire “il n’existe aucun site tunisien que le circuit ne visite pas”. 
+La requête  est une division relationnelle : on cherche les circuits, partant de Toulouse, qui visitent tous les sites tunisiens. SQL n’a pas de quantificateur "pour tout", donc on le remplace par une double négation équivalente. Ainsi, "le circuit visite tous les sites tunisiens" revient à dire "il n’existe aucun site tunisien que le circuit ne visite pas".
 
 
-Le NOT EXISTS extérieur parcourt les sites tunisiens (ceux visités par un circuit situé en Tunisie). Le NOT EXISTS intérieur vérifie, pour chacun, si le circuit le visite. Un seul site manqué élimine le circuit. Une condition EXISTS supplémentaire garde les circuits disponibles au départ de Toulouse.
+Le NOT EXISTS extérieur parcourt les sites tunisiens (ceux visités par un circuit situé en Tunisie). Le NOT EXISTS intérieur vérifie, pour chacun, si le circuit le visite. Un seul site manqué élimine le circuit. La condition NOT IN permet ensuite d'exclure les dates où le circuit est complet, en tenant compte des réservations de tous les aéroports, tout en sélectionnant uniquement les départs proposés depuis Toulouse.
 
 
-Le résultat est “Perles de Tunisie”. Les sites tunisiens sont les sites 1 à 7. Seul ce circuit les visite tous, alors que les quatre autres circuits tunisiens en manquent au moins un. Ce résultat correspond bien à la définition de l’énoncé.
+Le résultat est "Perles de Tunisie". Les sites tunisiens sont les sites 1 à 7. Seul ce circuit les visite tous, alors que les quatre autres circuits tunisiens en manquent au moins un. Ce résultat correspond bien à la définition de l'énoncé.
+
+
 
 
 2.1.10. Requête 10
@@ -571,7 +590,6 @@ Résultat :
   
 …  
 Figure 11: Résultat de la requête supplémentaire 1 sur SQL Developer
-________________
 
 
 Justification :
@@ -580,10 +598,10 @@ Justification :
 La requête permet de calculer le nombre total de voyageurs et le chiffre d'affaires généré pour chaque départ. Elle relie les tables CIRCUITS, AEROPORTS_DEP, MAJORATION et RESERVER afin d'associer chaque réservation à son circuit, son aéroport et sa date de départ. La clause GROUP BY regroupe les données par départ unique (circuit, aéroport et date). 
 
 
-Pour chaque groupe, SUM(R.NbPers) calcule le nombre des voyageurs, tandis que SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) calcule le chiffre d'affaires total du depart. Enfin, ORDER BY ChiffreAffaires DESC classe les résultats pour faire ressortir les départs les plus rentables en premier. 
+Pour chaque groupe, SUM(R.NbPers) calcule le nombre des voyageurs, tandis que SUM(R.NbPers * (CI.PrixBase + M.MontantMaj)) calcule le chiffre d'affaires total du depart. Enfin, ORDER BY ChiffreAffaires DESC classe les résultats pour faire ressortir les départs générant le plus de chiffre d'affaires en premier. 
 
 
-Pour vérifier les résultats, on constate dans RESERVER que le circuit "Désert de Merzouga", au départ de Marseille le 15/07/2026, possède 3 réservations de 6 personnes, soit 18 voyageurs. Dans CIRCUITS, son prix de base est de 890 €, auquel s'ajoute une majoration de 25 € dans MAJORATION. On obtient donc 18 × (890 + 25) = 16 470 €, ce qui correspond au chiffre d'affaires calculé pour ce départ.
+Pour vérifier les résultats, on constate dans RESERVER que le circuit  “Rome, Florence et Venise”, au départ de Lyon le 18/10/2025, possède 11 réservations pour un total de 32 voyageurs. Dans CIRCUITS, son prix de base est de 980 €, auquel s'ajoute une majoration de 40 € dans MAJORATION. On obtient donc 32 × (980 + 40) = 32 640 €, ce qui correspond au chiffre d'affaires calculé pour ce départ.
 2.2.2. Arbitrage de prix entre présélections d'un même circuit
 Énoncé : Pour chaque client ayant présélectionné le même circuit avec plusieurs dates ou aéroports de départ, afficher son nom, son prénom, le circuit, l'aéroport, la date, l'ordre de préférence et le prix total de chaque présélection (prix de base + majoration). Trier les résultats par client et par prix décroissant.
 
@@ -620,6 +638,11 @@ ________________
 Résultat : 
   
 
+…
+  
+
+
+
 Figure 12: Résultat de la requête supplémentaire 2 sur SQL Developer
 
 
@@ -629,7 +652,7 @@ Justification :
 La requête permet d'identifier les clients ayant présélectionné un même circuit avec des dates ou des aéroports de départ différents. Elle utilise les tables CLIENTS, CIRCUITS, CHOIX, AEROPORTS_DEP et MAJORATION. La sous-requête avec EXISTS permet de vérifier qu'un client possède plusieurs présélections pour un même circuit. Le prix de chaque présélection est ensuite calculé en additionnant le prix de base (CI.PrixBase) et la majoration (M.MontantMaj).
 
 
-Pour vérifier les résultats, on constate dans CHOIX que Medhi TERRANER a présélectionné le circuit "Les saveurs tunisiennes" au départ de Toulouse pour deux dates différentes. Dans CIRCUITS, son prix de base est de 700 €. Dans MAJORATION, on retrouve 80 € pour le 08/07/2026 et 45 € pour le 01/07/2026. On obtient donc 780 € pour son premier choix et 745 € pour son deuxième choix. En effectuant cette vérification sur les autres présélections, on retrouve 10 lignes concernant 5 clients, ce qui correspond aux données de notre base.
+Pour vérifier les résultats, on constate dans CHOIX que Medhi TERRANER a présélectionné le circuit "Les saveurs tunisiennes" au départ de Toulouse pour deux dates différentes. Dans CIRCUITS, son prix de base est de 700 €. Dans MAJORATION, on retrouve 80 € pour le 08/07/2026 et 45 € pour le 01/07/2026. On obtient donc 780 € pour son premier choix et 745 € pour son deuxième choix. En effectuant cette vérification sur les autres présélections, on retrouve 42 lignes concernant 21 clients, ce qui correspond aux données de notre base.
 
 
 Proposition d'ajout de données :
@@ -660,7 +683,7 @@ ORDER BY CI.NomCI, L.JourSe;
 Résultat : 
   
 
-Figure 13: Résultat de la requête 3 sur SQL Developer
+Figure 13: Résultat de la requête supplémentaire 3 sur SQL Developer
 Justification : 
 
 
@@ -672,7 +695,7 @@ Pour vérifier les résultats, on constate dans LOGER que le circuit "Andalousie
 
 
 Énoncé : Donner les circuits, les aéroports et les dates de départ proposés par l'agence pour lesquels aucune réservation n'a été effectuée, en précisant le prix total du voyage (prix de base + majoration).
-Utilité métier : Repérer les départs qui n'ont attiré aucun client, afin d'étudier l'intérêt de modifier les prix ou les dates proposés.
+Utilité métier :Repérer les départs qui n'ont attiré aucun client, afin d'étudier l'intérêt de modifier les prix ou les dates proposés.
 Requête SQL :
 SELECT CI.NomCI, A.NomA, M.DateDepartM,
        CI.PrixBase + M.MontantMaj AS PrixTotal
@@ -690,9 +713,6 @@ ORDER BY CI.NomCI, M.DateDepartM;
 Résultat : 
   
 
-…
-  
-
 Figure 14: Résultat de la requête supplémentaire 4 sur SQL Developer
 
 
@@ -700,7 +720,7 @@ Justification :
 
 
 La requête permet d'identifier les départs proposés par l'agence pour lesquels aucune réservation n'a été effectuée. Elle utilise les tables CIRCUITS, AEROPORTS_DEP et MAJORATION pour retrouver les départs et calculer leur prix total (CI.PrixBase + M.MontantMaj). La sous-requête avec NOT EXISTS permet ensuite d'exclure les départs présents dans RESERVER, en comparant le circuit, l'aéroport et la date de départ.
-Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Les saveurs tunisiennes" propose un départ de Toulouse le 01/05/2026, avec un prix de base de 700 € et une majoration de 40 €, soit 740 €. Dans RESERVER, aucune réservation ne correspond à ce départ. En effectuant cette vérification sur tous les  départs proposés, on en retrouve 71 sans réservation, ce qui correspond au résultat attendu avec nos données.
+Pour vérifier les résultats, on constate dans MAJORATION que le circuit « Perles de Tunisie » propose un départ de Toulouse le 15/05/2026, avec un prix de base de 650 € et une majoration de 35 €, soit 685 €. Dans RESERVER, aucune réservation ne correspond à cette offre. En effectuant cette vérification sur tous les départs proposés, on retrouve 21 offres sans réservation, ce qui correspond aux résultats obtenus avec nos données.
 
 
 Proposition d'ajout de données :
@@ -710,6 +730,8 @@ Nous pourrions ajouter dans la table MAJORATION un nouveau départ pour un circu
 
 
 2.2.5. Départs prévus pendant les mois les plus chauds 
+
+
 Énoncé : Donner le nom des circuits, le pays, l'aéroport et la date de départ pour lesquels la température maximale moyenne du mois de départ est supérieure ou égale à 35 °C, en précisant cette température.
 
 
@@ -740,12 +762,14 @@ Figure 15: Résultat de la requête supplémentaire 5 sur SQL Developer
 Justification :
 
 
-La requête permet d'identifier les départs prévus pendant les mois où la température maximale moyenne est supérieure ou égale à on va dire 35 °C. Elle utilise les tables CIRCUITS, SITUER et PAYS pour identifier le pays de chaque circuit, puis MAJORATION pour récupérer les dates de départ. La fonction EXTRACT(MONTH FROM M.DateDepartM) permet de retrouver le mois correspondant dans AVIS. La condition AV.TempMaxMoy >= 35 permet ensuite de sélectionner uniquement les départs concernés.
+La requête permet d'identifier les départs prévus pendant les mois où la température maximale moyenne est supérieure ou égale à 35 °C. Elle utilise les tables CIRCUITS, SITUER et PAYS pour identifier le pays de chaque circuit, puis MAJORATION pour récupérer les dates de départ. La fonction EXTRACT(MONTH FROM M.DateDepartM) permet de retrouver le mois correspondant dans AVIS. La condition AV.TempMaxMoy >= 35 permet ensuite de sélectionner uniquement les départs concernés.
 
 
-Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Médinas impériales" propose un départ de Toulouse le 01/07/2026. La table SITUER indique que ce circuit se déroule au Maroc et, dans AVIS, la température maximale moyenne du mois de juillet est de 38 °C. Ce départ respecte donc bien la condition demandée. En effectuant cette vérification sur les autres départs, on retrouve 17 départs concernés, répartis sur 6 circuits différents dans notre jeu de données.
+Pour vérifier les résultats, on constate dans MAJORATION que le circuit "Médinas impériales" propose un départ de Toulouse le 01/07/2026. La table SITUER indique que ce circuit se déroule au Maroc et, dans AVIS, la température maximale moyenne du mois de juillet est de 38 °C. Ce départ respecte donc bien la condition demandée. En effectuant cette vérification sur les autres départs, on retrouve 16 offres concernées, réparties sur 7 circuits différents dans notre jeu de données.
 ________________
 2.3. Requêtes d’extraction
+
+
 Nos requêtes d’extraction recensent les données sources nécessaires pour les sujets d’analyse dans la base de données.
 
 
@@ -760,41 +784,39 @@ Objectif : récupérer les informations commerciales des réservations pour calc
 
 CREATE TABLE TABLE_PRINCIPALE AS
 SELECT c.CodeCI, c.NomCI,
-       r.CodeC, r.CodeA, a.NomA,
+       r.CodeC, r.CodeA, ad.NomA,
        r.DateDepartR AS DateDepartCI,
        r.DateResa AS DateReservationCI,
-       r.NbPers, 
+       r.NbPers,
        c.PrixBase, m.MontantMaj,
        p.CodeP, p.NomP,
        r.NbPers * (c.PrixBase + m.MontantMaj) AS CACI,
-       c.NbPersMax, mo.codeMois,mo.LibelleMois, A.TempMin, A.TempMax, A.TempMinMoy, A.TempMaxMoy, A.AvisMens,
-        AC.DateDepartA, G.nomG, G.PrenomG
+       c.NbPersMax,
+       mo.CodeMois, mo.LibelleMois,
+       av.TempMin, av.TempMax,
+       av.TempMinMoy, av.TempMaxMoy, av.AvisMens,
+       ac.DateDepartA, g.NomG, g.PrenomG
 FROM CIRCUITS c, RESERVER r,
-     AEROPORTS_DEP a, MAJORATION m, AVIS A, MOIS mo, ACCOMPAGNER AC, GUIDES G,
+     AEROPORTS_DEP ad, MAJORATION m,
+     AVIS av, MOIS mo, ACCOMPAGNER ac, GUIDES g,
      (SELECT DISTINCT s.CodeCI, p.CodeP, p.NomP
       FROM SITUER s, PAYS p
       WHERE s.CodeP = p.CodeP) p
 WHERE c.CodeCI = r.CodeCI
-AND r.CodeA = a.CodeA
+AND r.CodeA = ad.CodeA
 AND m.CodeCI = r.CodeCI
 AND m.CodeA = r.CodeA
 AND m.DateDepartM = r.DateDepartR
 AND p.CodeCI = c.CodeCI
-and p.CodeP = A.codeP
-and mo.CodeMois = A.CodeMois
-AND mo.codeMois = EXTRACT (MONTH FROM r.dateDepartR)
-AND AC.DateDepartA = r.DateDepartR
-and c.codeCI = AC.codeCI
-and AC.codeG = G.codeG;
+AND p.CodeP = av.CodeP
+AND mo.CodeMois = av.CodeMois
+AND mo.CodeMois = EXTRACT(MONTH FROM r.DateDepartR)
+AND ac.DateDepartA = r.DateDepartR
+AND c.CodeCI = ac.CodeCI
+AND ac.CodeG = g.CodeG;
 
 
-Résultats : 116 réservations, 307 voyageurs et 266 229 € de chiffre d'affaires.
-
-
-A savoir : 
-
-
-Avec TABLE_PRINCIPALE, la requête a été simplifiée pour garder une seule ligne par réservation. Ensuite, les 116 réservations ont été vérifiées et sont bien présentes, sans doublon. Cela nous permet d'avoir des données fiables pour calculer le chiffre d'affaires et les autres indicateurs dans Power BI.
+Résultats : 800 réservations, 2 163 voyageurs et 1 879 485 € de chiffre d'affaires.
 
 
 2.3.2. Requête d'extraction - TABLE_ZONES
@@ -819,22 +841,21 @@ AND s.CodeP = nz.CodeP
 GROUP BY t.NomP, z.ZoneGeo;
 
 
-Résultats : 28 combinaisons pays/zone, avec un total de 266 229 € et 307 voyageurs équivalents.
+Résultats : 28 combinaisons pays/zone, avec un total de 1 879 485 € de CA réparti et 2 163 voyageurs équivalents.
 
 
 A savoir : 
 
 
-Pour calculer le chiffre d'affaires par zone géographique, j’ai choisi de le partager équitablement lorsqu'un circuit passe par plusieurs zones. Par exemple, si un circuit rapporte 10 000 € et traverse deux zones, chaque zone reçoit 5 000 €. Cela évite de compter plusieurs fois le même montant. Nous avons fait pareil pour les voyageurs. C'est pour cela qu'on peut avoir des nombres décimaux, comme 2,5 voyageurs (la moitié de 5 voyageurs total du coup). Cette répartition reste théorique.
+Pour calculer le chiffre d'affaires par zone géographique, nous avons choisi de le répartir équitablement lorsqu'un circuit traverse plusieurs zones. Par exemple, si un circuit rapporte 10 000 € et traverse deux zones, chaque zone reçoit 5 000 €. Nous avons appliqué le même principe aux voyageurs. Cela peut donner des valeurs décimales, comme 2,5 voyageurs. Cette répartition reste théorique et permet d'éviter les doubles comptages.
+________________
 2.3.3. Requête d'extraction - TABLE_DEPARTS
 
 
-Objectif : 
+Objectif : récupérer les informations sur les départs, y compris ceux sans réservation, afin de calculer les taux de remplissage et les places disponibles dans Power BI.
 
 
 CREATE TABLE TABLE_DEPARTS AS
-
-
 SELECT m.CodeCI, c.NomCI,
        m.CodeA, a.NomA,
        m.DateDepartM AS DateDepart,
@@ -842,23 +863,15 @@ SELECT m.CodeCI, c.NomCI,
        m.MontantMaj,
        COUNT(r.CodeC) AS NbReservations,
        SUM(r.NbPers) AS NbVoyageurs
-
-
 FROM MAJORATION m
 JOIN CIRCUITS c
-ON m.CodeCI = c.CodeCI
-
-
+  ON m.CodeCI = c.CodeCI
 JOIN AEROPORTS_DEP a
-ON m.CodeA = a.CodeA
-
-
+  ON m.CodeA = a.CodeA
 LEFT JOIN RESERVER r
-ON r.CodeCI = m.CodeCI
-AND r.CodeA = m.CodeA
-AND r.DateDepartR = m.DateDepartM
-
-
+  ON r.CodeCI = m.CodeCI
+ AND r.CodeA = m.CodeA
+ AND r.DateDepartR = m.DateDepartM
 GROUP BY m.CodeCI, c.NomCI,
          m.CodeA, a.NomA,
          m.DateDepartM,
@@ -866,23 +879,145 @@ GROUP BY m.CodeCI, c.NomCI,
          m.MontantMaj;
 
 
-Résultat : 
 
 
-A savoir : 
+Résultat : 213 offres de départ, correspondant à 174 départs distincts (circuit + date), dont 21 offres sans réservation.
 
 
+Importation de tables complémentaires dans Power BI  :
+ 
+En plus des trois tables d'extraction (TABLE_PRINCIPALE, TABLE_ZONES et TABLE_DEPARTS), nous avons également importé les tables GUIDES, ACCOMPAGNER, AVIS, MOIS et PAYS depuis Oracle.
+
+
+Ces tables nous ont permis de compléter nos tableaux de bord, notamment pour suivre les affectations des guides par année et analyser les températures des différents pays selon les mois, en les comparant aux moyennes des dix dernières années.
+________________
 3 - Transformation des données et rapports PowerBI
 3.1. Transformation des données
-Les données extraites sont des données brutes. Elles doivent être nettoyées et transformées. Ces étapes concernent les colonnes NbReservations et NbVoyageurs s’il existe des départs sans réservation. Voici les étapes à suivre : 
-1. Sur PowerBI, ouvrir l’onglet “Transformer les données”.
-2. Sélectionner la colonne NbReservations.
-3. Cliquer sur “Remplacer les valeurs” : null → 0.
-4. Faire la même chose pour NbVoyageurs.
-5. Cliquer sur Fermer et appliquer.
+Les données extraites doivent être préparées avant leur utilisation dans Power BI. Pour les départs sans réservation, la colonne NbVoyageurs peut contenir des valeurs nulles. Nous les avons donc remplacées par 0 dans Power Query pour faciliter les calculs et l'affichage des indicateurs.
+1. Sur Power BI, ouvrir l'onglet "Transformer les données".
+2. Sélectionner la colonne NbVoyageurs.
+3. Cliquer sur "Remplacer les valeurs" : null → 0.
+4. Vérifier que les départs sans réservation affichent bien 0 voyageur.
+5. Cliquer sur "Fermer et appliquer".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 3.2. Rapports PowerBI
+3.2.1. Synthèse direction:
 
 
+Ce premier tableau de bord permet d’avoir une vision globale de la santé de l’agence.
+
+
+  
+
+Figure 16: Tableau de bord Power BI sur la partie synthèse direction:
+        
+Ce tableau de bord présente le chiffre d'affaires total de l'agence ainsi que sa répartition par pays, par aéroport et par zone géographique, à partir des réservations des départs programmés entre 2025 et 2027.
+
+
+Ces indicateurs permettent d’avoir un suivi financier de l’activité de l’agence sur différents axes (pays, zone géographique, aéroport) afin d’aider à orienter la prise de décision de l’agence sur les différents circuits à promouvoir.
+
+
+Ensuite, on retrouve aussi des informations relatives aux clients de l’agence. Comme le nombre de réservations faites par les clients et le nombre de voyageurs pour les différents circuits proposés par l’agence. 
+
+
+Enfin, on a également la répartition du nombre de voyageurs par pays. Cet indicateur permet de connaître le succès de différents pays auprès des clients afin de cibler les différents pays pour l’implantation de nouveaux circuits.
+
+
+
+
+
+
+________________
+
+
+3.2.2. Planning et Remplissage 
+
+
+L’analyse de l’historique permet d’identifier les circuits et les périodes qui se remplissent peu et d’y proposer des promotions, puis de suivre les départs à venir pour agir avant la date de départ.
+  
+Figure 17 : Tableau de bord PowerBI sur la planification des circuits et le remplissage
+
+
+Ce tableau de bord s’adresse à l’exploitation. Il répond à trois questions : 
+
+
+1. Quels départs risquent de rester vides ?
+2. Quels départs ou circuits n’ont pas été remplis par le passé ?
+3. Comment les affectations sont-elles réparties entre les guides ? 
+
+
+Le segment « Période des départs » permet de changer la période de façon interactive. Cela laissera donc la liberté au client de se placer sur les départs à venir ou sur une période passée.
+
+
+Pour élaborer ce tableau de bord,  on a choisi ces indicateurs pour les raisons suivantes:
+
+
+* Départs complets (%) : part des départs dont toutes les places sont réservées. Une carte suffit pour cette valeur unique.
+* Nombre de voyageurs et de réservations : volumes de base dont découlent les autres indicateurs, en cartes pour une lecture immédiate.
+* Places réservées et disponibles par départ : repère les départs peu remplis, passés ou à venir.
+* Taux de remplissage par circuit : compare les circuits entre eux. Les plus bas sont les candidats à une promotion.
+* Affectations des guides par année : permet de comparer le nombre d'affectations de chaque guide selon les années et de mieux visualiser leur répartition.
+________________
+3.2.3. Destination et Climat
+
+
+Ce tableau de bord permet d’avoir une vision sur la saisonnalité afin d'ajuster la tarification et d'adapter le catalogue aux conditions météorologiques de chaque territoire. Il vise à optimiser la stratégie commerciale en identifiant précisément les destinations et les périodes de l'année à promouvoir en priorité.
+
+
+  
+
+Figure 18 : Tableau de bord Power BI sur la partie destinations et climat
+
+
+Le tableau de bord permet d’isoler une destination en particulier ou de conserver une vision globale du catalogue de destinations.
+
+
+Les deux indicateurs permettent de suivre la proportion de voyageurs ayant réservé un départ pendant un mois où la température maximale moyenne atteint au moins 30 °C, ainsi que l'écart moyen entre les températures maximales constatées et les moyennes des dix dernières années. Ils permettent ainsi d'identifier la part des voyageurs concernés par des périodes de forte chaleur et de comparer les conditions climatiques selon le pays sélectionné.
+
+
+Le graphique en courbe retrace le volume des réservations réparties sur les 12 mois de l’année. Ce visuel met en évidence la saisonnalité marquée de l'activité et permet d'identifier les périodes de pics ou creux de réservations afin d'adapter le calendrier commercial et tarifaire.
+
+
+L'histogramme groupé compare directement les températures maximales constatées avec les moyennes des dix dernières années. Il permet de repérer les écarts entre les différentes destinations et de mieux adapter les périodes proposées aux conditions climatiques.
+
+
+La matrice permet de visualiser l'ensemble des températures de l'année pour chaque destination. Son dégradé de couleurs offre une comparaison détaillée en faisant ressortir instantanément les mois les plus chauds de chaque pays. Cet outil permet de connaître les températures selon les saisons afin d'adapter l'offre commerciale aux contraintes météorologiques locales.
+________________
 4 - Annexes
 
 
@@ -1044,13 +1179,22 @@ CONSTRAINT ck_activite_codeAC check (codeAC>0));
 
 
 4.1.11. Table VALIDITE
-CREATE TABLE VALIDITE
-(CodeAC number, -- code d'une activité
-DateDebut date, -- date de début de validité d'une activité
-DateFin date CONSTRAINT nn_validite_dateFin not null, -- date de fin de validité d'une activité
-CONSTRAINT pk_validite PRIMARY KEY (CodeAC, DateDebut),
-CONSTRAINT fk_validite_codeAC FOREIGN KEY (CodeAC)
-REFERENCES ACTIVITE (CodeAC) ON DELETE CASCADE);
+
+
+CREATE TABLE VALIDITE (
+ -- code d'une activité
+ CodeAC number,
+ -- date de début de validité d'une activité
+ DateDebut date,
+ -- date de fin de validité d'une activité
+ DateFin date CONSTRAINT nn_validite_dateFin not null,
+ -- clé primaire : une activité a une seule période par date de début
+ CONSTRAINT pk_validite PRIMARY KEY (CodeAC, DateDebut),
+ -- l'activité doit exister
+ CONSTRAINT fk_validite_codeAC FOREIGN KEY (CodeAC)
+    REFERENCES ACTIVITE (CodeAC) ON DELETE CASCADE,
+ -- la date de fin est postérieure ou égale à la date de début
+ CONSTRAINT ck_validite_dates CHECK (DateFin >= DateDebut));
 
 
 4.1.12. Table REALISER
@@ -1224,10 +1368,36 @@ SELECT CodeAN, NomAN, TypeAN, TO_CHAR(HEUREDEB, 'HH24:MI') as HeureDEB, JourSema
 FROM ANIMATIONS;
 
 
+________________
 
 
+4.3 Création du trigger sur RESERVER
 
 
+Le dictionnaire de données définit Nb Pers Max comme le nombre maximum de personnes acceptées dans un circuit. Cette règle ne pouvant pas s’exprimer par un CHECK, car elle compare NbPers (table RESERVER) à NbPersMax (table CIRCUITS), nous avons ajouté un trigger qui refuse toute réservation dépassant la capacité du circuit:
 
 
-Groupe 1 - Nom de la société                                                                /
+-- Interdit une réservation dont le nombre de personnes dépasse la capacité du circuit
+CREATE OR REPLACE TRIGGER trg_reserver_nbpers
+BEFORE INSERT OR UPDATE OF NbPers, CodeCI ON RESERVER
+FOR EACH ROW
+DECLARE
+    -- capacité du circuit réservé
+    v_nbpersmax CIRCUITS.NbPersMax%TYPE;
+BEGIN
+    -- On vérifie la capacité de la réservation avant
+    SELECT NbPersMax
+    INTO   v_nbpersmax
+    FROM   CIRCUITS
+    WHERE  CodeCI = :NEW.CodeCI;
+
+
+    -- Si le nombre de personnes de la réservation dépasse la capacité, on annule
+    IF :NEW.NbPers > v_nbpersmax THEN
+        RAISE_APPLICATION_ERROR(-20001,
+            'Réservation impossible : ' || :NEW.NbPers ||
+            ' personnes pour une capacité de ' || v_nbpersmax);
+    END IF;
+END;
+/
+Groupe 1 - Nom de la société                                                                 /
