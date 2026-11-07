@@ -1,0 +1,17 @@
+# Configuration et fichiers locaux
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.bak
+~$*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Archives et extractions de travail
+*.zip
+__pycache__/
+.venv/
+inspection/
