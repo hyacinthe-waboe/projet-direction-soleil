@@ -35,3 +35,11 @@ La feuille de temps décrit la correction du MCD (Jesus, Adrien et Hyacinthe), l
 La feuille de temps signale la découverte du second sujet et la transcription de son modèle conceptuel en relations. Jesus, Adrien et Hyacinthe interviennent sur ce passage au relationnel ; le groupe se répartit les premières requêtes. Hyacinthe mentionne la correction des requêtes 10, 6 et 9, tandis que les autres membres ont leurs propres requêtes et tâches de planification.
 
 **État conservé :** aucun état exact des requêtes du 28 n'a été retrouvé. Le Script MLD du 27 relève de la première partie et ne doit pas être présenté comme le nouveau modèle du 28. La première révision récupérée du rapport de la partie 2 date du 30 ; elle sera archivée à cette étape, sans inventer une version antérieure.
+
+## 29 octobre 2026 — Schéma Oracle et préparation des données
+
+Ny Toavimpahendrena et Tsinjo développent le script de création ; Adrien participe à ses corrections. Jesus renseigne les entités et associations ; Adrien et Hyacinthe préparent le jeu de données et sa cohérence. Simon travaille sur les requêtes supplémentaires.
+
+**Version réelle :** révision 596 du script de création, 29 octobre à 15:50 UTC. Elle contient notamment des contraintes de jours en minuscules dans LOGER et ANIMATIONS. Cette archive conserve ses imperfections ; elle ne remplace pas `sql/01_creation_tables.sql`.
+
+Les tableurs de population de cette journée ne sont pas disponibles comme versions datées vérifiables. Le jeu final ne sera donc pas présenté comme une capture du 29.

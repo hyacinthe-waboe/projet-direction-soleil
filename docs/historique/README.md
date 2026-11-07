@@ -14,3 +14,4 @@ Les noms des personnes sont ceux du groupe déjà crédité dans le dépôt. Les
 | `modelisation-27-apres-midi.txt` | Google Doc `10KUDjW9roKJMLrRtQ63IwJw2FpnN2KJDF8v5YmwMzKo`, révision 1118, 2026-10-27 15:42:35 UTC | Texte réellement conservé ; images absentes de l'export texte |
 | `modelisation-2026-10-27.pdf` | Même document, version finale du 27, modification 22:20 UTC | PDF exporté lors de la reconstruction, pas un ancien export PDF fabriqué |
 | `premier-mld.txt` | Google Doc `194DozHiMWYXd0PVLDNF31Tz-FNqoHS5cm-AFQObU-wk`, dernière modification 2026-10-27 15:02:43 UTC | Première proposition collective, distincte du modèle de la partie 2 |
+| `../../sql/historique/creation-tables.sql` | Google Doc `119u8DtfTRbn3gjxreqppf4EvjctdAasiQKkQF_Nyqrw`, révision 596 du 29 octobre | État initial ; archive non validée pour exécution |
